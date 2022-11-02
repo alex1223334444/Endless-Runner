@@ -7,7 +7,6 @@
 import UIKit
 protocol TextFieldWithLabelDelegate: AnyObject{
     func changeText(_ textContent: UITextField?)
-    func changeLabel(_ label: UILabel?)
 }
 
 class TextFieldWithLabel: UIView, UITextFieldDelegate{
@@ -32,13 +31,6 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
         return label
     }()
     
-    lazy var errorLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
-        label.text = "placeholder"
-        return label
-    }()
     
     private lazy var bottomBorder: UIView = {
         let border = UIView()
@@ -68,12 +60,7 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
         self.delegate = delegate
     }
     
-    func configureErrorLabel(with error: String,tag: Int = 0, delegate : TextFieldWithLabelDelegate) {
-        errorLabel.text = error
-        errorLabel.isHidden = true
-        errorLabel.tag = tag
-        self.delegate = delegate
-    }
+    
     private func subscribeToActions() {
         textField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         textField.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingDidEnd)
@@ -82,14 +69,12 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
     
     @objc private func textFieldDidChangeText () {
         delegate?.changeText(textField)
-        delegate?.changeLabel(errorLabel)
     }
     
     private func addSubviews() {
         addSubview(textField)
         addSubview(placeholderLabel)
         addSubview(bottomBorder)
-        addSubview(errorLabel)
     }
     
     private func animatePlaceholderLabel(position: PlaceholderPosition) {
@@ -161,9 +146,6 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
     
     private func layoutPlaceholder() {
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
-        errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 1).isActive = true
         placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
         placeholderYConstraint = placeholderLabel.centerYAnchor.constraint(equalTo: textField.centerYAnchor)
         placeholderYConstraint?.isActive = true

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		83C8234029088FA4000393B0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8233F29088FA4000393B0 /* MainViewController.swift */; };
+		83CC6359291327B700F7CA96 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC6358291327B700F7CA96 /* Button.swift */; };
+		83CC635B2913299C00F7CA96 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CC635A2913299C00F7CA96 /* ButtonCell.swift */; };
 		83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A602910652B00B95815 /* TextFieldWithLabel.swift */; };
 		83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */; };
 		83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A642910684700B95815 /* RegisterViewController.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		83C8233F29088FA4000393B0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		83CC6358291327B700F7CA96 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		83CC635A2913299C00F7CA96 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		83CE9A602910652B00B95815 /* TextFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLabel.swift; sourceTree = "<group>"; };
 		83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLabelCell.swift; sourceTree = "<group>"; };
 		83CE9A642910684700B95815 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				83D76ABD28FEC251000CEBE2 /* LaunchScreen.storyboard */,
 				83D76AC028FEC251000CEBE2 /* Info.plist */,
 				83F7587429101C1C000C96DD /* Register.storyboard */,
+				83CC6358291327B700F7CA96 /* Button.swift */,
+				83CC635A2913299C00F7CA96 /* ButtonCell.swift */,
 				83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */,
 			);
 			path = ToBeDone;
@@ -280,10 +286,12 @@
 				83D76AB428FEC250000CEBE2 /* ViewController.swift in Sources */,
 				83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */,
 				83D76ABA28FEC250000CEBE2 /* ToBeDone.xcdatamodeld in Sources */,
+				83CC635B2913299C00F7CA96 /* ButtonCell.swift in Sources */,
 				83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */,
 				83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */,
 				83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */,
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
+				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

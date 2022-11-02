@@ -16,25 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnF-Js-LGq">
-                                <rect key="frame" x="129.5" y="74" width="155" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnF-Js-LGq">
+                                <rect key="frame" x="10" y="74" width="394" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iQU-tR-k42">
-                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iQU-tR-k42">
+                                <rect key="frame" x="10" y="160" width="394" height="702"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textfield" id="BvC-Ej-cOn" customClass="TextFieldWithLabelCell" customModule="ToBeDone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="textfield" id="BvC-Ej-cOn" customClass="TextFieldWithLabelCell" customModule="ToBeDone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BvC-Ej-cOn" id="FKX-vC-hvI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dar-IB-7kU" customClass="TextFieldWithLabel" customModule="ToBeDone" customModuleProvider="target">
-                                                    <rect key="frame" x="30" y="0.0" width="354" height="43.5"/>
+                                                    <rect key="frame" x="30" y="0.0" width="334" height="70"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
@@ -49,6 +50,31 @@
                                             <outlet property="textfield" destination="Dar-IB-7kU" id="7MF-jo-Pr4"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="button" id="M09-a7-QGh" customClass="ButtonCell" customModule="ToBeDone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="114.5" width="394" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M09-a7-QGh" id="hDj-0V-Veq">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIl-Kh-fTl" customClass="Button" customModule="ToBeDone" customModuleProvider="target">
+                                                    <rect key="frame" x="30" y="5" width="334" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="jIl-Kh-fTl" firstAttribute="top" secondItem="hDj-0V-Veq" secondAttribute="top" constant="5" id="Xpo-38-AR2"/>
+                                                <constraint firstAttribute="trailing" secondItem="jIl-Kh-fTl" secondAttribute="trailing" constant="30" id="gH5-CL-GpS"/>
+                                                <constraint firstAttribute="bottom" secondItem="jIl-Kh-fTl" secondAttribute="bottom" constant="5" id="lrK-9D-fjg"/>
+                                                <constraint firstItem="jIl-Kh-fTl" firstAttribute="leading" secondItem="hDj-0V-Veq" secondAttribute="leading" constant="30" id="wuK-1l-ign"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="button" destination="jIl-Kh-fTl" id="iZe-CD-AAf"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="Ljx-Bh-Nz6"/>
@@ -57,13 +83,14 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="iQU-tR-k42" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="R30-jv-GRb"/>
+                            <constraint firstItem="gnF-Js-LGq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="1ut-gy-xbq"/>
+                            <constraint firstItem="iQU-tR-k42" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="R30-jv-GRb"/>
                             <constraint firstItem="gnF-Js-LGq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="Tb5-p6-q5F"/>
                             <constraint firstItem="iQU-tR-k42" firstAttribute="top" secondItem="gnF-Js-LGq" secondAttribute="bottom" constant="50" id="a2k-3B-PO0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iQU-tR-k42" secondAttribute="bottom" id="ddd-SJ-tHN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iQU-tR-k42" secondAttribute="trailing" id="ghy-7g-tmf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iQU-tR-k42" secondAttribute="trailing" constant="10" id="ghy-7g-tmf"/>
                             <constraint firstItem="gnF-Js-LGq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iO4-o1-pqh"/>
                         </constraints>
                     </view>
@@ -79,6 +106,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -10,9 +10,8 @@ import UIKit
 class TextFieldWithLabelCell: UITableViewCell {
 
     @IBOutlet weak var textfield: TextFieldWithLabel!
-    func configureTextFieldCell(_ placeholder: String,error: String, tag: Int = 0 ,secure: Bool,delegate: TextFieldWithLabelDelegate){
+    func configureTextFieldCell(_ placeholder: String, tag: Int = 0 ,secure: Bool,delegate: TextFieldWithLabelDelegate){
         textfield.configureTextField(with: placeholder, secured: secure, tag: tag, delegate: delegate)
-        textfield.configureErrorLabel(with: error,tag:tag, delegate: delegate)
       }
 
 }
