@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		83C8234029088FA4000393B0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C8233F29088FA4000393B0 /* MainViewController.swift */; };
+		83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A602910652B00B95815 /* TextFieldWithLabel.swift */; };
+		83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */; };
+		83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE9A642910684700B95815 /* RegisterViewController.swift */; };
 		83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */; };
 		83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AB128FEC250000CEBE2 /* SceneDelegate.swift */; };
 		83D76AB428FEC250000CEBE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AB328FEC250000CEBE2 /* ViewController.swift */; };
@@ -18,6 +21,7 @@
 		83D76ACA28FEC251000CEBE2 /* ToBeDoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AC928FEC251000CEBE2 /* ToBeDoneTests.swift */; };
 		83D76AD428FEC251000CEBE2 /* ToBeDoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */; };
 		83D76AD628FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */; };
+		83F7587529101C1C000C96DD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F7587429101C1C000C96DD /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,9 @@
 
 /* Begin PBXFileReference section */
 		83C8233F29088FA4000393B0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		83CE9A602910652B00B95815 /* TextFieldWithLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLabel.swift; sourceTree = "<group>"; };
+		83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLabelCell.swift; sourceTree = "<group>"; };
+		83CE9A642910684700B95815 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		83D76AAC28FEC250000CEBE2 /* ToBeDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToBeDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D76AB128FEC250000CEBE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 		83D76ACF28FEC251000CEBE2 /* ToBeDoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToBeDoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITests.swift; sourceTree = "<group>"; };
 		83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		83F7587429101C1C000C96DD /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +116,13 @@
 				83D76AB328FEC250000CEBE2 /* ViewController.swift */,
 				83D76AB528FEC250000CEBE2 /* Main.storyboard */,
 				83C8233F29088FA4000393B0 /* MainViewController.swift */,
+				83CE9A602910652B00B95815 /* TextFieldWithLabel.swift */,
+				83CE9A642910684700B95815 /* RegisterViewController.swift */,
+				83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */,
 				83D76ABB28FEC251000CEBE2 /* Assets.xcassets */,
 				83D76ABD28FEC251000CEBE2 /* LaunchScreen.storyboard */,
 				83D76AC028FEC251000CEBE2 /* Info.plist */,
+				83F7587429101C1C000C96DD /* Register.storyboard */,
 				83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */,
 			);
 			path = ToBeDone;
@@ -240,6 +252,7 @@
 				83D76ABF28FEC251000CEBE2 /* LaunchScreen.storyboard in Resources */,
 				83D76ABC28FEC251000CEBE2 /* Assets.xcassets in Resources */,
 				83D76AB728FEC250000CEBE2 /* Main.storyboard in Resources */,
+				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D76AB428FEC250000CEBE2 /* ViewController.swift in Sources */,
+				83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */,
 				83D76ABA28FEC250000CEBE2 /* ToBeDone.xcdatamodeld in Sources */,
+				83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */,
+				83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */,
 				83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */,
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,
