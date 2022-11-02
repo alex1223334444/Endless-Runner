@@ -3,6 +3,7 @@
 //  ToBeDone
 //
 //  Created by Udrea Alexandru-Iulian-Alberto on 26.10.2022.
+//  Modified by Andrei Tatucu on 02.11.2022. 
 //
 
 import UIKit
@@ -13,10 +14,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = loginButton.bounds.size.height/2
         registerButton.layer.cornerRadius = registerButton.bounds.size.height/2
-        
         loginButton.isHidden = true
         registerButton.isHidden = true
-        // Do any additional setup after loading the view.
     }
     
     func animateLogo()
@@ -31,9 +30,7 @@ class MainViewController: UIViewController {
             
             self.logo.layoutIfNeeded()
         }, completion: { success in
-            
            print("succes animation")
-            
         })
     }
     
@@ -44,17 +41,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         animateLogo()
         showButtons()
-        
     }
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    
     @IBOutlet weak var logo: UIView!
-    
-    
-    
-    
 }
