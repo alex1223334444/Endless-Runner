@@ -3,16 +3,13 @@
 //  ToBeDone
 //
 //  Created by Udrea Alexandru-Iulian-Alberto on 18.10.2022.
-//
+//  Modified by Andrei Tatucu on 09.11.2022
 
 import UIKit
 import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
