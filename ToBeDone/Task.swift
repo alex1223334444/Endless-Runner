@@ -11,7 +11,7 @@ class Task: UIView {
     private enum PlaceholderPosition {
         case raised, lowered
     }
-    
+    var img : UIImage = UIImage(named: "editIcon")!
     var color : UIColor = .black
     
     private lazy var taskName: UILabel = {
@@ -20,6 +20,12 @@ class Task: UIView {
         label.textColor = .gray
         label.text = "placeholder"
         return label
+    }()
+    
+    private lazy var icon: UIButton = {
+        let button = UIButton()
+        button.setImage(img, for: .normal)
+        return button
     }()
     
     private lazy var hour: UILabel = {
@@ -61,6 +67,8 @@ class Task: UIView {
         addSubview(taskName)
         addSubview(checkbox)
         addSubview(hour)
+        addSubview(icon)
+        
     }
     
     private func addConstraintsToSubviews() {
@@ -70,6 +78,7 @@ class Task: UIView {
         layoutPlaceholder()
         layoutCheckbox()
         layoutHour()
+        layoutIcon()
     }
     
     private func layoutPlaceholder() {
@@ -92,5 +101,17 @@ class Task: UIView {
         checkbox.widthAnchor.constraint(equalToConstant: 20).isActive = true
         checkbox.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
+    }
+    
+    private func layoutIcon() {
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        icon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
+        icon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+
+
+        
+
     }
 }

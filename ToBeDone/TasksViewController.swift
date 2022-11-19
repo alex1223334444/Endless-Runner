@@ -38,14 +38,29 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     private var labels : [String] = ["First name", "Last name","Username","Password","Confirm password"]
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.clipsToBounds = true
         self.tableView.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        self.tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
+        listButton.clipsToBounds = true
+        listButton.layer.borderWidth = 1
+        listButton.layer.borderColor = UIColor.link.cgColor
+        plusButton.layer.cornerRadius = 0.5 * plusButton.bounds.size.width
+        plusButton.clipsToBounds = true
+        plusButton.layer.borderWidth = 1
+        plusButton.layer.borderColor = UIColor.link.cgColor
+        
     }
+    
+   
+
     
 }
