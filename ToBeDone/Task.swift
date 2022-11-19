@@ -8,26 +8,36 @@
 import UIKit
 
 class Task: UIView {
-    private var placeholderYConstraint: NSLayoutConstraint?
     private enum PlaceholderPosition {
         case raised, lowered
     }
     
+    var color : UIColor = .black
     
-    private lazy var placeholderLabel: UILabel = {
+    private lazy var taskName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 16)
         label.textColor = .gray
         label.text = "placeholder"
         return label
     }()
     
-    
-    private lazy var bottomBorder: UIView = {
-        let border = UIView()
-        border.backgroundColor = .gray
-        return border
+    private lazy var hour: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .gray
+        label.text = "10:00-12:00"
+        return label
     }()
+    
+    private lazy var checkbox: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.layer.borderColor = color.cgColor
+        button.layer.borderWidth = 3
+        return button
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,41 +51,46 @@ class Task: UIView {
         addConstraintsToSubviews()
     }
     
-    func configureTextField(with placeholder: String, keyboardType: UIKeyboardType = .default, secured: Bool = false, tag: Int = 0, delegate : TextFieldWithLabelDelegate) {
-        placeholderLabel.text = placeholder
+    func configureTextField(with placeholder: String, keyboardType: UIKeyboardType = .default, secured: Bool = false, color : UIColor) {
+        taskName.text = placeholder
+        self.color = color
         
     }
     
-    
     private func addSubviews() {
-        addSubview(placeholderLabel)
-        addSubview(bottomBorder)
+        addSubview(taskName)
+        addSubview(checkbox)
+        addSubview(hour)
     }
-    
-    
-    private func animatePlaceholderUp() {
-        self.placeholderYConstraint?.constant = -16
-    }
-    
-   
     
     private func addConstraintsToSubviews() {
-        layoutBorder()
+        self.layer.borderWidth = 2
+        self.layer.borderColor = color.cgColor
+        self.layer.cornerRadius = 10
         layoutPlaceholder()
-    }
-            
-    
-    private func layoutBorder() {
-        bottomBorder.translatesAutoresizingMaskIntoConstraints = false
-        bottomBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        bottomBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        bottomBorder.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        bottomBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        layoutCheckbox()
+        layoutHour()
     }
     
     private func layoutPlaceholder() {
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
-        placeholderYConstraint?.isActive = true
+        taskName.translatesAutoresizingMaskIntoConstraints = false
+        taskName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
+        taskName.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+
+    }
+    
+    private func layoutHour() {
+        hour.translatesAutoresizingMaskIntoConstraints = false
+        hour.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
+        hour.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
+    }
+    
+    private func layoutCheckbox() {
+        checkbox.translatesAutoresizingMaskIntoConstraints = false
+        checkbox.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        checkbox.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
+        checkbox.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        checkbox.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
     }
 }

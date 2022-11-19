@@ -10,6 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, ButtonDelegate {
     func buttonTouchUpInside() {
         print(user)
+        performSegue(withIdentifier: "tasks", sender: nil)
     }
     
     @IBOutlet weak var tableView: UITableView!

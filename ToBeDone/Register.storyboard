@@ -96,11 +96,22 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="iQU-tR-k42" id="S1w-yK-DOX"/>
+                        <segue destination="dD4-eg-gp6" kind="show" identifier="tasks" id="qQH-Lu-agY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47.826086956521742" y="91.741071428571431"/>
+            <point key="canvasLocation" x="35" y="95"/>
+        </scene>
+        <!--ListOfTasks-->
+        <scene sceneID="B8r-9f-kmz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListOfTasks" id="dD4-eg-gp6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Nod-Fm-A3I"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SkT-VN-f4i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="147"/>
         </scene>
     </scenes>
     <resources>
