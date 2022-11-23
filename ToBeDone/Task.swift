@@ -109,9 +109,6 @@ class Task: UIView {
         icon.heightAnchor.constraint(equalToConstant: 25).isActive = true
         icon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
         icon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-
-
         
-
     }
 }
