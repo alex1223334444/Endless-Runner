@@ -36,16 +36,14 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
             print(user)
         }
         buttonCell?.enableButton(enabled: true)
-
     }
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         tableView.layer.cornerRadius = 10
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
 }
@@ -53,7 +51,7 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
 
 extension RegisterViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return labels.count + 1// + 3 because I have 6 textfields (textfields.cont) + 2 checkboxes + 1 button
+        return labels.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,9 +74,6 @@ extension RegisterViewController : UITableViewDataSource, UITableViewDelegate{
             buttonCell = cell
             return cell
         }
-        
-        
-        
     }
 }
 
