@@ -9,6 +9,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var logo: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,21 +19,18 @@ class MainViewController: UIViewController {
         registerButton.layer.cornerRadius = registerButton.bounds.size.height/2
         loginButton.isHidden = true
         registerButton.isHidden = true
+        logo.layer.cornerRadius = logo.frame.width/2
+        
     }
     
     func animateLogo()
     {
-        UIView.animate(withDuration: 3.0, delay: 1.2, options: .curveLinear, animations: {
-            self.logo.translatesAutoresizingMaskIntoConstraints = false
-            self.logo.centerYAnchor.constraint(equalTo: self.logo.centerYAnchor, constant: -100).isActive = true
-            self.logo.bottomAnchor.constraint(equalTo: self.logo.bottomAnchor, constant: 30).isActive = true
-            self.logo.topAnchor.constraint(equalTo: self.logo.topAnchor, constant: 100).isActive = true
-            self.logo.centerXAnchor.constraint(equalTo: self.logo.centerXAnchor, constant: 0).isActive = true
-
-            
-            self.logo.layoutIfNeeded()
+        UIView.animate(withDuration: 2.0, delay: 1.2, options: .curveLinear, animations: {
+            self.logo.transform = CGAffineTransform(translationX: 0, y: -300)
+            self.logo.transform = self.logo.transform.scaledBy(x: 0.75, y: 0.75)
         }, completion: { success in
            print("succes animation")
+            self.showButtons()
         })
     }
     
@@ -40,11 +40,7 @@ class MainViewController: UIViewController {
         self.registerButton.isHidden = false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         animateLogo()
-        showButtons()
     }
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var logo: UIView!
 }
