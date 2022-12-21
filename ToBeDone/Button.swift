@@ -57,7 +57,6 @@ class Button: UIView {
         self.delegate = delegate
     }
     
-    
     private func layout() {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
