@@ -5,9 +5,12 @@ const Task = require('./models/task')
 const User = require('./models/user')
 const app = express()
 const userRoutes = require('./routes/userRoutes')
+const dotenv = require("dotenv");
 
-const dbURL = 'mongodb+srv://userTBD:ikEgsDiZCxkvzclY@users.0sv7cig.mongodb.net/Users'
-mongoose.connect(dbURL, { useNewUrlParser: true })
+dotenv.config();
+
+const url = process.env.DB_URL
+mongoose.connect(url, { useNewUrlParser: true })
 .then((result) =>{ 
     app.listen(3000)
     console.log('connected to db')
