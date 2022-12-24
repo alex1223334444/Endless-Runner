@@ -18,7 +18,7 @@ router.get('/create', (req, res) => {
         firstName : 'Taticu',
         lastName : 'Taticu',
         username : 'taticu',
-        uid : '1'
+        uid : '1', 
     })
 
     user.save()
@@ -29,6 +29,22 @@ router.get('/create', (req, res) => {
         console.log(err)
     })
 })
+
+
+/*router.put('/user/:id/task', async (req, res) => {
+    try {
+      await User.findOneAndUpdate({uid : req.params.id} , {
+          tasks: req.body
+      },{returnDocument : true});
+      // Send response in here
+      res.send('Item Updated!')
+
+    } catch(err) {
+        console.error(err.message);
+        res.send(400).send('Server Error');
+    }
+});*/
+
 
 router.get('/user/:id', (req, res) => {
     User.find({

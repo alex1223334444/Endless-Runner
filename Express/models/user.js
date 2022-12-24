@@ -19,12 +19,13 @@ const userSchema = new Schema({
     uid: {
         type : String, 
         required: true
-    },
+    }/*,
     tasks: {
         type: Schema.Types.ObjectId,
         ref: "Task",
-        required: false
-    }
+        required: true,
+        default : []
+    }*/
 }, {timestamps: true})
 
  const User = mongoose.model('User', userSchema)

@@ -22,6 +22,10 @@ const taskSchema = new Schema({
     tracked: {
         type: Boolean,
         required: true
+    },
+    uid: {
+        type : String, 
+        required: true
     }
 }, {timestamps: true})
 
