@@ -7,9 +7,9 @@ const app = express()
 const userRoutes = require('./routes/userRoutes')
 const taskRoutes = require('./routes/taskRoutes')
 const dotenv = require("dotenv");
+const bodyParser = require('body-parser');
 
 dotenv.config();
-
 const url = process.env.DB_URL
 mongoose.connect(url, { useNewUrlParser: true })
 .then((result) =>{ 
@@ -18,6 +18,7 @@ mongoose.connect(url, { useNewUrlParser: true })
 })
 .catch((err) => console.log(err))
 
+app.use(bodyParser.json());
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(express.json()) //support JSON-encoded bodies

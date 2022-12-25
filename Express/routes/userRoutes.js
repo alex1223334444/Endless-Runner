@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
 
 router.get('/create', (req, res) => {
     const user = new User({
-        firstName : 'Taticu',
-        lastName : 'Taticu',
-        username : 'taticu',
-        uid : '1', 
+        firstName : 'User',
+        lastName : 'User',
+        username : 'user',
+        uid : '0', 
     })
 
     user.save()
