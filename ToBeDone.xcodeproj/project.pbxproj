@@ -32,6 +32,8 @@
 		83D76ACA28FEC251000CEBE2 /* ToBeDoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AC928FEC251000CEBE2 /* ToBeDoneTests.swift */; };
 		83D76AD428FEC251000CEBE2 /* ToBeDoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */; };
 		83D76AD628FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */; };
+		83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EA6F6B2958801800BF30B2 /* AddTask.storyboard */; };
+		83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */; };
 		83F7587529101C1C000C96DD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F7587429101C1C000C96DD /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		83D76ACF28FEC251000CEBE2 /* ToBeDoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToBeDoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITests.swift; sourceTree = "<group>"; };
 		83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		83EA6F6B2958801800BF30B2 /* AddTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTask.storyboard; sourceTree = "<group>"; };
+		83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		83F7587429101C1C000C96DD /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +150,8 @@
 				83CE9A642910684700B95815 /* RegisterViewController.swift */,
 				83CE13E72928D18C00408EF1 /* TasksViewController.swift */,
 				834A6223293E79DB00DFE84F /* Settings.storyboard */,
+				83EA6F6B2958801800BF30B2 /* AddTask.storyboard */,
+				83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */,
 				834A6225293E7C1100DFE84F /* SettingsViewController.swift */,
 				83CE9A62291065E100B95815 /* TextFieldWithLabelCell.swift */,
 				83D76ABB28FEC251000CEBE2 /* Assets.xcassets */,
@@ -287,6 +293,7 @@
 				838C329E293294BE0021428A /* Login.storyboard in Resources */,
 				83D76ABC28FEC251000CEBE2 /* Assets.xcassets in Resources */,
 				83D76AB728FEC250000CEBE2 /* Main.storyboard in Resources */,
+				83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */,
 				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
 				834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */,
 			);
@@ -325,6 +332,7 @@
 				83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */,
 				83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */,
 				83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */,
+				83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */,
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
 				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
 				8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */,
