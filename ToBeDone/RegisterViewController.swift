@@ -10,6 +10,16 @@ import UIKit
 class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, ButtonDelegate {
     func buttonTouchUpInside() {
         print(user)
+        let request : User = User(username: user.username, lastName: user.lastName, uid: "4", firstName: user.firstName)
+        print(request)
+        createUser(user: request) { result in
+            switch result {
+            case .success(_):
+                print("success")
+            case .failure(let error):
+                print(error)
+            }
+        }
         performSegue(withIdentifier: "tasks", sender: nil)
     }
     

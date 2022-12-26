@@ -32,6 +32,8 @@
 		83D76ACA28FEC251000CEBE2 /* ToBeDoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AC928FEC251000CEBE2 /* ToBeDoneTests.swift */; };
 		83D76AD428FEC251000CEBE2 /* ToBeDoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */; };
 		83D76AD628FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */; };
+		83E39B78295A400C0078F50E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E39B77295A400C0078F50E /* NetworkManager.swift */; };
+		83E39B7A295A40400078F50E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E39B79295A40400078F50E /* UserModel.swift */; };
 		83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EA6F6B2958801800BF30B2 /* AddTask.storyboard */; };
 		83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */; };
 		83F7587529101C1C000C96DD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F7587429101C1C000C96DD /* Register.storyboard */; };
@@ -84,6 +86,8 @@
 		83D76ACF28FEC251000CEBE2 /* ToBeDoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToBeDoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D76AD328FEC251000CEBE2 /* ToBeDoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITests.swift; sourceTree = "<group>"; };
 		83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeDoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		83E39B77295A400C0078F50E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		83E39B79295A40400078F50E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		83EA6F6B2958801800BF30B2 /* AddTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTask.storyboard; sourceTree = "<group>"; };
 		83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		83F7587429101C1C000C96DD /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		83D76AAE28FEC250000CEBE2 /* ToBeDone */ = {
 			isa = PBXGroup;
 			children = (
+				83E39B76295A3FD80078F50E /* Networking */,
 				83C7181629253AF000CAC4C5 /* TaskCell.swift */,
 				83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */,
 				83D76AB128FEC250000CEBE2 /* SceneDelegate.swift */,
@@ -182,6 +187,15 @@
 				83D76AD528FEC251000CEBE2 /* ToBeDoneUITestsLaunchTests.swift */,
 			);
 			path = ToBeDoneUITests;
+			sourceTree = "<group>";
+		};
+		83E39B76295A3FD80078F50E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				83E39B77295A400C0078F50E /* NetworkManager.swift */,
+				83E39B79295A40400078F50E /* UserModel.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E39B78295A400C0078F50E /* NetworkManager.swift in Sources */,
 				83D76AB428FEC250000CEBE2 /* ViewController.swift in Sources */,
 				83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */,
 				83D76ABA28FEC250000CEBE2 /* ToBeDone.xcdatamodeld in Sources */,
@@ -334,6 +349,7 @@
 				83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */,
 				83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */,
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
+				83E39B7A295A40400078F50E /* UserModel.swift in Sources */,
 				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
 				8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,

@@ -13,21 +13,21 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/create', (req, res) => {
+router.post('/create', (req, res) => {
     const user = new User({
-        firstName : 'User',
-        lastName : 'User',
-        username : 'user',
-        uid : '0', 
-    })
-
+        firstName: req.body.first_name,
+        lastName: req.body.last_name,
+        username: req.body.username,
+        uid: req.body.uid
+      })
+    console.log(user)
     user.save()
     .then((results) => {
+        console.log(results)
         res.send(results)
     })
-    .catch((err)=>{
-        console.log(err)
-    })
+    .catch(err => {
+        res.status(400).json({ message: 'Error saving user to the database' })})
 })
 
 
