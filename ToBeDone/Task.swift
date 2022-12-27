@@ -16,9 +16,17 @@ class Task: UIView {
     
     private lazy var taskName: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .gray
+        label.text = "title"
+        return label
+    }()
+    
+    private lazy var descrition: UILabel = {
+        let label = UILabel()
         label.font = .systemFont(ofSize: 16)
         label.textColor = .gray
-        label.text = "placeholder"
+        label.text = "description"
         return label
     }()
     
@@ -57,8 +65,10 @@ class Task: UIView {
         addConstraintsToSubviews()
     }
     
-    func configureTextField(with placeholder: String, keyboardType: UIKeyboardType = .default, secured: Bool = false, color : UIColor) {
-        taskName.text = placeholder
+    func configureTextField(with task: TaskModel, color : UIColor) {
+        taskName.text = task.title
+        descrition.text = task.description
+        hour.text = task.time
         self.color = color
         
     }
@@ -68,6 +78,7 @@ class Task: UIView {
         addSubview(checkbox)
         addSubview(hour)
         addSubview(icon)
+        addSubview(descrition)
         
     }
     
@@ -79,6 +90,7 @@ class Task: UIView {
         layoutCheckbox()
         layoutHour()
         layoutIcon()
+        layoutDescription()
     }
     
     private func layoutPlaceholder() {
@@ -91,7 +103,7 @@ class Task: UIView {
     private func layoutHour() {
         hour.translatesAutoresizingMaskIntoConstraints = false
         hour.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
-        hour.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
+        hour.topAnchor.constraint(equalTo: descrition.topAnchor, constant: 50).isActive = true
     }
     
     private func layoutCheckbox() {
@@ -110,5 +122,11 @@ class Task: UIView {
         icon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
         icon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
         
+    }
+    
+    private func layoutDescription() {
+        descrition.translatesAutoresizingMaskIntoConstraints = false
+        descrition.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
+        descrition.topAnchor.constraint(equalTo: taskName.topAnchor, constant: 40).isActive = true
     }
 }

@@ -10,8 +10,9 @@ import UIKit
 class TaskCell: UITableViewCell {
 
     @IBOutlet weak var task: Task!
-    func configureTextFieldCell(_ placeholder: String, tag: Int = 0 ,secure: Bool,delegate: TextFieldWithLabelDelegate, color: UIColor){
+    func configureTextFieldCell(_ requestedTask: TaskModel, tag: Int = 0, color: UIColor){
         task.layer.cornerRadius = 10
-        task.configureTextField(with: placeholder, secured: secure, color: color)
+        task.configureTextField(with: requestedTask, color: color)
+        self.tag = tag
       }
 }

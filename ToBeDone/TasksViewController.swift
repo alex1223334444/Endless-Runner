@@ -13,13 +13,21 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return labels.count + 1
+        return requestedTasks?.count ?? 0
         }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "task", for: indexPath) as? TaskCell else {
             return UITableViewCell()
         }
         cell.showsReorderControl = true
+        if let task = requestedTasks?[indexPath.section]{
+            cell.configureTextFieldCell(task, tag: indexPath.section, color: .red)
+        }
         return cell
     }
     
@@ -40,7 +48,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
-    private var labels : [String] = ["First name", "Last name","Username","Password","Confirm password"]
+    private var requestedTasks : [TaskModel]?
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
@@ -57,6 +65,24 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         plusButton.clipsToBounds = true
         plusButton.layer.borderWidth = 1
         plusButton.layer.borderColor = UIColor.link.cgColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+           getTasks(id: "1") { result in
+               switch result {
+               case .success(let tasks):
+                   print(tasks)
+                   self.requestedTasks = tasks
+                   DispatchQueue.main.async {
+                       self.tableView.reloadData()
+                   }
+                   break
+               case .failure(let error):
+                   print(error)
+                   break
+               }
+           }
         
     }
     
