@@ -6,8 +6,60 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
+    private var requestedTasks : [TaskModel]?
+    private var uid = ""
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.clipsToBounds = true
+        self.tableView.layer.cornerRadius = 10
+        self.tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
+        listButton.clipsToBounds = true
+        listButton.layer.borderWidth = 1
+        listButton.layer.borderColor = UIColor.link.cgColor
+        plusButton.layer.cornerRadius = 0.5 * plusButton.bounds.size.width
+        plusButton.clipsToBounds = true
+        plusButton.layer.borderWidth = 1
+        plusButton.layer.borderColor = UIColor.link.cgColor
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        if let user = Auth.auth().currentUser {
+          let id = user.uid
+          uid = id
+          print(id)
+        } else {
+          //
+        }
+           getTasks(id: uid) { result in
+               switch result {
+               case .success(let tasks):
+                   print(tasks)
+                   self.requestedTasks = tasks
+                   DispatchQueue.main.async {
+                       self.tableView.reloadData()
+                   }
+                   break
+               case .failure(let error):
+                   print(error)
+                   break
+               }
+           }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -45,48 +97,5 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var listButton: UIButton!
-    @IBOutlet weak var plusButton: UIButton!
-    private var requestedTasks : [TaskModel]?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.clipsToBounds = true
-        self.tableView.layer.cornerRadius = 10
-        self.tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
-        listButton.clipsToBounds = true
-        listButton.layer.borderWidth = 1
-        listButton.layer.borderColor = UIColor.link.cgColor
-        plusButton.layer.cornerRadius = 0.5 * plusButton.bounds.size.width
-        plusButton.clipsToBounds = true
-        plusButton.layer.borderWidth = 1
-        plusButton.layer.borderColor = UIColor.link.cgColor
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-       
-           getTasks(id: "1") { result in
-               switch result {
-               case .success(let tasks):
-                   print(tasks)
-                   self.requestedTasks = tasks
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-                   break
-               case .failure(let error):
-                   print(error)
-                   break
-               }
-           }
-        
-    }
-    
-   
-
     
 }

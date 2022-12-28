@@ -30,22 +30,6 @@ router.post('/create', (req, res) => {
         res.status(400).json({ message: 'Error saving user to the database' })})
 })
 
-
-/*router.put('/user/:id/task', async (req, res) => {
-    try {
-      await User.findOneAndUpdate({uid : req.params.id} , {
-          tasks: req.body
-      },{returnDocument : true});
-      // Send response in here
-      res.send('Item Updated!')
-
-    } catch(err) {
-        console.error(err.message);
-        res.send(400).send('Server Error');
-    }
-});*/
-
-
 router.get('/user/:id', (req, res) => {
     User.find({
         uid : req.params.id

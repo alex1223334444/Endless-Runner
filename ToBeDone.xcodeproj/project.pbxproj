@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831DA024295C9ABD007CDD66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 831DA023295C9ABD007CDD66 /* GoogleService-Info.plist */; };
+		831DA027295C9C7E007CDD66 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 831DA026295C9C7E007CDD66 /* FirebaseAuth */; };
 		8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329560229328A5F00C784C5 /* UIViewControllerExtension.swift */; };
 		834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834A6223293E79DB00DFE84F /* Settings.storyboard */; };
 		834A6226293E7C1100DFE84F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A6225293E7C1100DFE84F /* SettingsViewController.swift */; };
@@ -58,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		831DA023295C9ABD007CDD66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8329560229328A5F00C784C5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		834A6223293E79DB00DFE84F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		834A6225293E7C1100DFE84F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831DA027295C9C7E007CDD66 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +174,7 @@
 				83CC6358291327B700F7CA96 /* Button.swift */,
 				83CC635A2913299C00F7CA96 /* ButtonCell.swift */,
 				83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */,
+				831DA023295C9ABD007CDD66 /* GoogleService-Info.plist */,
 			);
 			path = ToBeDone;
 			sourceTree = "<group>";
@@ -217,6 +222,9 @@
 			dependencies = (
 			);
 			name = ToBeDone;
+			packageProductDependencies = (
+				831DA026295C9C7E007CDD66 /* FirebaseAuth */,
+			);
 			productName = ToBeDone;
 			productReference = 83D76AAC28FEC250000CEBE2 /* ToBeDone.app */;
 			productType = "com.apple.product-type.application";
@@ -289,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 83D76AA328FEC250000CEBE2;
+			packageReferences = (
+				831DA025295C9C7E007CDD66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 83D76AAD28FEC250000CEBE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +318,7 @@
 			files = (
 				83C718132925398800CAC4C5 /* ListOfTasks.storyboard in Resources */,
 				83D76ABF28FEC251000CEBE2 /* LaunchScreen.storyboard in Resources */,
+				831DA024295C9ABD007CDD66 /* GoogleService-Info.plist in Resources */,
 				838C329E293294BE0021428A /* Login.storyboard in Resources */,
 				83D76ABC28FEC251000CEBE2 /* Assets.xcassets in Resources */,
 				83D76AB728FEC250000CEBE2 /* Main.storyboard in Resources */,
@@ -698,6 +710,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		831DA025295C9C7E007CDD66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		831DA026295C9C7E007CDD66 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831DA025295C9C7E007CDD66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */ = {

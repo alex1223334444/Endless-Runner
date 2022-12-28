@@ -6,19 +6,38 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+
 
 class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, ButtonDelegate {
     func buttonTouchUpInside() {
         print(user)
-        let request : User = User(username: user.username, lastName: user.lastName, uid: "4", firstName: user.firstName)
-        print(request)
-        createUser(user: request) { result in
-            switch result {
-            case .success(_):
-                print("success")
-            case .failure(let error):
-                print(error)
-            }
+        Auth.auth().createUser(withEmail: user.username, password: user.password) { [self] (authResult, error) in
+          if let error = error {
+            print(error.localizedDescription)
+          } else {
+              if let firebaseUser = authResult?.user{
+                  let uid = firebaseUser.uid
+                  let request : User = User(username: user.username, lastName: user.lastName, uid: uid, firstName: user.firstName)
+                  print(request)
+                  createUser(user: request) { result in
+                      switch result {
+                      case .success(_):
+                          print("success")
+                      case .failure(let error):
+                          print(error)
+                      }
+                  }
+              }
+              
+          }
+        }
+        do {
+          try Auth.auth().signOut()
+            print("user signed out")
+        } catch let error {
+          print(error.localizedDescription)
         }
         performSegue(withIdentifier: "tasks", sender: nil)
     }
