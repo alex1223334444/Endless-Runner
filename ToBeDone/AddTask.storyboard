@@ -46,7 +46,7 @@
                                     <action selector="Tracked:" destination="Y6W-OH-hqX" eventType="valueChanged" id="REI-B1-RW4"/>
                                 </connections>
                             </switch>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-tF-Zet">
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-tF-Zet">
                                 <rect key="frame" x="85" y="509.99999999999994" width="223" height="34.333333333333314"/>
                                 <connections>
                                     <action selector="Calendar:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HKa-Zs-XtQ"/>
