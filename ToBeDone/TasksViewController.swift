@@ -9,12 +9,20 @@ import UIKit
 import FirebaseAuth
 
 class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func changeTask(_ button: UIButton) {
+        print("delegat")
+        performSegue(withIdentifier: "edit", sender: self)
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var logout: UIButton!
     private var requestedTasks : [TaskModel]?
     private var uid = ""
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
@@ -31,9 +39,39 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         plusButton.clipsToBounds = true
         plusButton.layer.borderWidth = 1
         plusButton.layer.borderColor = UIColor.link.cgColor
+        logout.layer.cornerRadius = 0.5 * logout.bounds.size.width
+        logout.clipsToBounds = true
+        logout.layer.borderWidth = 1
+        logout.layer.borderColor = UIColor.link.cgColor
+        logout.tintColor = UIColor.link
         self.navigationItem.hidesBackButton = true
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
+    func updateViewController() {
+        self.tableView.reloadData()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        refreshControl.beginRefreshing()
+        getTasks(id: uid) { result in
+            switch result {
+            case .success(let tasks):
+                print(tasks)
+                self.requestedTasks = tasks
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+        refreshControl.endRefreshing()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
        
@@ -81,6 +119,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let task = requestedTasks?[indexPath.section]{
             cell.configureTextFieldCell(task, tag: indexPath.section, color: .red)
         }
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -96,7 +135,24 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
             return headerView
         }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Edit", bundle:nil)
+        let editViewController = storyBoard.instantiateViewController(withIdentifier: "Edit") as! EditViewController
+
+        if let task = requestedTasks?[indexPath.section]{
+            editViewController.task = task
+            navigationController?.present(editViewController, animated: true)
+        }
+    }
     
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+            } catch let err {
+                print(err)
+        }
+    }
     
     
 }

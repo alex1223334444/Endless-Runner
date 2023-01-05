@@ -76,7 +76,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
                                 <connections>
-                                    <segue destination="mv4-zb-ZMJ" kind="show" id="a4H-5B-bAp"/>
+                                    <action selector="logout:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lrl-9a-tBx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-yc-b1p">
@@ -106,11 +106,22 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="EUv-wl-wtc" id="Tcy-xB-lHe"/>
+                        <segue destination="IhI-sa-1a2" kind="showDetail" identifier="logout" id="kEn-xA-dnS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63" y="4"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Ur6-r4-3b9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="IhI-sa-1a2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Sly-wB-4pi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qj5-5n-dHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="403"/>
         </scene>
         <!--Profile-->
         <scene sceneID="92l-kO-Zzn">
@@ -121,16 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXv-U7-a9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="639" y="-84"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="VAx-IA-1XC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="mv4-zb-ZMJ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="yQ1-2b-pw0"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LVe-Rz-bbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="520" y="176"/>
         </scene>
     </scenes>
     <resources>

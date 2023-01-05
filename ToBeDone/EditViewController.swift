@@ -9,9 +9,12 @@ import UIKit
 
 class EditViewController: UIViewController {
 
+    var task : TaskModel? = TaskModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("aici incepe")
+        print(task)
+        print("aici se termina")
         // Do any additional setup after loading the view.
     }
     

@@ -7,13 +7,14 @@
 
 import UIKit
 
+
 class Task: UIView {
     private enum PlaceholderPosition {
         case raised, lowered
     }
     var img : UIImage = UIImage(named: "editIcon")!
     var color : UIColor = .black
-    
+
     private lazy var taskName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20)
@@ -30,9 +31,9 @@ class Task: UIView {
         return label
     }()
     
-    private lazy var icon: UIButton = {
-        let button = UIButton()
-        button.setImage(img, for: .normal)
+    private lazy var icon: UIImageView = {
+        let button = UIImageView()
+        button.image = img
         return button
     }()
     
@@ -81,6 +82,10 @@ class Task: UIView {
         addSubview(descrition)
         
     }
+    
+    
+    
+    
     
     private func addConstraintsToSubviews() {
         self.layer.borderWidth = 2

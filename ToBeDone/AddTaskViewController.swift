@@ -29,6 +29,8 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     @IBOutlet weak var TrackedBtn: UISwitch!
     @IBOutlet weak var AlarmBtn: UISwitch!
     @IBOutlet weak var CalendarPkr: UIDatePicker!
+    weak var viewController: TasksViewController?
+
     private var date : Date?
     private var priority : Int?
     private var tracked : Bool? = true
@@ -129,7 +131,9 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
                     print(error)
                 }
             }
+            viewController?.updateViewController()
             print("submit")
+            self.dismiss(animated: true)
         }
         
 }
