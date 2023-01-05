@@ -131,7 +131,6 @@
 		83D76AA328FEC250000CEBE2 = {
 			isa = PBXGroup;
 			children = (
-				9AB1F39229663120009F06BC /* EditViewController.swift */,
 				83D76AAE28FEC250000CEBE2 /* ToBeDone */,
 				83D76AC828FEC251000CEBE2 /* ToBeDoneTests */,
 				83D76AD228FEC251000CEBE2 /* ToBeDoneUITests */,
@@ -155,6 +154,7 @@
 				83E39B76295A3FD80078F50E /* Networking */,
 				83C7181629253AF000CAC4C5 /* TaskCell.swift */,
 				83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */,
+				9AB1F39229663120009F06BC /* EditViewController.swift */,
 				83D76AB128FEC250000CEBE2 /* SceneDelegate.swift */,
 				83D76AB328FEC250000CEBE2 /* ViewController.swift */,
 				83C718122925398800CAC4C5 /* ListOfTasks.storyboard */,

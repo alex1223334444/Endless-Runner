@@ -46,24 +46,25 @@ router.put('/:uid/:title', bodyParser.json(), function(req, res) {
       })
   });
 
-router.post('/create/:id', (req, res) => {
+router.post('/create/', (req, res) => {
     const task = new Task({
-        title : 'Homeworks',
-        description : 'do chores',
-        priority : 1,
-        time: date,
-        tracked : false,
-        finished: false,
-        uid : req.params.id, 
-    })
-
+        title: req.body.title,
+        description: req.body.description,
+        priority: req.body.priority,
+        time: req.body.time,
+        tracked: req.body.tracked,
+        finished : req.body.finished,
+        uid: req.body.uid
+      })
+    console.log(req.body)
+    console.log(task)
     task.save()
     .then((results) => {
+        console.log(results)
         res.send(results)
     })
-    .catch((err)=>{
-        console.log(err)
-    })
+    .catch(err => {
+        res.status(400).json({ message: 'Error saving task to the database' })})
 })
 
 

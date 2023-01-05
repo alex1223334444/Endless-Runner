@@ -7,17 +7,18 @@
 
 import UIKit
 
-struct TaskModel: Decodable {
-    var _id : String?
+struct TaskModel: /*Encodable,Decodable*/Codable {
+    //var _id : String?
     var title : String?
     var description : String?
     var priority : Int?
     var time: String?
     var tracked: Bool?
+    var finished : Bool?
     var uid : String?
     
-    private enum CodingKeys: String, CodingKey {
-        case _id
+    /*private enum CodingKeys: String, CodingKey {
+        //case _id
         case title
         case description
         case priority
@@ -28,13 +29,13 @@ struct TaskModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        _id = try container.decode(String.self, forKey: ._id)
+        //_id = try container.decode(String.self, forKey: ._id)
         title = try container.decode(String.self, forKey: .title)
         description = try container.decode(String.self, forKey: .description)
         priority = try container.decode(Int.self, forKey: .priority)
         time = try container.decode(String.self, forKey: .time)
         tracked = try container.decode(Bool.self, forKey: .tracked)
         uid = try container.decode(String.self, forKey: .uid)
-    }
+    }*/
     
 }

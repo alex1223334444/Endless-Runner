@@ -16,7 +16,7 @@ const taskSchema = new Schema({
         required : true
     },
     time: {
-        type : Date, 
+        type : String, 
         required: true
     },
     tracked: {

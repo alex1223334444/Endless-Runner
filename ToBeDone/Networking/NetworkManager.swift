@@ -76,3 +76,45 @@ func getTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> 
     task.resume()
     
 }
+
+func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+    let url = URL(string: "http://localhost:3000/tasks/create/")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+
+    let taskData = try! JSONEncoder().encode(task)
+    request.httpBody = taskData
+
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            completion(.failure(error))
+            return
+        }
+
+        if let httpResponse = response as? HTTPURLResponse {
+            print(httpResponse.statusCode)
+            if let data = data {
+                print(String(data: data, encoding: .utf8)!)
+            }
+        }
+        guard let data = data else {
+            completion(.failure(NSError()))
+            return
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        do {
+            let user = try decoder.decode(TaskModel.self, from: data)
+            print(user)
+            completion(.success(user))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
+    task.resume()
+}
+

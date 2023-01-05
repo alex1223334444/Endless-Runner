@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     func changeText(_ textContent: UITextField?) {
         if let text=textContent?.text
         {
-            print(text)
+            switch textContent?.tag{
+            case 0:
+                taskTitle = text
+            case 1:
+                taskDescription = text
+                
+            default:
+                break;
+            }
         }
     }
     
@@ -19,16 +28,47 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     @IBOutlet weak var TrackedBtn: UISwitch!
     @IBOutlet weak var AlarmBtn: UISwitch!
     @IBOutlet weak var CalendarPkr: UIDatePicker!
+    private var date : Date?
+    private var priority : Int?
+    private var tracked : Bool? = true
+    private var uid : String?
+    private var taskTitle : String?
+    private var taskDescription : String?
     @IBAction func Tracked(_ sender: Any) {
+        if TrackedBtn.isOn {
+            CalendarPkr.isHidden.toggle()
+            tracked?.toggle()
+        }
+        else {
+            CalendarPkr.isHidden.toggle()
+            tracked?.toggle()
+        }
+        print(tracked)
     }
     
-    @IBAction func Priority(_ sender: Any) {
+    @IBAction func Priority(_ sender: UISegmentedControl) {
+        switch PriorityPicker.selectedSegmentIndex {
+        case 0:
+            priority = 1
+        case 1:
+            priority = 2
+        case 2:
+            priority = 3
+        case 3:
+            priority = 4
+        case 4:
+            priority = 5
+        default: break;
+        }
+        print(priority)
     }
     
     @IBAction func Alarm(_ sender: Any) {
     }
     
-    @IBAction func Calendar(_ sender: Any) {
+    @IBAction func Calendar(_ sender: UIDatePicker) {
+        date = sender.date
+        print(date)
     }
     
     @IBOutlet weak var textfield: TextFieldWithLabel!
@@ -41,18 +81,50 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         button.layer.cornerRadius = 8
-        // Do any additional setup after loading the view.
-        
         TaskTitle.configureTextField(with: "Title", tag:0, delegate: self)
-        TaskDescription.configureTextField(with: "Description", tag:1, delegate: self)    }
-    
-     @IBAction func pressSubmit(_ sender: Any) {
-         print("submit")
-     }
-     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        TaskDescription.configureTextField(with: "Description", tag:1, delegate: self)
+        //CalendarPkr.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
     }
+    
+    /*@objc func dateChanged(_ sender: UIDatePicker) {
+     let components = Foundation.Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+     if let day = components.day, let month = components.month, let year = components.year {
+     print("\(day) \(month) \(year)")
+     }
+     }*/
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        if let user = Auth.auth().currentUser {
+          let id = user.uid
+          uid = id
+          print(id)
+        } else {
+          //
+        }
+        
+    }
+    
+    
+    @IBAction func pressSubmit(_ sender: Any) {
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "HH:mm E, d MMM y"
+        var time : String = ""
+        if let date = date {
+            time = formatter3.string(from: date)
+        }
+        let myTask : TaskModel = TaskModel(title: taskTitle, description: taskDescription, priority: priority, time: time, tracked: tracked, finished: false, uid: uid)
+            print(myTask)
+            createTask(task: myTask ) { result in
+                switch result {
+                case .success(_):
+                    print(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            print("submit")
+        }
+        
 }
