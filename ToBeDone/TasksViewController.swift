@@ -31,6 +31,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         plusButton.clipsToBounds = true
         plusButton.layer.borderWidth = 1
         plusButton.layer.borderColor = UIColor.link.cgColor
+        self.navigationItem.hidesBackButton = true
     }
     
     

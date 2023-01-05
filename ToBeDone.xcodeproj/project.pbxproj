@@ -40,6 +40,8 @@
 		83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EA6F6B2958801800BF30B2 /* AddTask.storyboard */; };
 		83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */; };
 		83F7587529101C1C000C96DD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F7587429101C1C000C96DD /* Register.storyboard */; };
+		9AB1F39129663044009F06BC /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1F39029663044009F06BC /* Edit.storyboard */; };
+		9AB1F39329663120009F06BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1F39229663120009F06BC /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		83EA6F6B2958801800BF30B2 /* AddTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTask.storyboard; sourceTree = "<group>"; };
 		83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		83F7587429101C1C000C96DD /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		9AB1F39029663044009F06BC /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
+		9AB1F39229663120009F06BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		83D76AA328FEC250000CEBE2 = {
 			isa = PBXGroup;
 			children = (
+				9AB1F39229663120009F06BC /* EditViewController.swift */,
 				83D76AAE28FEC250000CEBE2 /* ToBeDone */,
 				83D76AC828FEC251000CEBE2 /* ToBeDoneTests */,
 				83D76AD228FEC251000CEBE2 /* ToBeDoneUITests */,
@@ -175,6 +180,7 @@
 				83CC635A2913299C00F7CA96 /* ButtonCell.swift */,
 				83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */,
 				831DA023295C9ABD007CDD66 /* GoogleService-Info.plist */,
+				9AB1F39029663044009F06BC /* Edit.storyboard */,
 			);
 			path = ToBeDone;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				838C329E293294BE0021428A /* Login.storyboard in Resources */,
 				83D76ABC28FEC251000CEBE2 /* Assets.xcassets in Resources */,
 				83D76AB728FEC250000CEBE2 /* Main.storyboard in Resources */,
+				9AB1F39129663044009F06BC /* Edit.storyboard in Resources */,
 				83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */,
 				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
 				834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */,
@@ -369,6 +376,7 @@
 				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
 				8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,
+				9AB1F39329663120009F06BC /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

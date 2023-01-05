@@ -44,6 +44,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Export">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ExportView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IOw-9A-POv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-1Q-feQ">
                                 <rect key="frame" x="30" y="429" width="109" height="35"/>

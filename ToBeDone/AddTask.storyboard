@@ -47,7 +47,7 @@
                                 </connections>
                             </switch>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FCX-tF-Zet">
-                                <rect key="frame" x="85" y="510" width="223" height="34"/>
+                                <rect key="frame" x="85" y="509.99999999999994" width="223" height="34.333333333333314"/>
                                 <connections>
                                     <action selector="Calendar:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HKa-Zs-XtQ"/>
                                 </connections>
@@ -89,6 +89,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="4zC-2k-gBJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="d2N-Uy-y7U"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axy-hJ-dLV">
