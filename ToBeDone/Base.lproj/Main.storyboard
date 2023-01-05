@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,7 +38,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jt-h2-1nS">
                                         <rect key="frame" x="20" y="435" width="333" height="50"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="nmb-w4-4sy"/>
                                         </constraints>
@@ -145,9 +144,6 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="SuktanLogo" width="360" height="360"/>
-        <namedColor name="AccentColor">
-            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
