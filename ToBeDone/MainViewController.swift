@@ -9,6 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var screenView: UIView!
     @IBOutlet weak var registerButton: UIButton!
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
         loginButton.isHidden = true
         registerButton.isHidden = true
         logo.layer.cornerRadius = logo.frame.width/2
+        logoImage.layer.cornerRadius = logo.frame.width/3
         self.screenView.layer.cornerRadius = 10
         
     }

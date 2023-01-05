@@ -40,6 +40,8 @@
 		83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EA6F6B2958801800BF30B2 /* AddTask.storyboard */; };
 		83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */; };
 		83F7587529101C1C000C96DD /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F7587429101C1C000C96DD /* Register.storyboard */; };
+		9A3EFDA22966EC6700160C35 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA12966EC6700160C35 /* Profile.storyboard */; };
+		9A3EFDA42966EC7D00160C35 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */; };
 		9AB1F39129663044009F06BC /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1F39029663044009F06BC /* Edit.storyboard */; };
 		9AB1F39329663120009F06BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1F39229663120009F06BC /* EditViewController.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,8 @@
 		83EA6F6B2958801800BF30B2 /* AddTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTask.storyboard; sourceTree = "<group>"; };
 		83EA6F6D2958813B00BF30B2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		83F7587429101C1C000C96DD /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		9A3EFDA12966EC6700160C35 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9AB1F39029663044009F06BC /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		9AB1F39229663120009F06BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +185,8 @@
 				83D76AB828FEC250000CEBE2 /* ToBeDone.xcdatamodeld */,
 				831DA023295C9ABD007CDD66 /* GoogleService-Info.plist */,
 				9AB1F39029663044009F06BC /* Edit.storyboard */,
+				9A3EFDA12966EC6700160C35 /* Profile.storyboard */,
+				9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */,
 			);
 			path = ToBeDone;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C718132925398800CAC4C5 /* ListOfTasks.storyboard in Resources */,
+				9A3EFDA22966EC6700160C35 /* Profile.storyboard in Resources */,
 				83D76ABF28FEC251000CEBE2 /* LaunchScreen.storyboard in Resources */,
 				831DA024295C9ABD007CDD66 /* GoogleService-Info.plist in Resources */,
 				838C329E293294BE0021428A /* Login.storyboard in Resources */,
@@ -362,6 +369,7 @@
 				83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */,
 				83D76ABA28FEC250000CEBE2 /* ToBeDone.xcdatamodeld in Sources */,
 				838C32A02932969B0021428A /* LoginViewController.swift in Sources */,
+				9A3EFDA42966EC7D00160C35 /* ProfileViewController.swift in Sources */,
 				83CC635B2913299C00F7CA96 /* ButtonCell.swift in Sources */,
 				83C7181729253AF000CAC4C5 /* TaskCell.swift in Sources */,
 				83CE13E82928D18C00408EF1 /* TasksViewController.swift in Sources */,

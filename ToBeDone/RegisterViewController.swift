@@ -89,7 +89,14 @@ extension RegisterViewController : UITableViewDataSource, UITableViewDelegate{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "textfield", for: indexPath) as? TextFieldWithLabelCell else {
                 return UITableViewCell()
             }
-            cell.configureTextFieldCell(labels[indexPath.row], tag: indexPath.row, secure: false, delegate : self)
+            if indexPath.row == 3 || indexPath.row == 4
+            {
+                cell.configureTextFieldCell(labels[indexPath.row], tag: indexPath.row, secure: true, delegate : self)
+            }
+            else
+            {
+                cell.configureTextFieldCell(labels[indexPath.row], tag: indexPath.row, secure: false, delegate : self)
+            }
             cell.showsReorderControl = true
             return cell
             

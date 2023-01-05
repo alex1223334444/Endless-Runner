@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,18 +35,8 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Profile">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le0-7R-ggk">
-                                <rect key="frame" x="30" y="344" width="74" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Udt-bK-78t"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Export">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="ExportView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IOw-9A-POv"/>
+                                    <segue destination="RZF-wy-8cN" kind="show" id="ear-V4-LY4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-1Q-feQ">
@@ -79,21 +70,38 @@
                                     <action selector="done:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="56D-Fw-Z5y"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-nH-Kqk">
+                                <rect key="frame" x="30" y="599" width="85" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                <connections>
+                                    <segue destination="mv4-zb-ZMJ" kind="show" id="a4H-5B-bAp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-yc-b1p">
+                                <rect key="frame" x="30" y="344" width="74" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Export"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.50491602891156462" green="0.67038690476190477" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Le0-7R-ggk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="63f-Gd-NQh"/>
-                            <constraint firstItem="5pq-4r-Hnn" firstAttribute="top" secondItem="b6n-1Q-feQ" secondAttribute="bottom" constant="50" id="7pS-1g-NYp"/>
-                            <constraint firstItem="b6n-1Q-feQ" firstAttribute="top" secondItem="Le0-7R-ggk" secondAttribute="bottom" constant="50" id="NEk-hU-6aO"/>
+                            <constraint firstItem="E5H-nH-Kqk" firstAttribute="top" secondItem="5pq-4r-Hnn" secondAttribute="bottom" constant="50" id="2co-2p-yzL"/>
+                            <constraint firstItem="E5H-nH-Kqk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="888-tw-4CB"/>
+                            <constraint firstItem="Bij-yc-b1p" firstAttribute="top" secondItem="5BE-J6-BCB" secondAttribute="bottom" constant="50" id="TXG-28-nFY"/>
                             <constraint firstItem="5BE-J6-BCB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="UDC-wa-uBD"/>
                             <constraint firstItem="5pq-4r-Hnn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="VcS-eK-uhT"/>
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="fnL-J0-BOk"/>
+                            <constraint firstItem="Bij-yc-b1p" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="ftF-sa-6cB"/>
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="izV-IB-CPT"/>
+                            <constraint firstItem="b6n-1Q-feQ" firstAttribute="top" secondItem="Bij-yc-b1p" secondAttribute="bottom" constant="50" id="nwx-47-PJe"/>
                             <constraint firstItem="b6n-1Q-feQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="vmR-eH-Mip"/>
                             <constraint firstItem="5BE-J6-BCB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="wdo-Od-O4X"/>
+                            <constraint firstItem="5pq-4r-Hnn" firstAttribute="top" secondItem="b6n-1Q-feQ" secondAttribute="bottom" constant="50" id="wlb-l4-PzE"/>
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="yhv-Md-3jY"/>
-                            <constraint firstItem="Le0-7R-ggk" firstAttribute="top" secondItem="5BE-J6-BCB" secondAttribute="bottom" constant="50" id="zFk-Y2-J0I"/>
                         </constraints>
                     </view>
                     <connections>
@@ -104,5 +112,30 @@
             </objects>
             <point key="canvasLocation" x="63" y="4"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="92l-kO-Zzn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="RZF-wy-8cN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="S8E-RQ-ueG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXv-U7-a9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-84"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="VAx-IA-1XC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="mv4-zb-ZMJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yQ1-2b-pw0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVe-Rz-bbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520" y="176"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -24,6 +24,7 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         }
     }
     
+    @IBOutlet weak var AlarmLabel: UILabel!
     @IBOutlet weak var PriorityPicker: UISegmentedControl!
     @IBOutlet weak var TrackedBtn: UISwitch!
     @IBOutlet weak var AlarmBtn: UISwitch!
@@ -37,10 +38,14 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     @IBAction func Tracked(_ sender: Any) {
         if TrackedBtn.isOn {
             CalendarPkr.isHidden.toggle()
+            AlarmBtn.isHidden.toggle()
+            AlarmLabel.isHidden.toggle()
             tracked?.toggle()
         }
         else {
             CalendarPkr.isHidden.toggle()
+            AlarmBtn.isHidden.toggle()
+            AlarmLabel.isHidden.toggle()
             tracked?.toggle()
         }
         print(tracked)

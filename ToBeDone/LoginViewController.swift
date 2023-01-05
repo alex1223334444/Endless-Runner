@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, TextFieldWithLabelDelegate {
         super.viewDidLoad()
         mainView.layer.cornerRadius = 10
         email.configureTextField(with: "Email",tag: 0, delegate: self)
-        password.configureTextField(with: "Password",tag: 1, delegate: self)
+        password.configureTextField(with: "Password",secured: true, tag: 1, delegate: self)
         loginButton.layer.cornerRadius = 8
         gmailLogin.layer.cornerRadius = gmailLogin.frame.width/2
         facebookLogin.layer.cornerRadius = facebookLogin.frame.width/2

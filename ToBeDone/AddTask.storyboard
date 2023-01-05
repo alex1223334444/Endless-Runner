@@ -78,7 +78,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-t8-BxZ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-t8-BxZ">
                                 <rect key="frame" x="30" y="569.33333333333337" width="61" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -98,7 +98,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-ai-mIV">
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-ai-mIV">
                                 <rect key="frame" x="314" y="569.33333333333337" width="51" height="31"/>
                                 <connections>
                                     <action selector="Alarm:" destination="Y6W-OH-hqX" eventType="valueChanged" id="8di-ln-JdN"/>
@@ -138,6 +138,7 @@
                     </view>
                     <connections>
                         <outlet property="AlarmBtn" destination="eQk-ai-mIV" id="CjN-U0-mYj"/>
+                        <outlet property="AlarmLabel" destination="ZZ9-t8-BxZ" id="p1G-Yg-Dr7"/>
                         <outlet property="CalendarPkr" destination="FCX-tF-Zet" id="yDw-JF-9Kj"/>
                         <outlet property="PriorityPicker" destination="2Ok-z4-lsk" id="pOQ-nP-Wep"/>
                         <outlet property="TaskDescription" destination="WRo-qb-byd" id="YHR-Ig-raY"/>
