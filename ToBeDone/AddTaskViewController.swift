@@ -33,7 +33,7 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
 
     private var date : Date?
     private var priority : Int?
-    private var tracked : Bool? = true
+    private var tracked : Bool? = false
     private var uid : String?
     private var taskTitle : String?
     private var taskDescription : String?

@@ -118,3 +118,14 @@ func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>
     task.resume()
 }
 
+func updateTask(updatedTask: TaskModel, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    let url = URL(string: "http://localhost:3000/tasks/")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "PUT"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = try! JSONSerialization.data(withJSONObject: updatedTask.toDictionary(), options: [])
+
+    let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+    task.resume()
+}
+

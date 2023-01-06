@@ -20,6 +20,9 @@
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tt5-t1-x8t">
                                 <rect key="frame" x="314" y="454" width="51" height="31"/>
+                                <connections>
+                                    <action selector="setTracking:" destination="Y6W-OH-hqX" eventType="valueChanged" id="nC1-NL-39g"/>
+                                </connections>
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KO5-ty-wa5" customClass="TextFieldWithLabel" customModule="ToBeDone" customModuleProvider="target">
                                 <rect key="frame" x="30" y="210" width="333" height="50"/>
@@ -38,6 +41,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Submit">
                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="editTask:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pfx-be-1nW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caa-C8-ZTv">
                                 <rect key="frame" x="280" y="74" width="93" height="35"/>
@@ -63,6 +69,9 @@
                                     <segment title="Fifth"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemPinkColor"/>
+                                <connections>
+                                    <action selector="setPriority:" destination="Y6W-OH-hqX" eventType="valueChanged" id="LiZ-43-x1n"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsH-8C-kWX">
                                 <rect key="frame" x="30" y="454" width="82" height="29"/>
@@ -91,6 +100,9 @@
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Aep-XR-c3j">
                                 <rect key="frame" x="85" y="502.99999999999994" width="223" height="34.333333333333314"/>
+                                <connections>
+                                    <action selector="setTime:" destination="Y6W-OH-hqX" eventType="valueChanged" id="yt7-Gj-JOm"/>
+                                </connections>
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-Rl-qb7">
                                 <rect key="frame" x="314" y="562.33333333333337" width="51" height="31"/>
@@ -129,6 +141,16 @@
                             <constraint firstItem="Aep-XR-c3j" firstAttribute="top" secondItem="JsH-8C-kWX" secondAttribute="bottom" constant="20" id="yme-E1-IRw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alarmButton" destination="qQX-Rl-qb7" id="UCx-sd-z2i"/>
+                        <outlet property="button" destination="nVT-Qk-zTq" id="SG2-Md-7s1"/>
+                        <outlet property="label" destination="5mE-dt-c2m" id="vTn-62-6Hm"/>
+                        <outlet property="segment" destination="as3-Ba-il1" id="Wfx-Lx-VOw"/>
+                        <outlet property="taskDescription" destination="hiz-qs-en5" id="IuB-NN-sSa"/>
+                        <outlet property="taskTitle" destination="KO5-ty-wa5" id="UnV-ov-OnN"/>
+                        <outlet property="timePicker" destination="Aep-XR-c3j" id="Zas-QX-uKL"/>
+                        <outlet property="tracked" destination="tt5-t1-x8t" id="LgL-Hf-yx1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

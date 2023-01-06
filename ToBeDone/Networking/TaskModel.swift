@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TaskModel: /*Encodable,Decodable*/Codable {
+struct TaskModel: /*Encodable,Decodable*/Codable, Equatable {
     //var _id : String?
     var title : String?
     var description : String?
@@ -37,5 +37,7 @@ struct TaskModel: /*Encodable,Decodable*/Codable {
         tracked = try container.decode(Bool.self, forKey: .tracked)
         uid = try container.decode(String.self, forKey: .uid)
     }*/
-    
+    func toDictionary() -> [String: Any] {
+        return ["title": title, "description": description, "priority": priority, "time" : time, "tracked": tracked, "finished": finished, "uid": uid ]
+        }
 }

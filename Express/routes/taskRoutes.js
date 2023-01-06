@@ -28,18 +28,15 @@ router.get('/:uid', (req, res) => {
     })
 })
 
-router.put('/:uid/:title', bodyParser.json(), function(req, res) {
-    const uid = req.params.uid;
-    const title = req.params.title;
+router.put('/', bodyParser.json(), function(req, res) {
     const updatedTask = req.body;
+    const title = req.body.title
+    const uid = req.body.uid
     console.log(req.body)
     res.set('Content-Type', 'application/json');  // Set the Content-Type header
     Task.findOneAndUpdate({ uid: uid, title: title }, updatedTask, { new: true })
       .then((result) => {
         console.log(updatedTask)
-        console.log(uid, title)
-
-        res.send(result)
       })
       .catch((err) => {
         console.log(err)
@@ -57,7 +54,7 @@ router.post('/create/', (req, res) => {
         uid: req.body.uid
       })
     console.log(req.body)
-    console.log(task)
+    //console.log(task)
     task.save()
     .then((results) => {
         console.log(results)

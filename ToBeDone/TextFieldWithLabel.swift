@@ -71,6 +71,11 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
         delegate?.changeText(textField)
     }
     
+    func setText(with placeholder: String){
+        self.textField.text = placeholder
+        animatePlaceholderUp()
+    }
+    
     private func addSubviews() {
         addSubview(textField)
         addSubview(placeholderLabel)
