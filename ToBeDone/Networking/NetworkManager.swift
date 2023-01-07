@@ -129,3 +129,27 @@ func updateTask(updatedTask: TaskModel, completion: @escaping (Data?, URLRespons
     task.resume()
 }
 
+func deleteATask(taskId: String, completion: @escaping (Bool) -> Void) {
+    let url = URL(string: "http://localhost:3000/tasks/delete/\(taskId)")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "DELETE"
+
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print(error)
+            completion(false)
+            return
+        }
+
+        if let response = response as? HTTPURLResponse {
+            if response.statusCode == 200 {
+                // handle success
+                completion(true)
+            } else {
+                // handle other status codes
+                completion(false)
+            }
+        }
+    }
+    task.resume()
+}

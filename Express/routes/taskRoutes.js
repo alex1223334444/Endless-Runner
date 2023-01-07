@@ -30,11 +30,10 @@ router.get('/:uid', (req, res) => {
 
 router.put('/', bodyParser.json(), function(req, res) {
     const updatedTask = req.body;
-    const title = req.body.title
-    const uid = req.body.uid
+    const taskId = req.body.taskId
     console.log(req.body)
     res.set('Content-Type', 'application/json');  // Set the Content-Type header
-    Task.findOneAndUpdate({ uid: uid, title: title }, updatedTask, { new: true })
+    Task.findOneAndUpdate({ taskId: taskId }, updatedTask, { new: true })
       .then((result) => {
         console.log(updatedTask)
       })
@@ -51,19 +50,35 @@ router.post('/create/', (req, res) => {
         time: req.body.time,
         tracked: req.body.tracked,
         finished : req.body.finished,
-        uid: req.body.uid
+        uid: req.body.uid,
+        taskId: req.body.taskId
       })
     console.log(req.body)
-    //console.log(task)
+    console.log(task)
     task.save()
     .then((results) => {
         console.log(results)
         res.send(results)
     })
     .catch(err => {
+        console.log(err)
         res.status(400).json({ message: 'Error saving task to the database' })})
+       
 })
 
-
+router.delete('/delete/:taskId', (req, res) => {
+    console.log(req.params.taskId)
+    Task.deleteOne({
+        taskId : req.params.taskId
+    })
+    .then((result) => {
+        console.log(result)
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+        res.status(400).json({ message: 'Error deleting task from the database' })
+    })
+})
 
 module.exports = router

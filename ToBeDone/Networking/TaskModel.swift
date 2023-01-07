@@ -16,6 +16,7 @@ struct TaskModel: /*Encodable,Decodable*/Codable, Equatable {
     var tracked: Bool?
     var finished : Bool?
     var uid : String?
+    var taskId : String?
     
     /*private enum CodingKeys: String, CodingKey {
         //case _id
@@ -38,6 +39,6 @@ struct TaskModel: /*Encodable,Decodable*/Codable, Equatable {
         uid = try container.decode(String.self, forKey: .uid)
     }*/
     func toDictionary() -> [String: Any] {
-        return ["title": title, "description": description, "priority": priority, "time" : time, "tracked": tracked, "finished": finished, "uid": uid ]
+        return ["title": title, "description": description, "priority": priority, "time" : time, "tracked": tracked, "finished": finished, "uid": uid, "taskId": taskId ]
         }
 }

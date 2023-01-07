@@ -117,11 +117,12 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     @IBAction func pressSubmit(_ sender: Any) {
         let formatter3 = DateFormatter()
         formatter3.dateFormat = "HH:mm E, d MMM y"
-        var time : String = ""
+        var time : String = " "
         if let date = date {
             time = formatter3.string(from: date)
         }
-        let myTask : TaskModel = TaskModel(title: taskTitle, description: taskDescription, priority: priority, time: time, tracked: tracked, finished: false, uid: uid)
+        let uuid = UUID().uuidString
+        let myTask : TaskModel = TaskModel(title: taskTitle, description: taskDescription, priority: priority, time: time, tracked: tracked, finished: false, uid: uid, taskId: uuid)
             print(myTask)
             createTask(task: myTask ) { result in
                 switch result {

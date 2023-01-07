@@ -30,6 +30,10 @@ const taskSchema = new Schema({
     uid: {
         type : String, 
         required: true
+    },
+    taskId: {
+        type : String, 
+        required: true
     }
 }, {timestamps: true})
 

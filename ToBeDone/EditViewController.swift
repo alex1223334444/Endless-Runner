@@ -138,4 +138,25 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
         }
     }
     
+    @IBAction func deleteTask(_ sender: Any) {
+        if let task = task, let taskId = task.taskId {
+            deleteATask(taskId: taskId) { success in
+                if success {
+                    let alert = UIAlertController(title: "The task was deleted.", message: "Please refresh your list of tasks to see the cahnge.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in         self.dismiss(animated: true)}))
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                } else {
+                    let alert = UIAlertController(title: "The task could not be deleted.", message: "Please try again.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in        self.dismiss(animated: true)}))
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+    
 }
