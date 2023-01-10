@@ -8,7 +8,23 @@
 import UIKit
 import FirebaseAuth
 
-class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CompletableTaskDelegate {
+    func pressComplete( _ button: UIButton?) {
+        var completedTask = uncompletedTasks?[button?.tag ?? 0]
+        completedTask?.finished = true
+        if let task = completedTask{
+            updateTask(updatedTask: task) { data, response, error in
+                if let error = error {
+                    let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     func changeTask(_ button: UIButton) {
         print("delegat")
         performSegue(withIdentifier: "edit", sender: self)
@@ -20,6 +36,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var logout: UIButton!
     private var requestedTasks : [TaskModel]?
+    private var uncompletedTasks : [TaskModel]? = []
     private var uid = ""
     let refreshControl = UIRefreshControl()
     
@@ -59,8 +76,16 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         getTasks(id: uid) { result in
             switch result {
             case .success(let tasks):
-                print(tasks)
                 self.requestedTasks = tasks
+                self.uncompletedTasks = []
+                for i in 0..<(self.requestedTasks?.count ?? 0){
+                    if let task = self.requestedTasks?[i], let finished = task.finished{
+                        if finished == false {
+                            self.uncompletedTasks?.append(task)
+                        }
+                    }
+                    
+                }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -85,8 +110,16 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
            getTasks(id: uid) { result in
                switch result {
                case .success(let tasks):
-                   print(tasks)
                    self.requestedTasks = tasks
+                   for i in 0..<(self.requestedTasks?.count ?? 0){
+                       if let task = self.requestedTasks?[i], let finished = task.finished{
+                           if finished == false {
+                               self.uncompletedTasks?.append(task)
+                           }
+                       }
+                   }
+                   print("false completed")
+                   print(self.uncompletedTasks)
                    DispatchQueue.main.async {
                        self.tableView.reloadData()
                    }
@@ -104,7 +137,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return requestedTasks?.count ?? 0
+        return uncompletedTasks?.count ?? 0
         }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -116,8 +149,8 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
         cell.showsReorderControl = true
-        if let task = requestedTasks?[indexPath.section]{
-            cell.configureTextFieldCell(task, tag: indexPath.section, color: .red)
+        if let task = uncompletedTasks?[indexPath.section]{
+            cell.configureTextFieldCell(task, tag: indexPath.section, color: .red, delegate: self)
         }
         cell.selectionStyle = .none
         return cell

@@ -8,13 +8,17 @@
 import UIKit
 
 
+protocol CompletableTaskDelegate: AnyObject{
+    func pressComplete(_ button: UIButton?)
+}
+
 class Task: UIView {
     private enum PlaceholderPosition {
         case raised, lowered
     }
     var img : UIImage = UIImage(named: "editIcon")!
     var color : UIColor = .black
-
+    var buttonDelegate : CompletableTaskDelegate?
     private lazy var taskName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20)
@@ -58,20 +62,32 @@ class Task: UIView {
         super.init(frame: frame)
         addSubviews()
         addConstraintsToSubviews()
+        subscribeToActions()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         addSubviews()
         addConstraintsToSubviews()
+        subscribeToActions()
     }
     
-    func configureTextField(with task: TaskModel, color : UIColor) {
+    func configureTextField(with task: TaskModel, color : UIColor, delegate : CompletableTaskDelegate, tag: Int) {
         taskName.text = task.title
         descrition.text = task.description
         hour.text = task.time
         self.color = color
-        
+        self.buttonDelegate = delegate
+        self.checkbox.tag = tag
+    }
+    
+    @objc private func pressCompleteButton () {
+        checkbox.tintColor = .green
+        buttonDelegate?.pressComplete(checkbox)
+    }
+    
+    private func subscribeToActions() {
+        checkbox.addTarget(self, action: #selector(pressCompleteButton), for: .touchUpInside)
     }
     
     private func addSubviews() {
