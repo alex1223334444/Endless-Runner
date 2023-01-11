@@ -72,13 +72,17 @@ class Task: UIView {
         subscribeToActions()
     }
     
-    func configureTextField(with task: TaskModel, color : UIColor, delegate : CompletableTaskDelegate, tag: Int) {
+    func configureTask(with task: TaskModel, color : UIColor, delegate : CompletableTaskDelegate, tag: Int) {
         taskName.text = task.title
         descrition.text = task.description
         hour.text = task.time
-        self.color = color
+        self.checkbox.layer.borderColor = color.cgColor
+        self.icon.backgroundColor = color
+        self.descrition.textColor = color
+        self.taskName.textColor = color
         self.buttonDelegate = delegate
         self.checkbox.tag = tag
+        self.layer.borderColor = color.cgColor
     }
     
     @objc private func pressCompleteButton () {

@@ -17,11 +17,13 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if let error = error {
                     let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     return
                 }
             }
-            self.tableView.reloadData()
+                self.refresh(self)
         }
     }
     
@@ -150,7 +152,22 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         cell.showsReorderControl = true
         if let task = uncompletedTasks?[indexPath.section]{
-            cell.configureTextFieldCell(task, tag: indexPath.section, color: .red, delegate: self)
+            var color : UIColor = .link
+            switch task.priority {
+            case 1:
+                color = .link
+            case 2:
+                color = .green
+            case 3:
+                color = .red
+            case 4:
+                color = .blue
+            case 5:
+                color = .orange
+            default:
+                color = .link
+            }
+            cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
         }
         cell.selectionStyle = .none
         return cell
@@ -172,7 +189,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         let storyBoard : UIStoryboard = UIStoryboard(name: "Edit", bundle:nil)
         let editViewController = storyBoard.instantiateViewController(withIdentifier: "Edit") as! EditViewController
 
-        if let task = requestedTasks?[indexPath.section]{
+        if let task = uncompletedTasks?[indexPath.section]{
             editViewController.task = task
             navigationController?.present(editViewController, animated: true)
         }
