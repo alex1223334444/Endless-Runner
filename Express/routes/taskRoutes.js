@@ -36,6 +36,7 @@ router.put('/', bodyParser.json(), function(req, res) {
     Task.findOneAndUpdate({ taskId: taskId }, updatedTask, { new: true })
       .then((result) => {
         console.log(updatedTask)
+        res.send(result)
       })
       .catch((err) => {
         console.log(err)

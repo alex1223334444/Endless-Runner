@@ -23,7 +23,9 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return
                 }
             }
+            DispatchQueue.main.async {
                 self.refresh(self)
+            }
         }
     }
     
