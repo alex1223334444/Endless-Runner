@@ -6,11 +6,11 @@ const User = require('./models/user')
 const app = express()
 const userRoutes = require('./routes/userRoutes')
 const taskRoutes = require('./routes/taskRoutes')
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
 const bodyParser = require('body-parser');
 
-const url = "mongodb+srv://userTBD:ikEgsDiZCxkvzclY@users.0sv7cig.mongodb.net/Users"
-console.log(url)
+dotenv.config();
+const url = process.env.DB_URL
 
 mongoose.connect(url, { useNewUrlParser: true })
 .then((result) =>{ 
