@@ -12,7 +12,7 @@
         <!--Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="ToBeDone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="ToBeDone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="RZF-wy-8cN" kind="showDetail" id="ear-V4-LY4"/>
+                                    <action selector="goToProfile:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hhX-nS-efX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-1Q-feQ">
@@ -92,7 +92,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Dark Mode"/>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xke-pU-czF">
-                                <rect key="frame" x="516" y="599" width="51" height="31"/>
+                                <rect key="frame" x="313" y="599" width="51" height="31"/>
                                 <connections>
                                     <action selector="darkMode:" destination="Y6W-OH-hqX" eventType="valueChanged" id="9zT-OA-q0f"/>
                                 </connections>
@@ -123,6 +123,7 @@
                     <connections>
                         <outlet property="doneButton" destination="EUv-wl-wtc" id="Tcy-xB-lHe"/>
                         <segue destination="IhI-sa-1a2" kind="showDetail" identifier="logout" id="kEn-xA-dnS"/>
+                        <segue destination="RZF-wy-8cN" kind="presentation" identifier="profile" id="Ric-On-wj5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

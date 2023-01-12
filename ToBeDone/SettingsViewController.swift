@@ -12,10 +12,11 @@ import SwiftUI
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
+    var numbers : NumberOfTasks? = NumberOfTasks()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(numbers)
         // Do any additional setup after loading the view.
     }
     
@@ -40,5 +41,11 @@ class SettingsViewController: UIViewController {
          performSegue(withIdentifier: "logout", sender: nil)
      }
      
+    @IBAction func goToProfile(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        profileViewController.numbers = self.numbers
+        self.present(profileViewController, animated: true, completion: nil)
+    }
 }
 

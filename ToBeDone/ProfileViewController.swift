@@ -8,11 +8,18 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var doneTasks: UIButton!
+    @IBOutlet weak var unfinishedTasks: UIButton!
+    var numbers : NumberOfTasks? = NumberOfTasks()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let total = numbers?.totalTasks, let unfinished = numbers?.uncompleted{
+            doneTasks.setTitle("Tasks done: \(total - unfinished)", for: .normal)
+            unfinishedTasks.setTitle("Unfinished tasks: \(unfinished)", for: .normal)
+        }
     }
     
 

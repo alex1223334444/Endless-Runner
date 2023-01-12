@@ -206,5 +206,22 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    @IBAction func goToSettings(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Settings", bundle:nil)
+        let settingsViewController = storyBoard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
+        
+        if let total = self.requestedTasks?.count{
+            if let uncompleted = self.uncompletedTasks?.count{
+                var numbers = NumberOfTasks(totalTasks: total , uncompleted: uncompleted)
+                settingsViewController.numbers = numbers
+                navigationController?.present(settingsViewController, animated: true)
+                }
+            }
+    }
     
+}
+
+struct NumberOfTasks {
+    var totalTasks : Int? = 0
+    var uncompleted : Int? = 0
 }

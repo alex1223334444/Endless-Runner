@@ -86,7 +86,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system"/>
                                         <connections>
-                                            <segue destination="8cp-T5-mhA" kind="presentation" id="Hds-1n-PRl"/>
+                                            <action selector="goToSettings:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IbA-AK-WhT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfS-KW-d86">
@@ -136,6 +136,7 @@
                         <outlet property="plusButton" destination="Ex1-dy-87z" id="CgT-NZ-jDa"/>
                         <outlet property="tableView" destination="ata-2v-1yZ" id="bXv-Xt-FcP"/>
                         <segue destination="Oaf-k9-xeB" kind="presentation" identifier="edit" id="5kd-Hf-kxQ"/>
+                        <segue destination="8cp-T5-mhA" kind="presentation" identifier="settings" id="3iU-8h-sSS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
