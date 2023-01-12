@@ -32,7 +32,10 @@ class SettingsViewController: UIViewController {
         }
     }
     
-     @IBAction func logout(_ sender: Any) {
+    @IBAction func darkMode(_ sender: Any) {
+        view.backgroundColor = .black
+    }
+    @IBAction func logout(_ sender: Any) {
          //navigationController?.popToRootViewController(animated: true)
          performSegue(withIdentifier: "logout", sender: nil)
      }

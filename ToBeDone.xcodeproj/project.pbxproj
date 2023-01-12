@@ -44,6 +44,8 @@
 		9A3EFDA42966EC7D00160C35 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */; };
 		9AB1F39129663044009F06BC /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1F39029663044009F06BC /* Edit.storyboard */; };
 		9AB1F39329663120009F06BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1F39229663120009F06BC /* EditViewController.swift */; };
+		9ACEB78F296E313A00D98C66 /* Settings_TBL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACEB78E296E313A00D98C66 /* Settings_TBL.storyboard */; };
+		9ACEB791296E316200D98C66 /* SettingsTBLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACEB790296E316200D98C66 /* SettingsTBLViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9AB1F39029663044009F06BC /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		9AB1F39229663120009F06BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		9ACEB78E296E313A00D98C66 /* Settings_TBL.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings_TBL.storyboard; sourceTree = "<group>"; };
+		9ACEB790296E316200D98C66 /* SettingsTBLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTBLViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				83E39B76295A3FD80078F50E /* Networking */,
 				83C7181629253AF000CAC4C5 /* TaskCell.swift */,
 				83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */,
+				9ACEB78E296E313A00D98C66 /* Settings_TBL.storyboard */,
+				9ACEB790296E316200D98C66 /* SettingsTBLViewController.swift */,
 				9AB1F39229663120009F06BC /* EditViewController.swift */,
 				83D76AB128FEC250000CEBE2 /* SceneDelegate.swift */,
 				83D76AB328FEC250000CEBE2 /* ViewController.swift */,
@@ -336,6 +342,7 @@
 				83D76ABC28FEC251000CEBE2 /* Assets.xcassets in Resources */,
 				83D76AB728FEC250000CEBE2 /* Main.storyboard in Resources */,
 				9AB1F39129663044009F06BC /* Edit.storyboard in Resources */,
+				9ACEB78F296E313A00D98C66 /* Settings_TBL.storyboard in Resources */,
 				83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */,
 				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
 				834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */,
@@ -377,6 +384,7 @@
 				83C71815292539E200CAC4C5 /* Task.swift in Sources */,
 				83CE9A652910684700B95815 /* RegisterViewController.swift in Sources */,
 				83CE9A612910652B00B95815 /* TextFieldWithLabel.swift in Sources */,
+				9ACEB791296E316200D98C66 /* SettingsTBLViewController.swift in Sources */,
 				83D76AB028FEC250000CEBE2 /* AppDelegate.swift in Sources */,
 				83EA6F6E2958813B00BF30B2 /* AddTaskViewController.swift in Sources */,
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,

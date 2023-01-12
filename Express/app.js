@@ -6,11 +6,12 @@ const User = require('./models/user')
 const app = express()
 const userRoutes = require('./routes/userRoutes')
 const taskRoutes = require('./routes/taskRoutes')
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 const bodyParser = require('body-parser');
 
-dotenv.config();
-const url = process.env.DB_URL
+const url = "mongodb+srv://userTBD:ikEgsDiZCxkvzclY@users.0sv7cig.mongodb.net/Users"
+console.log(url)
+
 mongoose.connect(url, { useNewUrlParser: true })
 .then((result) =>{ 
     app.listen(3000)
@@ -29,4 +30,3 @@ app.get('/', (req, res) => {
     res.send('hello to the backend')
 
 })
-

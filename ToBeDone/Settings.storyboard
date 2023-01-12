@@ -36,7 +36,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="RZF-wy-8cN" kind="show" id="ear-V4-LY4"/>
+                                    <segue destination="RZF-wy-8cN" kind="showDetail" id="ear-V4-LY4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-1Q-feQ">
@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-nH-Kqk">
-                                <rect key="frame" x="30" y="599" width="85" height="35"/>
+                                <rect key="frame" x="30" y="684" width="85" height="35"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
@@ -85,17 +85,33 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Export"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-gC-F2U">
+                                <rect key="frame" x="30.000000000000007" y="599" width="107.66666666666669" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Dark Mode"/>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xke-pU-czF">
+                                <rect key="frame" x="516" y="599" width="51" height="31"/>
+                                <connections>
+                                    <action selector="darkMode:" destination="Y6W-OH-hqX" eventType="valueChanged" id="9zT-OA-q0f"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.50491602891156462" green="0.67038690476190477" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="E5H-nH-Kqk" firstAttribute="top" secondItem="5pq-4r-Hnn" secondAttribute="bottom" constant="50" id="2co-2p-yzL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xke-pU-czF" secondAttribute="trailing" constant="15" id="5SH-wu-geq"/>
                             <constraint firstItem="E5H-nH-Kqk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="888-tw-4CB"/>
+                            <constraint firstItem="E5H-nH-Kqk" firstAttribute="top" secondItem="IIe-gC-F2U" secondAttribute="bottom" constant="50" id="Bqs-Ir-ERn"/>
+                            <constraint firstItem="IIe-gC-F2U" firstAttribute="top" secondItem="5pq-4r-Hnn" secondAttribute="bottom" constant="50" id="KMe-uI-NuF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xke-pU-czF" secondAttribute="bottom" constant="188" id="P7y-pR-6Po"/>
                             <constraint firstItem="Bij-yc-b1p" firstAttribute="top" secondItem="5BE-J6-BCB" secondAttribute="bottom" constant="50" id="TXG-28-nFY"/>
                             <constraint firstItem="5BE-J6-BCB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="UDC-wa-uBD"/>
                             <constraint firstItem="5pq-4r-Hnn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="VcS-eK-uhT"/>
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="fnL-J0-BOk"/>
                             <constraint firstItem="Bij-yc-b1p" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="ftF-sa-6cB"/>
+                            <constraint firstItem="IIe-gC-F2U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="gwF-KR-15w"/>
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="izV-IB-CPT"/>
                             <constraint firstItem="b6n-1Q-feQ" firstAttribute="top" secondItem="Bij-yc-b1p" secondAttribute="bottom" constant="50" id="nwx-47-PJe"/>
                             <constraint firstItem="b6n-1Q-feQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="vmR-eH-Mip"/>
