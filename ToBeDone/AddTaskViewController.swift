@@ -115,6 +115,25 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     
     
     @IBAction func pressSubmit(_ sender: Any) {
+        let targetDate = CalendarPkr.date
+        if taskTitle != nil || taskDescription != nil || AlarmBtn.isOn{
+            let content = UNMutableNotificationContent()
+            content.title = taskTitle!
+            content.body = taskDescription!
+            //content.sound = UNNotificationSound(named: .defaultRingtone)
+            let getDate = targetDate.addingTimeInterval(10)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: Foundation.Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: getDate), repeats: false)
+            let request = UNNotificationRequest(identifier: "id_\(String(describing: taskTitle))", content: content, trigger: trigger)
+            do {
+                UNUserNotificationCenter.current().add(request)
+            }
+            catch {
+                print("Something Went Wrong")
+            }
+            
+            
+            
+        }
         let formatter3 = DateFormatter()
         formatter3.dateFormat = "HH:mm E, d MMM y"
         var time : String = " "
