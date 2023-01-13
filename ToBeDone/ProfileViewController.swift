@@ -9,13 +9,19 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var doneTasks: UIButton!
     @IBOutlet weak var unfinishedTasks: UIButton!
     var numbers : NumberOfTasks? = NumberOfTasks()
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatar.layer.cornerRadius = avatar.frame.width/2
+        avatar.layer.borderWidth = 2
         if let total = numbers?.totalTasks, let unfinished = numbers?.uncompleted{
             doneTasks.setTitle("Tasks done: \(total - unfinished)", for: .normal)
             unfinishedTasks.setTitle("Unfinished tasks: \(unfinished)", for: .normal)

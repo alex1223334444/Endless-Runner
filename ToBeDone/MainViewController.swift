@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension UINavigationController {
+   open override var preferredStatusBarStyle: UIStatusBarStyle {
+       return .lightContent
+   }
+}
+
 extension UIColor {
     public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
@@ -43,6 +49,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var screenView: UIView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var logo: UIView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = loginButton.bounds.size.height/2
