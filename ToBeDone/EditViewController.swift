@@ -54,6 +54,8 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
             alarmButton.isHidden.toggle()
             label.isHidden.toggle()
         }
+        self.hideKeyboardWhenTappedAround()
+
     }
     
     @IBAction func setPriority(_ sender: UISegmentedControl) {

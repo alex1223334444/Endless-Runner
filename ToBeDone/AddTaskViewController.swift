@@ -91,7 +91,8 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         TaskTitle.configureTextField(with: "Title", tag:0, delegate: self)
         TaskDescription.configureTextField(with: "Description", tag:1, delegate: self)
         //CalendarPkr.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        
+        self.hideKeyboardWhenTappedAround()
+
     }
     
     /*@objc func dateChanged(_ sender: UIDatePicker) {
