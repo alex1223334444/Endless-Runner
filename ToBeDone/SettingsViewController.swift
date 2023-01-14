@@ -16,7 +16,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(numbers)
         // Do any additional setup after loading the view.
     }
     

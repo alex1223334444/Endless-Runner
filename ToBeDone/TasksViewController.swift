@@ -147,7 +147,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 switch result {
                 case .success(let tasks):
                     self.requestedTasks = tasks
-                    print(self.requestedTasks)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -163,7 +162,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 case .success(let tasks):
                     self.completedTasks = tasks
                     
-                    print(self.completedTasks)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -179,7 +177,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 case .success(let tasks):
                     self.uncompletedTasks = tasks
                     
-                    print(self.uncompletedTasks)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -303,11 +300,26 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Edit", bundle:nil)
         let editViewController = storyBoard.instantiateViewController(withIdentifier: "Edit") as! EditViewController
-        
-        if let task = uncompletedTasks?[indexPath.section]{
-            editViewController.task = task
-            navigationController?.present(editViewController, animated: true)
+        switch state {
+        case "total":
+            if let task = requestedTasks?[indexPath.section]{
+                editViewController.task = task
+                navigationController?.present(editViewController, animated: true)
+            }
+        case "finished":
+            if let task = completedTasks?[indexPath.section]{
+                editViewController.task = task
+                navigationController?.present(editViewController, animated: true)
+            }
+        case "unfinished":
+            if let task = uncompletedTasks?[indexPath.section]{
+                editViewController.task = task
+                navigationController?.present(editViewController, animated: true)
+            }
+        default:
+            break
         }
+        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -325,7 +337,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if let total = self.requestedTasks?.count{
             if let uncompleted = self.uncompletedTasks?.count{
-                var numbers = NumberOfTasks(totalTasks: total , uncompleted: uncompleted)
+                let numbers = NumberOfTasks(totalTasks: total , uncompleted: uncompleted)
                 settingsViewController.numbers = numbers
                 navigationController?.present(settingsViewController, animated: true)
             }

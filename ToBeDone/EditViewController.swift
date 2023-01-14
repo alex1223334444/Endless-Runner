@@ -16,7 +16,6 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
             else  if textContent?.tag == 1{
                 newTask?.description = text
             }
-            print(newTask)
             enableButton()
         }
     }
@@ -36,7 +35,6 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
         super.viewDidLoad()
         print("aici incepe")
         newTask = task
-        print(newTask)
         print("aici se termina")
         taskTitle.configureTextField(with: "Title",tag: 0 ,delegate: self)
         taskTitle.setText(with: task?.title ?? "")
@@ -73,7 +71,6 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
         default: break;
         }
         enableButton()
-        print(newTask)
     }
     
     
@@ -110,7 +107,6 @@ class EditViewController: UIViewController, TextFieldWithLabelDelegate {
             
         }
         enableButton()
-        print(newTask)
     }
     
     @IBAction func Cancel(_ sender: Any) {

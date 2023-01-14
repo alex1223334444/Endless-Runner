@@ -50,7 +50,6 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
             AlarmLabel.isHidden.toggle()
             tracked?.toggle()
         }
-        print(tracked)
     }
     
     @IBAction func Priority(_ sender: UISegmentedControl) {
@@ -67,7 +66,6 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
             priority = 5
         default: break;
         }
-        print(priority)
     }
     
     @IBAction func Alarm(_ sender: Any) {
@@ -75,7 +73,6 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     
     @IBAction func Calendar(_ sender: UIDatePicker) {
         date = sender.date
-        print(date)
     }
     
     @IBOutlet weak var textfield: TextFieldWithLabel!
