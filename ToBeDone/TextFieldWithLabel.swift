@@ -138,7 +138,7 @@ class TextFieldWithLabel: UIView, UITextFieldDelegate{
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
         textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        //self.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     private func layoutBorder() {

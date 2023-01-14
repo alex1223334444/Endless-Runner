@@ -77,6 +77,54 @@ func getTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> 
     
 }
 
+func getFinishedTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
+    
+    guard let url = URL(string: "http://localhost:3000/tasks/\(id)/completed") else { return }
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        if let error = error {
+            completion(.failure(error))
+            return
+        }
+        
+        guard let data = data, let tasks = try? JSONDecoder().decode([TaskModel].self, from: data) else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid data"])
+            completion(.failure(error))
+            return
+        }
+        completion(.success(tasks))
+    }
+    task.resume()
+    
+}
+
+func getUnfinishedTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
+    
+    guard let url = URL(string: "http://localhost:3000/tasks/\(id)/uncompleted") else { return }
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        if let error = error {
+            completion(.failure(error))
+            return
+        }
+        
+        guard let data = data, let tasks = try? JSONDecoder().decode([TaskModel].self, from: data) else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid data"])
+            completion(.failure(error))
+            return
+        }
+        completion(.success(tasks))
+    }
+    task.resume()
+    
+}
+
 func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
     let url = URL(string: "http://localhost:3000/tasks/create/")!
     var request = URLRequest(url: url)

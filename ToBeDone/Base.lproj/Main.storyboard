@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="60.305343511450381" y="85.91549295774648"/>
         </scene>
-        <!--ListOfTasks-->
+        <!--Register-->
         <scene sceneID="nE3-fL-z6X">
             <objects>
-                <viewControllerPlaceholder storyboardName="ListOfTasks" id="XIK-ur-BpP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Register" id="XIK-ur-BpP" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="w3e-pM-P6s"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46I-3U-boK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

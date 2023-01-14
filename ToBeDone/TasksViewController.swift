@@ -35,14 +35,17 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    @IBOutlet weak var picker: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var logout: UIButton!
-    private var requestedTasks : [TaskModel]?
+    private var requestedTasks : [TaskModel]? = []
     private var uncompletedTasks : [TaskModel]? = []
+    private var completedTasks : [TaskModel]? = []
     private var uid = ""
     let refreshControl = UIRefreshControl()
+    private var state = "finished"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +71,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationItem.hidesBackButton = true
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        picker.addTarget(self, action: #selector(self.selectTypeOfTask(sender:)), for:.valueChanged)
         tableView.addSubview(refreshControl)
     }
     
@@ -77,62 +81,118 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @objc func refresh(_ sender: AnyObject) {
         refreshControl.beginRefreshing()
-        getTasks(id: uid) { result in
-            switch result {
-            case .success(let tasks):
-                self.requestedTasks = tasks
-                self.uncompletedTasks = []
-                for i in 0..<(self.requestedTasks?.count ?? 0){
-                    if let task = self.requestedTasks?[i], let finished = task.finished{
-                        if finished == false {
-                            self.uncompletedTasks?.append(task)
-                        }
+        switch state {
+        case "total":
+            getTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.requestedTasks = tasks
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
-                    
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
                 }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                break
-            case .failure(let error):
-                print(error)
-                break
             }
+        case "finished":
+            getFinishedTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.completedTasks = tasks
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
+        case "unfinished":
+            getUnfinishedTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.uncompletedTasks = tasks
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
+        default: break
+            
         }
         refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        
         if let user = Auth.auth().currentUser {
-          let id = user.uid
-          uid = id
-          print(id)
+            let id = user.uid
+            uid = id
+            print(id)
         } else {
-          //
+            //
         }
-           getTasks(id: uid) { result in
-               switch result {
-               case .success(let tasks):
-                   self.requestedTasks = tasks
-                   for i in 0..<(self.requestedTasks?.count ?? 0){
-                       if let task = self.requestedTasks?[i], let finished = task.finished{
-                           if finished == false {
-                               self.uncompletedTasks?.append(task)
-                           }
-                       }
-                   }
-                   print("false completed")
-                   print(self.uncompletedTasks)
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-                   break
-               case .failure(let error):
-                   print(error)
-                   break
-               }
-           }
+        switch state {
+        case "total":
+            getTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.requestedTasks = tasks
+                    print(self.requestedTasks)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
+        case "finished":
+            getFinishedTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.completedTasks = tasks
+                    
+                    print(self.completedTasks)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
+        case "unfinished":
+            getUnfinishedTasks(id: uid) { result in
+                switch result {
+                case .success(let tasks):
+                    self.uncompletedTasks = tasks
+                    
+                    print(self.uncompletedTasks)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
+        default: break
+            
+        }
+        
         
     }
     
@@ -141,8 +201,17 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return uncompletedTasks?.count ?? 0
+        switch state {
+        case "total":
+            return requestedTasks?.count ?? 0
+        case "unfinished":
+            return uncompletedTasks?.count ?? 0
+        case "finished":
+            return completedTasks?.count ?? 0
+        default:
+            return 0
         }
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 200
@@ -153,24 +222,68 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
         cell.showsReorderControl = true
-        if let task = uncompletedTasks?[indexPath.section]{
-            var color : UIColor = .link
-            switch task.priority {
-            case 1:
-                color = .link
-            case 2:
-                color = .green
-            case 3:
-                color = .red
-            case 4:
-                color = .blue
-            case 5:
-                color = .orange
-            default:
-                color = .link
+        switch state {
+        case "total":
+            if let task = requestedTasks?[indexPath.section]{
+                var color : UIColor = .link
+                switch task.priority {
+                case 1:
+                    color = .link
+                case 2:
+                    color = .green
+                case 3:
+                    color = .red
+                case 4:
+                    color = .blue
+                case 5:
+                    color = .orange
+                default:
+                    color = .link
+                }
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
             }
-            cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+        case "finished":
+            if let task = completedTasks?[indexPath.section]{
+                var color : UIColor = .link
+                switch task.priority {
+                case 1:
+                    color = .link
+                case 2:
+                    color = .green
+                case 3:
+                    color = .red
+                case 4:
+                    color = .blue
+                case 5:
+                    color = .orange
+                default:
+                    color = .link
+                }
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+            }
+        case "unfinished":
+            if let task = uncompletedTasks?[indexPath.section]{
+                var color : UIColor = .link
+                switch task.priority {
+                case 1:
+                    color = .link
+                case 2:
+                    color = .green
+                case 3:
+                    color = .red
+                case 4:
+                    color = .blue
+                case 5:
+                    color = .orange
+                default:
+                    color = .link
+                }
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+            }
+        default :
+            break
         }
+        
         cell.selectionStyle = .none
         return cell
     }
@@ -182,15 +295,15 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView()
-            headerView.backgroundColor = UIColor.clear
-            return headerView
-        }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Edit", bundle:nil)
         let editViewController = storyBoard.instantiateViewController(withIdentifier: "Edit") as! EditViewController
-
+        
         if let task = uncompletedTasks?[indexPath.section]{
             editViewController.task = task
             navigationController?.present(editViewController, animated: true)
@@ -201,8 +314,8 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         do {
             try Auth.auth().signOut()
             navigationController?.popToRootViewController(animated: true)
-            } catch let err {
-                print(err)
+        } catch let err {
+            print(err)
         }
     }
     
@@ -215,11 +328,29 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var numbers = NumberOfTasks(totalTasks: total , uncompleted: uncompleted)
                 settingsViewController.numbers = numbers
                 navigationController?.present(settingsViewController, animated: true)
-                }
             }
+        }
     }
     
+    
+    @objc func selectTypeOfTask(sender: UISegmentedControl) {
+        switch picker.selectedSegmentIndex
+        {
+        case 0:
+            state = "total"
+            refresh(self)
+        case 1:
+            state = "finished"
+            refresh(self)
+        case 2:
+            state = "unfinished"
+            refresh(self)
+        default:
+            break;
+        }
+    }
 }
+    
 
 struct NumberOfTasks {
     var totalTasks : Int? = 0

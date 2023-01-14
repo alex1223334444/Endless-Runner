@@ -28,6 +28,30 @@ router.get('/:uid', (req, res) => {
     })
 })
 
+router.get('/:uid/completed', (req, res) => {
+    Task.find({
+        uid : req.params.uid, finished : true
+    })
+    .then((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+router.get('/:uid/uncompleted', (req, res) => {
+    Task.find({
+        uid : req.params.uid, finished : false
+    })
+    .then((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
 router.put('/', bodyParser.json(), function(req, res) {
     const updatedTask = req.body;
     const taskId = req.body.taskId

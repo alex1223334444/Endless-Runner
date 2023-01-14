@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ata-2v-1yZ">
-                                <rect key="frame" x="10" y="78" width="394" height="634"/>
+                                <rect key="frame" x="10" y="119" width="394" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="task" id="4pT-wW-W2Y" customClass="TaskCell" customModule="ToBeDone" customModuleProvider="target">
@@ -116,6 +116,14 @@
                                     <constraint firstItem="KfS-KW-d86" firstAttribute="centerX" secondItem="Lej-6H-fqo" secondAttribute="centerX" id="qM3-aN-mei"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dtI-AY-bMU">
+                                <rect key="frame" x="21.5" y="68" width="371" height="32"/>
+                                <segments>
+                                    <segment title="All tasks"/>
+                                    <segment title="Completed tasks"/>
+                                    <segment title="Active tasks"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -125,14 +133,17 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Lej-6H-fqo" secondAttribute="bottom" id="KKO-Pk-qTr"/>
                             <constraint firstItem="Lej-6H-fqo" firstAttribute="top" secondItem="ata-2v-1yZ" secondAttribute="bottom" id="SKn-ya-pPv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Lej-6H-fqo" secondAttribute="trailing" constant="10" id="SMj-24-F0M"/>
+                            <constraint firstItem="dtI-AY-bMU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="SbJ-p8-bF3"/>
                             <constraint firstItem="Lej-6H-fqo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="VPl-FZ-wA7"/>
                             <constraint firstItem="ata-2v-1yZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="gO2-oM-MMq"/>
-                            <constraint firstItem="ata-2v-1yZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="k3M-yL-KEd"/>
+                            <constraint firstItem="dtI-AY-bMU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="q6G-fE-bXY"/>
+                            <constraint firstItem="ata-2v-1yZ" firstAttribute="top" secondItem="dtI-AY-bMU" secondAttribute="bottom" constant="20" id="qD9-0T-92W"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="listButton" destination="dXA-oF-pBi" id="unG-Ms-Ony"/>
                         <outlet property="logout" destination="KfS-KW-d86" id="Fvw-ey-uF5"/>
+                        <outlet property="picker" destination="dtI-AY-bMU" id="C2D-ZA-llW"/>
                         <outlet property="plusButton" destination="Ex1-dy-87z" id="CgT-NZ-jDa"/>
                         <outlet property="tableView" destination="ata-2v-1yZ" id="bXv-Xt-FcP"/>
                         <segue destination="Oaf-k9-xeB" kind="presentation" identifier="edit" id="5kd-Hf-kxQ"/>
@@ -141,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="66"/>
+            <point key="canvasLocation" x="50.724637681159422" y="65.625"/>
         </scene>
         <!--AddTask-->
         <scene sceneID="ErC-ns-XqK">
