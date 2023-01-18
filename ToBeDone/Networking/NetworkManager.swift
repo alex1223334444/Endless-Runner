@@ -26,7 +26,6 @@ func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void)
             return
         }
         
-        // Check the HTTP status code and response data
         if let httpResponse = response as? HTTPURLResponse {
             print(httpResponse.statusCode)
             if let data = data {
