@@ -49,7 +49,7 @@ class Task: UIView {
         return label
     }()
     
-    private lazy var checkbox: UIButton = {
+    lazy var checkbox: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
         button.layer.borderColor = color.cgColor
@@ -86,7 +86,6 @@ class Task: UIView {
     }
     
     @objc private func pressCompleteButton () {
-        checkbox.tintColor = .green
         buttonDelegate?.pressComplete(checkbox)
     }
     

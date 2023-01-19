@@ -10,10 +10,19 @@ import UIKit
 class TaskCell: UITableViewCell {
 
     @IBOutlet weak var task: Task!
-    func configureTaskCell(_ requestedTask: TaskModel, tag: Int = 0, color: UIColor, delegate : CompletableTaskDelegate){
+    var tick : UIImage = UIImage(named: "tick")!
+
+    func configureTaskCell(_ requestedTask: TaskModel, tag: Int = 0, color: UIColor, finished : Bool, delegate : CompletableTaskDelegate){
         task.layer.cornerRadius = 10
         task.configureTask(with: requestedTask, color: color, delegate: delegate, tag : tag)
         self.tag = tag
         self.tintColor = color
+        if finished == true{
+            print("Penis")
+            self.task.checkbox.setImage(tick, for: .normal)
+        }
+        else {
+            self.task.checkbox.setImage(nil, for: .normal)
+        }
       }
 }

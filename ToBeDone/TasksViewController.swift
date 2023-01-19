@@ -239,7 +239,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 default:
                     color = .link
                 }
-                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, finished: task.finished!, delegate: self)
             }
         case "finished":
             if let task = completedTasks?[indexPath.section]{
@@ -258,7 +258,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 default:
                     color = .link
                 }
-                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, finished: true,delegate: self)
             }
         case "unfinished":
             if let task = uncompletedTasks?[indexPath.section]{
@@ -277,7 +277,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 default:
                     color = .link
                 }
-                cell.configureTaskCell(task, tag: indexPath.section, color: color, delegate: self)
+                cell.configureTaskCell(task, tag: indexPath.section, color: color, finished: false, delegate: self)
             }
         default :
             break
