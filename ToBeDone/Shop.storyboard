@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2XI-QN-22A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XtV-0G-SM5">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,7 +14,7 @@
         <!--Item 2-->
         <scene sceneID="8VD-3e-OOh">
             <objects>
-                <viewController id="XtV-0G-SM5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shop" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="XtV-0G-SM5" customClass="ShopViewController" customModule="ToBeDone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ci-JM-bCw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +25,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGz-H9-Vy6">
                                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                        <imageReference key="backIndicatorImage" image="backward" catalog="system" symbolScale="large"/>
                                         <items>
                                             <navigationItem title="Shop" id="bTh-fi-zau"/>
                                         </items>
@@ -153,6 +155,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backward" catalog="system" width="128" height="77"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
