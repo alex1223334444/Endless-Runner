@@ -10,21 +10,23 @@ import FirebaseAuth
 
 class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CompletableTaskDelegate {
     func pressComplete( _ button: UIButton?) {
-        var completedTask = uncompletedTasks?[button?.tag ?? 0]
-        completedTask?.finished = true
-        if let task = completedTask{
-            updateTask(updatedTask: task) { data, response, error in
-                if let error = error {
-                    let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                    DispatchQueue.main.async {
-                        self.present(alert, animated: true, completion: nil)
+        if state == "unfinished" {
+            var completedTask = uncompletedTasks?[button?.tag ?? 0]
+            completedTask?.finished = true
+            if let task = completedTask{
+                updateTask(updatedTask: task) { data, response, error in
+                    if let error = error {
+                        let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        DispatchQueue.main.async {
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        return
                     }
-                    return
                 }
-            }
-            DispatchQueue.main.async {
-                self.refresh(self)
+                DispatchQueue.main.async {
+                    self.refresh(self)
+                }
             }
         }
     }
@@ -301,16 +303,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         let storyBoard : UIStoryboard = UIStoryboard(name: "Edit", bundle:nil)
         let editViewController = storyBoard.instantiateViewController(withIdentifier: "Edit") as! EditViewController
         switch state {
-        case "total":
-            if let task = requestedTasks?[indexPath.section]{
-                editViewController.task = task
-                navigationController?.present(editViewController, animated: true)
-            }
-        case "finished":
-            if let task = completedTasks?[indexPath.section]{
-                editViewController.task = task
-                navigationController?.present(editViewController, animated: true)
-            }
         case "unfinished":
             if let task = uncompletedTasks?[indexPath.section]{
                 editViewController.task = task
@@ -362,7 +354,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 }
-    
+
 
 struct NumberOfTasks {
     var totalTasks : Int? = 0
