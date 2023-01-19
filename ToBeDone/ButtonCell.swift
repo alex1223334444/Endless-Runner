@@ -18,5 +18,4 @@ class ButtonCell: UITableViewCell {
         button.button.isEnabled = enabled
     }
     
-    
 }
