@@ -130,7 +130,6 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
             }
             
             
-            
         }
         let formatter3 = DateFormatter()
         formatter3.dateFormat = "HH:mm E, d MMM y"
