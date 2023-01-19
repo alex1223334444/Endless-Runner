@@ -40,8 +40,9 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var picker: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listButton: UIButton!
-    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var logout: UIButton!
+    @IBOutlet weak var shop: UIButton!
     private var requestedTasks : [TaskModel]? = []
     private var uncompletedTasks : [TaskModel]? = []
     private var completedTasks : [TaskModel]? = []
@@ -61,20 +62,43 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         listButton.clipsToBounds = true
         listButton.layer.borderWidth = 1
         listButton.layer.borderColor = UIColor.link.cgColor
-        plusButton.layer.cornerRadius = 0.5 * plusButton.bounds.size.width
-        plusButton.clipsToBounds = true
-        plusButton.layer.borderWidth = 1
-        plusButton.layer.borderColor = UIColor.link.cgColor
         logout.layer.cornerRadius = 0.5 * logout.bounds.size.width
         logout.clipsToBounds = true
         logout.layer.borderWidth = 1
         logout.layer.borderColor = UIColor.link.cgColor
         logout.tintColor = UIColor.link
+        shop.layer.cornerRadius = 0.5 * logout.bounds.size.width
+        shop.clipsToBounds = true
+        shop.layer.borderWidth = 1
+        shop.layer.borderColor = UIColor.link.cgColor
+        shop.tintColor = UIColor.link
+        shop.addTarget(self, action: #selector(self.goToShop), for: .touchUpInside)
         self.navigationItem.hidesBackButton = true
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         picker.addTarget(self, action: #selector(self.selectTypeOfTask(sender:)), for:.valueChanged)
         tableView.addSubview(refreshControl)
+        createFloatingButton()
+    }
+    
+    private func createFloatingButton() {
+        let floatingButton = UIButton()
+        floatingButton.setTitle("+", for: .normal)
+        floatingButton.backgroundColor = .blue
+        
+        floatingButton.layer.cornerRadius = 25
+        
+        view.addSubview(floatingButton)
+        floatingButton.translatesAutoresizingMaskIntoConstraints = false
+        floatingButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        floatingButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        floatingButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        floatingButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
+
+        floatingButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -100).isActive = true
+        
+        floatingButton.addTarget(self, action: #selector(addTask), for: .touchUpInside)
     }
     
     func updateViewController() {
@@ -334,6 +358,18 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                 navigationController?.present(settingsViewController, animated: true)
             }
         }
+    }
+    
+    @IBAction func addTask(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "AddTask", bundle:nil)
+        let addViewController = storyBoard.instantiateViewController(withIdentifier: "addtask") as! AddTaskViewController
+        navigationController?.present(addViewController, animated: true)
+    }
+    
+    @IBAction func goToShop(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Shop", bundle:nil)
+        let shopViewController = storyBoard.instantiateViewController(withIdentifier: "shop") as! ShopViewController
+        self.present(shopViewController, animated: true, completion: nil)
     }
     
     

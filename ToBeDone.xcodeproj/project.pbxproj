@@ -44,6 +44,8 @@
 		9A3EFDA42966EC7D00160C35 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */; };
 		9AB1F39129663044009F06BC /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1F39029663044009F06BC /* Edit.storyboard */; };
 		9AB1F39329663120009F06BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1F39229663120009F06BC /* EditViewController.swift */; };
+		9ACB3AD82979B28A009E6D87 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB3AD72979B28A009E6D87 /* Shop.storyboard */; };
+		9ACB3ADA2979B2B0009E6D87 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB3AD92979B2B0009E6D87 /* ShopViewController.swift */; };
 		9ACEB78F296E313A00D98C66 /* Settings_TBL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACEB78E296E313A00D98C66 /* Settings_TBL.storyboard */; };
 		9ACEB791296E316200D98C66 /* SettingsTBLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACEB790296E316200D98C66 /* SettingsTBLViewController.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +108,8 @@
 		9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9AB1F39029663044009F06BC /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		9AB1F39229663120009F06BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		9ACB3AD72979B28A009E6D87 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		9ACB3AD92979B2B0009E6D87 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		9ACEB78E296E313A00D98C66 /* Settings_TBL.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings_TBL.storyboard; sourceTree = "<group>"; };
 		9ACEB790296E316200D98C66 /* SettingsTBLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTBLViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +197,8 @@
 				9AB1F39029663044009F06BC /* Edit.storyboard */,
 				9A3EFDA12966EC6700160C35 /* Profile.storyboard */,
 				9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */,
+				9ACB3AD72979B28A009E6D87 /* Shop.storyboard */,
+				9ACB3AD92979B2B0009E6D87 /* ShopViewController.swift */,
 			);
 			path = ToBeDone;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				9ACEB78F296E313A00D98C66 /* Settings_TBL.storyboard in Resources */,
 				83EA6F6C2958801800BF30B2 /* AddTask.storyboard in Resources */,
 				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
+				9ACB3AD82979B28A009E6D87 /* Shop.storyboard in Resources */,
 				834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +397,7 @@
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
 				83E39B7A295A40400078F50E /* UserModel.swift in Sources */,
 				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
+				9ACB3ADA2979B2B0009E6D87 /* ShopViewController.swift in Sources */,
 				8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,
 				9AB1F39329663120009F06BC /* EditViewController.swift in Sources */,
