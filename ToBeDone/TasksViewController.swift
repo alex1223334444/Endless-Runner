@@ -48,7 +48,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var uid = ""
     let refreshControl = UIRefreshControl()
     private var state = "finished"
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
