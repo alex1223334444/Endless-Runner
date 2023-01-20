@@ -72,7 +72,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         shop.layer.borderWidth = 1
         shop.layer.borderColor = UIColor.link.cgColor
         shop.tintColor = UIColor.link
-        shop.addTarget(self, action: #selector(self.goToShop), for: .touchUpInside)
         self.navigationItem.hidesBackButton = true
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -365,13 +364,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         let addViewController = storyBoard.instantiateViewController(withIdentifier: "addtask") as! AddTaskViewController
         navigationController?.present(addViewController, animated: true)
     }
-    
-    @IBAction func goToShop(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Shop", bundle:nil)
-        let shopViewController = storyBoard.instantiateViewController(withIdentifier: "shop") as! ShopViewController
-        self.present(shopViewController, animated: true, completion: nil)
-    }
-    
     
     @objc func selectTypeOfTask(sender: UISegmentedControl) {
         switch picker.selectedSegmentIndex
