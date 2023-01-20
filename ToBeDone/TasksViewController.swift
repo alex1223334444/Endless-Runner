@@ -10,10 +10,47 @@ import FirebaseAuth
 
 class TasksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CompletableTaskDelegate {
     func pressComplete( _ button: UIButton?) {
+        
         if state == "unfinished" {
             var completedTask = uncompletedTasks?[button?.tag ?? 0]
             completedTask?.finished = true
+            getUser(id: uid) { result in
+                switch result {
+                case .success(let user):
+                    self.user = user[0]
+                    print("aici e userul")
+                    print(self.user)
+                    if let total = self.user?.totalTasks{
+                        self.total = total
+                    }
+                    print(self.total)
+                    print("gata user")
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }
             if let task = completedTask{
+                self.user?.doneTasks! += 1
+                self.user?.coins! += 10
+                self.user?.totalTasks = total
+                print("new user")
+                print(self.user)
+                print("")
+                if let newUser = self.user {
+                    updateUser(updatedUser: newUser) { data, response, error in
+                        if let error = error {
+                            let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            DispatchQueue.main.async {
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            return
+                        }
+                        
+                    }
+                }
                 updateTask(updatedTask: task) { data, response, error in
                     if let error = error {
                         let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
@@ -23,9 +60,20 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
                         }
                         return
                     }
-                }
-                DispatchQueue.main.async {
-                    self.refresh(self)
+                    
+                    updateTask(updatedTask: task) { data, response, error in
+                        if let error = error {
+                            let alert = UIAlertController(title: "Error at completing task. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            DispatchQueue.main.async {
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            return
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.refresh(self)
+                    }
                 }
             }
         }
@@ -46,9 +94,11 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var requestedTasks : [TaskModel]? = []
     private var uncompletedTasks : [TaskModel]? = []
     private var completedTasks : [TaskModel]? = []
+    private var user : User? = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0)
     private var uid = ""
     let refreshControl = UIRefreshControl()
     private var state = "finished"
+    private var total = 0
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,6 +216,20 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             //
         }
+        getUser(id: uid) { result in
+            switch result {
+            case .success(let user):
+                self.user = user[0]
+                print("aici e userul")
+                print(self.user)
+                print("gata user")
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+        
         switch state {
         case "total":
             getTasks(id: uid) { result in

@@ -30,13 +30,14 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
     @IBOutlet weak var AlarmBtn: UISwitch!
     @IBOutlet weak var CalendarPkr: UIDatePicker!
     weak var viewController: TasksViewController?
-
+    
     private var date : Date?
     private var priority : Int?
     private var tracked : Bool? = false
     private var uid : String?
     private var taskTitle : String?
     private var taskDescription : String?
+    private var user : User? = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0)
     @IBAction func Tracked(_ sender: Any) {
         if TrackedBtn.isOn {
             CalendarPkr.isHidden.toggle()
@@ -89,7 +90,7 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         TaskDescription.configureTextField(with: "Description", tag:1, delegate: self)
         //CalendarPkr.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         self.hideKeyboardWhenTappedAround()
-
+        
     }
     
     /*@objc func dateChanged(_ sender: UIDatePicker) {
@@ -100,13 +101,25 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
      }*/
     
     override func viewWillAppear(_ animated: Bool) {
-       
+        
         if let user = Auth.auth().currentUser {
-          let id = user.uid
-          uid = id
-          print(id)
+            let id = user.uid
+            uid = id
+            print(id)
+            getUser(id: uid ?? " " ) { result in
+                switch result {
+                case .success(let user):
+                    print("aici")
+                    self.user = user[0]
+                    break
+                case .failure(let error):
+                    print("aici eroare")
+                    print(error)
+                    break
+                }
+            }
         } else {
-          //
+            //
         }
         
     }
@@ -139,18 +152,44 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         }
         let uuid = UUID().uuidString
         let myTask : TaskModel = TaskModel(title: taskTitle, description: taskDescription, priority: priority, time: time, tracked: tracked, finished: false, uid: uid, taskId: uuid)
-            print(myTask)
-            createTask(task: myTask ) { result in
-                switch result {
-                case .success(_):
-                    print(result)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-            viewController?.updateViewController()
-            print("submit")
-            self.dismiss(animated: true)
-        }
         
+        
+        createTask(task: myTask ) { result in
+            switch result {
+            case .success(_):
+                print(result)
+                
+                print("user")
+                print(self.user)
+                self.user?.totalTasks! += 1
+                print("new user")
+                print(self.user)
+                print("")
+                if let user = self.user {
+                    updateUser(updatedUser: user) { data, response, error in
+                        if let error = error {
+                            let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            DispatchQueue.main.async {
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            return
+                        }
+                        
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        viewController?.updateViewController()
+        print("submit")
+        self.dismiss(animated: true)
+    }
+    
 }
+
+
+
+

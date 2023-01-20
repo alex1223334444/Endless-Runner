@@ -7,9 +7,17 @@
 
 import UIKit
 
-struct User: Codable {
-  var username: String?
-  var lastName: String?
-  var uid: String?
-  var firstName: String?
+struct User: Codable, Equatable {
+    var username: String?
+    var lastName: String?
+    var uid: String?
+    var firstName: String?
+    var totalTasks : Int?
+    var doneTasks : Int?
+    var coins : Int?
+    
+    
+    func toDictionary() -> [String: Any] {
+        return ["username": username, "lastName": lastName, "uid": uid, "firstName" : firstName, "totalTasks": totalTasks, "doneTasks": doneTasks, "coins": coins]
+        }
 }

@@ -23,7 +23,7 @@ class ShopViewController: UIViewController {
     private func fillData() {
         let cell1 = ShopData(pic: "tick", name: "pula", price: 69)
         list.append(cell1)
-        let cell2 = ShopData(pic: "tick", name: "pula", price: 69)
+        let cell2 = ShopData(pic: "square.and.arrow.up", name: "pula", price: 69)
         list.append(cell2)
         let cell3 = ShopData(pic: "tick", name: "pula", price: 69)
         list.append(cell3)
@@ -34,7 +34,7 @@ class ShopViewController: UIViewController {
     
 
     /*
-    // MARK: - Navigation
+    // MARK: - Navigationsquare.and.arrow.up
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

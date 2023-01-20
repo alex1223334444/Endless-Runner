@@ -52,6 +52,30 @@ func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void)
 }
 
 
+func getUser(id: String, completion: @escaping (Result<[User], Error>) -> Void) {
+    
+    guard let url = URL(string: "http://localhost:3000/users/user/\(id)") else { return }
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        if let error = error {
+            completion(.failure(error))
+            return
+        }
+        
+        guard let data = data, let user = try? JSONDecoder().decode([User].self, from: data) else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid data"])
+            completion(.failure(error))
+            return
+        }
+        completion(.success(user))
+    }
+    task.resume()
+    
+}
+
 func getTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
     
     guard let url = URL(string: "http://localhost:3000/tasks/\(id)") else { return }
@@ -171,6 +195,17 @@ func updateTask(updatedTask: TaskModel, completion: @escaping (Data?, URLRespons
     request.httpMethod = "PUT"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpBody = try! JSONSerialization.data(withJSONObject: updatedTask.toDictionary(), options: [])
+
+    let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+    task.resume()
+}
+
+func updateUser(updatedUser: User, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+    let url = URL(string: "http://localhost:3000/users/")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "PUT"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = try! JSONSerialization.data(withJSONObject: updatedUser.toDictionary(), options: [])
 
     let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
     task.resume()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -13,6 +14,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var doneTasks: UIButton!
     @IBOutlet weak var unfinishedTasks: UIButton!
     var numbers : NumberOfTasks? = NumberOfTasks()
+    private var uid = ""
+    private var user = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0)
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
         .lightContent
     }
@@ -28,6 +32,28 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let user = Auth.auth().currentUser {
+            let id = user.uid
+            uid = id
+            print(id)
+        } else {
+            //
+        }
+        getUser(id: uid) { result in
+            switch result {
+            case .success(let user):
+                self.user = user[0]
+                print(self.user)
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+        
+    }
 
     /*
     // MARK: - Navigation
