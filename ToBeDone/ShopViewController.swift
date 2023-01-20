@@ -10,7 +10,11 @@ import UIKit
 class ShopViewController: UIViewController {
     
     var list = [ShopData]()
+    var theme = 0
     
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var colView: UICollectionView!
+    @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,15 +25,44 @@ class ShopViewController: UIViewController {
     }
     
     private func fillData() {
-        let cell1 = ShopData(pic: "tick", name: "pula", price: 69)
+        let cell1 = ShopData(pic: "", name: "No Background", price: 0)
         list.append(cell1)
-        let cell2 = ShopData(pic: "square.and.arrow.up", name: "pula", price: 69)
+        let cell2 = ShopData(pic: "", name: "Black Theme", price: 0)
         list.append(cell2)
-        let cell3 = ShopData(pic: "tick", name: "pula", price: 69)
-        list.append(cell3)
-        let cell4 = ShopData(pic: "tick", name: "pula", price: 69)
-        list.append(cell4)
         self.backCollectionView.reloadData()
+    }
+    
+    @IBOutlet weak var screenView: UIView!
+    
+    private func toggleTheme()
+    {
+        print(theme)
+        if (theme == 0)
+        {
+            navBar.backgroundColor = .white
+//            navBar.color
+            
+//            logo.backgroundColor = .black
+//            view.backgroundColor = .black
+//            screenView.backgroundColor = UIColor(hex: "#1c1c20FF")
+////            screenView.backgroundColor = .gray
+//            loginButton.backgroundColor = .gray
+//            loginButton.setTitleColor(.white, for: .normal)
+//            registerButton.backgroundColor = .gray
+//            registerButton.setTitleColor(.white, for: .normal)
+        }
+        else
+        {
+            navBar.backgroundColor = .black
+            tabBar.badgeColor = .black
+            view.backgroundColor = .black
+            screenView.tintColor = .black
+//            logo.backgroundColor = .systemBlue
+//            view.backgroundColor = .systemBlue
+//            screenView.backgroundColor = .systemBackground
+//            loginButton.backgroundColor = .systemBlue
+//            registerButton.backgroundColor = .systemGray3
+        }
     }
     
 
@@ -57,11 +90,23 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         cell.label?.text = list[indexPath.row].name
         cell.price?.text = String(list[indexPath.row].price)
         
+        
         return cell;
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("You selected item haha")
+        if (indexPath.row == 0)
+        {
+            theme = 0
+            toggleTheme()
+            print("White Theme")
+        }
+        else if (indexPath.row == 1)
+        {
+            theme = 1
+            toggleTheme()
+            print("Black Theme")
+        }
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

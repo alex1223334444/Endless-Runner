@@ -121,6 +121,10 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="backCollectionView" destination="8vd-H5-o8x" id="1Cz-ig-yKe"/>
+                        <outlet property="colView" destination="8vd-H5-o8x" id="L81-4s-tDu"/>
+                        <outlet property="navBar" destination="vGz-H9-Vy6" id="bxh-hQ-R5m"/>
+                        <outlet property="screenView" destination="5EZ-qb-Rvc" id="fi8-IP-Cul"/>
+                        <outlet property="tabBar" destination="DRR-qN-BaV" id="tu0-OU-yl3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOW-WW-Ui5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
