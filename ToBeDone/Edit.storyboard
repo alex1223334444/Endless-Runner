@@ -32,7 +32,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVT-Qk-zTq">
-                                <rect key="frame" x="96.666666666666686" y="637.33333333333337" width="200" height="34.333333333333371"/>
+                                <rect key="frame" x="96.666666666666686" y="627.33333333333337" width="200" height="34.333333333333371"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="6zA-86-qJz"/>
@@ -43,14 +43,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="editTask:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pfx-be-1nW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caa-C8-ZTv">
-                                <rect key="frame" x="280" y="74" width="93" height="35"/>
-                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                <connections>
-                                    <action selector="Cancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iVV-W5-Kux"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy0-hQ-oXv">
@@ -107,9 +99,8 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-Rl-qb7">
                                 <rect key="frame" x="314" y="562.33333333333337" width="51" height="31"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-ZA-xb6">
-                                <rect key="frame" x="134" y="686" width="126" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-ZA-xb6">
+                                <rect key="frame" x="237" y="109" width="126" height="35"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete task">
                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
@@ -123,21 +114,21 @@
                         <constraints>
                             <constraint firstItem="Aep-XR-c3j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="0T3-Je-e59"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qQX-Rl-qb7" secondAttribute="trailing" constant="30" id="5sf-kV-QQo"/>
+                            <constraint firstItem="rgj-ZA-xb6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="BZS-ds-hca"/>
                             <constraint firstItem="5mE-dt-c2m" firstAttribute="top" secondItem="Aep-XR-c3j" secondAttribute="bottom" constant="30" id="DUi-fx-mgF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hiz-qs-en5" secondAttribute="trailing" constant="30" id="I7e-sq-jYF"/>
                             <constraint firstItem="DSQ-S6-fnt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="JU4-f4-FEr"/>
-                            <constraint firstItem="nVT-Qk-zTq" firstAttribute="top" secondItem="Aep-XR-c3j" secondAttribute="bottom" constant="100" id="KAS-Zs-3TI"/>
+                            <constraint firstItem="nVT-Qk-zTq" firstAttribute="top" secondItem="Aep-XR-c3j" secondAttribute="bottom" constant="90" id="KAS-Zs-3TI"/>
                             <constraint firstItem="Hy0-hQ-oXv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="LVL-yk-YTn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tt5-t1-x8t" secondAttribute="trailing" constant="30" id="MTP-gs-tjs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rgj-ZA-xb6" secondAttribute="trailing" constant="30" id="MwF-Fx-3qL"/>
                             <constraint firstItem="qQX-Rl-qb7" firstAttribute="top" secondItem="Aep-XR-c3j" secondAttribute="bottom" constant="25" id="Nnt-5Y-8eu"/>
                             <constraint firstItem="JsH-8C-kWX" firstAttribute="top" secondItem="as3-Ba-il1" secondAttribute="bottom" constant="30" id="Svq-SD-VD2"/>
-                            <constraint firstItem="caa-C8-ZTv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="Vdy-gg-aMr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KO5-ty-wa5" secondAttribute="trailing" constant="30" id="c7U-Ds-gPn"/>
                             <constraint firstItem="hiz-qs-en5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="d3O-IL-keZ"/>
                             <constraint firstItem="nVT-Qk-zTq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dXx-F9-6y5"/>
                             <constraint firstItem="DSQ-S6-fnt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="eaU-dE-MZ2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="as3-Ba-il1" secondAttribute="trailing" constant="30" id="eqs-9W-gaU"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="caa-C8-ZTv" secondAttribute="trailing" constant="20" id="g2i-dj-f8w"/>
                             <constraint firstItem="5mE-dt-c2m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="h3S-kb-jNq"/>
                             <constraint firstItem="Hy0-hQ-oXv" firstAttribute="top" secondItem="hiz-qs-en5" secondAttribute="bottom" constant="14" id="jKm-WB-BIc"/>
                             <constraint firstItem="as3-Ba-il1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="k1b-HO-p6l"/>
@@ -171,9 +162,6 @@
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

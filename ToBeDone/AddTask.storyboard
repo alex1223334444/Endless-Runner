@@ -26,7 +26,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v13-sw-EkQ">
-                                <rect key="frame" x="96.666666666666686" y="644.33333333333337" width="200" height="40"/>
+                                <rect key="frame" x="96.666666666666686" y="634.33333333333337" width="200" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="pEP-xD-JdH"/>
@@ -110,7 +110,7 @@
                         <constraints>
                             <constraint firstItem="lEO-tu-LSj" firstAttribute="top" secondItem="Axy-hJ-dLV" secondAttribute="bottom" constant="59" id="3Hs-qv-KiN"/>
                             <constraint firstItem="WRo-qb-byd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="9Gd-Vz-KOa"/>
-                            <constraint firstItem="v13-sw-EkQ" firstAttribute="top" secondItem="FCX-tF-Zet" secondAttribute="bottom" constant="100" id="BKK-3B-9GH"/>
+                            <constraint firstItem="v13-sw-EkQ" firstAttribute="top" secondItem="FCX-tF-Zet" secondAttribute="bottom" constant="90" id="BKK-3B-9GH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FCX-tF-Zet" secondAttribute="trailing" constant="85" id="ImM-0g-I4M"/>
                             <constraint firstItem="lEO-tu-LSj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="JAZ-BP-oPj"/>
                             <constraint firstItem="FCX-tF-Zet" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="85" id="JHh-ht-CKi"/>

@@ -15,7 +15,9 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
         print(user)
         Auth.auth().createUser(withEmail: user.username, password: user.password) { [self] (authResult, error) in
           if let error = error {
-            print(error.localizedDescription)
+              let alert = UIAlertController(title: "Error on register", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+              alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+              self.present(alert, animated: true, completion: nil)
           } else {
               if let firebaseUser = authResult?.user{
                   let uid = firebaseUser.uid
@@ -25,6 +27,15 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
                       switch result {
                       case .success(_):
                           print("success")
+                          do {
+                            try Auth.auth().signOut()
+                              print("user signed out")
+                          } catch let error {
+                            print(error.localizedDescription)
+                          }
+                          DispatchQueue.main.async {
+                              performSegue(withIdentifier: "tasks", sender: nil)
+                          }
                       case .failure(let error):
                           print(error)
                       }
@@ -33,13 +44,7 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
               
           }
         }
-        do {
-          try Auth.auth().signOut()
-            print("user signed out")
-        } catch let error {
-          print(error.localizedDescription)
-        }
-        performSegue(withIdentifier: "tasks", sender: nil)
+        
     }
     
     @IBOutlet weak var tableView: UITableView!
