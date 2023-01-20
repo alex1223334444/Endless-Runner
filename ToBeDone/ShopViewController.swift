@@ -27,8 +27,10 @@ class ShopViewController: UIViewController {
     private func fillData() {
         let cell1 = ShopData(pic: "", name: "No Background", price: 0)
         list.append(cell1)
-        let cell2 = ShopData(pic: "", name: "Black Theme", price: 0)
+        let cell2 = ShopData(pic: "", name: "Red Theme", price: 0)
         list.append(cell2)
+        let cell3 = ShopData(pic: "", name: "Blue Theme", price: 0)
+        list.append(cell3)
         self.backCollectionView.reloadData()
     }
     
@@ -36,10 +38,11 @@ class ShopViewController: UIViewController {
     
     private func toggleTheme()
     {
-        print(theme)
         if (theme == 0)
         {
             navBar.backgroundColor = .white
+            self.backCollectionView.backgroundColor = UIColor.clear
+            self.backCollectionView.reloadData()
 //            navBar.color
             
 //            logo.backgroundColor = .black
@@ -51,12 +54,28 @@ class ShopViewController: UIViewController {
 //            registerButton.backgroundColor = .gray
 //            registerButton.setTitleColor(.white, for: .normal)
         }
+        else if theme == 2
+        {
+            //navBar.backgroundColor = .white
+            tabBar.badgeColor = .white
+            //screenView.tintColor = .black
+            self.backCollectionView.backgroundColor = UIColor.red
+            self.backCollectionView.reloadData()
+            tabBar
+//            logo.backgroundColor = .systemBlue
+//            view.backgroundColor = .systemBlue
+//            screenView.backgroundColor = .systemBackground
+//            loginButton.backgroundColor = .systemBlue
+//            registerButton.backgroundColor = .systemGray3
+        }
         else
         {
-            navBar.backgroundColor = .black
-            tabBar.badgeColor = .black
-            view.backgroundColor = .black
-            screenView.tintColor = .black
+            //navBar.backgroundColor = .white
+            tabBar.badgeColor = .white
+            //screenView.tintColor = .black
+            self.backCollectionView.backgroundColor = UIColor.blue
+            self.backCollectionView.reloadData()
+            tabBar
 //            logo.backgroundColor = .systemBlue
 //            view.backgroundColor = .systemBlue
 //            screenView.backgroundColor = .systemBackground
@@ -104,6 +123,12 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         else if (indexPath.row == 1)
         {
             theme = 1
+            toggleTheme()
+            print("Black Theme")
+        }
+        else if (indexPath.row == 2)
+        {
+            theme = 2
             toggleTheme()
             print("Black Theme")
         }
