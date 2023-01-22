@@ -8,6 +8,7 @@
 import UIKit
 import StoreKit
 import SwiftUI
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
     
@@ -35,16 +36,23 @@ class SettingsViewController: UIViewController {
     @IBAction func darkMode(_ sender: Any) {
         view.backgroundColor = .black
     }
-    @IBAction func logout(_ sender: Any) {
-         //navigationController?.popToRootViewController(animated: true)
-         performSegue(withIdentifier: "logout", sender: nil)
-     }
+    
      
     @IBAction func goToProfile(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle:nil)
         let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
         profileViewController.numbers = self.numbers
         self.present(profileViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let err {
+            print(err)
+        }
     }
 }
 

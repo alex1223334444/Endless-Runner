@@ -108,20 +108,20 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.clipsToBounds = true
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
+        /*listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
         listButton.clipsToBounds = true
         listButton.layer.borderWidth = 1
-        listButton.layer.borderColor = UIColor.link.cgColor
-        logout.layer.cornerRadius = 0.5 * logout.bounds.size.width
+        listButton.layer.borderColor = UIColor.link.cgColor*/
+        /*logout.layer.cornerRadius = 0.5 * logout.bounds.size.width
         logout.clipsToBounds = true
         logout.layer.borderWidth = 1
         logout.layer.borderColor = UIColor.link.cgColor
-        logout.tintColor = UIColor.link
-        shop.layer.cornerRadius = 0.5 * logout.bounds.size.width
+        logout.tintColor = UIColor.link*/
+        /*shop.layer.cornerRadius = 0.5 * logout.bounds.size.width
         shop.clipsToBounds = true
         shop.layer.borderWidth = 1
         shop.layer.borderColor = UIColor.link.cgColor
-        shop.tintColor = UIColor.link
+        shop.tintColor = UIColor.link*/
         self.navigationItem.hidesBackButton = true
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)

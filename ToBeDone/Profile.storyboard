@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Item-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="profile" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="ToBeDone" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,8 +103,9 @@
                             <constraint firstItem="v6F-aG-bLf" firstAttribute="top" secondItem="kNf-Lf-iyR" secondAttribute="bottom" constant="30" id="yha-sJ-hWb"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Tbx-Wt-8Ph"/>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatar" destination="JWr-wq-9Np" id="s7I-54-9ir"/>
                         <outlet property="doneTasks" destination="v6F-aG-bLf" id="FbQ-Sb-tmd"/>
