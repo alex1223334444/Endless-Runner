@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 extension UINavigationController {
    open override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -52,6 +53,18 @@ class MainViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "ListOfTasks", bundle:nil)
+        let tasksStoryboard = storyBoard.instantiateViewController(withIdentifier: "ListOfTasks") as! TasksViewController
+        tasksStoryboard.modalPresentationStyle = .fullScreen
+        
+        if Auth.auth().currentUser != nil {
+            self.present(tasksStoryboard, animated: true)
+        } else {
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

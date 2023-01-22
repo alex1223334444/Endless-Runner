@@ -17,11 +17,16 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
     
+    fileprivate func applyTheme() {
+        backCollectionView.backgroundColor = Theme.current.background
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.backCollectionView.delegate = self
         self.backCollectionView.dataSource = self
         fillData()
+        applyTheme()
     }
     
     private func fillData() {
@@ -38,7 +43,7 @@ class ShopViewController: UIViewController {
     
     private func toggleTheme()
     {
-        if (theme == 0)
+        /*if (theme == 0)
         {
             navBar.backgroundColor = .white
             self.backCollectionView.backgroundColor = UIColor.clear
@@ -81,7 +86,7 @@ class ShopViewController: UIViewController {
 //            screenView.backgroundColor = .systemBackground
 //            loginButton.backgroundColor = .systemBlue
 //            registerButton.backgroundColor = .systemGray3
-        }
+        }*/
     }
     
 
@@ -117,12 +122,14 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
         if (indexPath.row == 0)
         {
             theme = 0
+            Theme.current = LightTheme()
             toggleTheme()
             print("White Theme")
         }
         else if (indexPath.row == 1)
         {
             theme = 1
+            Theme.current = DarkTheme()
             toggleTheme()
             print("Black Theme")
         }
@@ -132,6 +139,7 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
             toggleTheme()
             print("Black Theme")
         }
+        applyTheme()
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

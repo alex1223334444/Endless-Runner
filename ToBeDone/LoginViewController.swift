@@ -40,7 +40,6 @@ class LoginViewController: UIViewController, TextFieldWithLabelDelegate {
     private var pass = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         mainView.layer.cornerRadius = 10
         email.configureTextField(with: "Email",tag: 0, delegate: self)
         password.configureTextField(with: "Password",secured: true, tag: 1, delegate: self)

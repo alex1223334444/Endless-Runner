@@ -130,6 +130,11 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         createFloatingButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tableView.backgroundColor = Theme.current.background
+    }
+    
     private func createFloatingButton() {
         let floatingButton = UIButton()
         floatingButton.setTitle("+", for: .normal)

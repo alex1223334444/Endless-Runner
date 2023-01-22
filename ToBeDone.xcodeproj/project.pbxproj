@@ -44,6 +44,11 @@
 		9A0507F4297A308B001B7AEA /* ShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0507F3297A308B001B7AEA /* ShopList.swift */; };
 		9A3EFDA22966EC6700160C35 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA12966EC6700160C35 /* Profile.storyboard */; };
 		9A3EFDA42966EC7D00160C35 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */; };
+		9A6303FF297DA7C90090A21A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6303FE297DA7C90090A21A /* Theme.swift */; };
+		9A630401297DA8620090A21A /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A630400297DA8620090A21A /* ThemeProtocol.swift */; };
+		9A630403297DA8E20090A21A /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A630402297DA8E20090A21A /* LightTheme.swift */; };
+		9A630405297DA8ED0090A21A /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A630404297DA8ED0090A21A /* DarkTheme.swift */; };
+		9A630408297DB3270090A21A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A630407297DB3270090A21A /* Colors.xcassets */; };
 		9AB1F39129663044009F06BC /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1F39029663044009F06BC /* Edit.storyboard */; };
 		9AB1F39329663120009F06BC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1F39229663120009F06BC /* EditViewController.swift */; };
 		9ACB3AD82979B28A009E6D87 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB3AD72979B28A009E6D87 /* Shop.storyboard */; };
@@ -110,6 +115,11 @@
 		9A0507F3297A308B001B7AEA /* ShopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopList.swift; sourceTree = "<group>"; };
 		9A3EFDA12966EC6700160C35 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		9A3EFDA32966EC7D00160C35 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9A6303FE297DA7C90090A21A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		9A630400297DA8620090A21A /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		9A630402297DA8E20090A21A /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		9A630404297DA8ED0090A21A /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		9A630407297DB3270090A21A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AB1F39029663044009F06BC /* Edit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
 		9AB1F39229663120009F06BC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		9ACB3AD72979B28A009E6D87 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 		83D76AAE28FEC250000CEBE2 /* ToBeDone */ = {
 			isa = PBXGroup;
 			children = (
+				9A6303FD297DA79A0090A21A /* Resources */,
 				83E39B76295A3FD80078F50E /* Networking */,
 				83C7181629253AF000CAC4C5 /* TaskCell.swift */,
 				83D76AAF28FEC250000CEBE2 /* AppDelegate.swift */,
@@ -234,6 +245,26 @@
 				839FF4B2295B4A820049924F /* TaskModel.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		9A6303FD297DA79A0090A21A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A630406297DB2D30090A21A /* Colors */,
+				9A6303FE297DA7C90090A21A /* Theme.swift */,
+				9A630400297DA8620090A21A /* ThemeProtocol.swift */,
+				9A630402297DA8E20090A21A /* LightTheme.swift */,
+				9A630404297DA8ED0090A21A /* DarkTheme.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9A630406297DB2D30090A21A /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				9A630407297DB3270090A21A /* Colors.xcassets */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +390,7 @@
 				83F7587529101C1C000C96DD /* Register.storyboard in Resources */,
 				9ACB3AD82979B28A009E6D87 /* Shop.storyboard in Resources */,
 				834A6224293E79DB00DFE84F /* Settings.storyboard in Resources */,
+				9A630408297DB3270090A21A /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,8 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6303FF297DA7C90090A21A /* Theme.swift in Sources */,
 				83E39B78295A400C0078F50E /* NetworkManager.swift in Sources */,
 				83D76AB428FEC250000CEBE2 /* ViewController.swift in Sources */,
+				9A630401297DA8620090A21A /* ThemeProtocol.swift in Sources */,
 				9A0507F2297A2B56001B7AEA /* ShopCollectionViewCell.swift in Sources */,
 				839FF4B3295B4A820049924F /* TaskModel.swift in Sources */,
 				83CE9A63291065E100B95815 /* TextFieldWithLabelCell.swift in Sources */,
@@ -405,6 +439,8 @@
 				83D76AB228FEC250000CEBE2 /* SceneDelegate.swift in Sources */,
 				83E39B7A295A40400078F50E /* UserModel.swift in Sources */,
 				83CC6359291327B700F7CA96 /* Button.swift in Sources */,
+				9A630403297DA8E20090A21A /* LightTheme.swift in Sources */,
+				9A630405297DA8ED0090A21A /* DarkTheme.swift in Sources */,
 				9ACB3ADA2979B2B0009E6D87 /* ShopViewController.swift in Sources */,
 				8329560329328A5F00C784C5 /* UIViewControllerExtension.swift in Sources */,
 				83C8234029088FA4000393B0 /* MainViewController.swift in Sources */,
