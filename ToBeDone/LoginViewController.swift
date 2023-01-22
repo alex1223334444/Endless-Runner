@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 class LoginViewController: UIViewController, TextFieldWithLabelDelegate {
     func changeText(_ textContent: UITextField?) {
@@ -61,5 +63,4 @@ class LoginViewController: UIViewController, TextFieldWithLabelDelegate {
             }
         }
     }
-    
 }

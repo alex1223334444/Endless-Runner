@@ -21,9 +21,8 @@ class Task: UIView {
     var buttonDelegate : CompletableTaskDelegate?
     private lazy var taskName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = .gray
-        label.text = "title"
         return label
     }()
     
@@ -102,10 +101,6 @@ class Task: UIView {
         
     }
     
-    
-    
-    
-    
     private func addConstraintsToSubviews() {
         self.layer.borderWidth = 2
         self.layer.borderColor = color.cgColor
@@ -127,7 +122,7 @@ class Task: UIView {
     private func layoutHour() {
         hour.translatesAutoresizingMaskIntoConstraints = false
         hour.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
-        hour.topAnchor.constraint(equalTo: descrition.topAnchor, constant: 50).isActive = true
+        hour.topAnchor.constraint(equalTo: descrition.topAnchor, constant: 20).isActive = true
     }
     
     private func layoutCheckbox() {
@@ -151,6 +146,6 @@ class Task: UIView {
     private func layoutDescription() {
         descrition.translatesAutoresizingMaskIntoConstraints = false
         descrition.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 75).isActive = true
-        descrition.topAnchor.constraint(equalTo: taskName.topAnchor, constant: 40).isActive = true
+        descrition.topAnchor.constraint(equalTo: taskName.topAnchor, constant: 25).isActive = true
     }
 }

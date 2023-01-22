@@ -297,22 +297,17 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         
         //self.showToast(message: "Task Created Successfully", seconds: 1.1)
         
-        let alert = UIAlertController(title: nil, message: "Task Created Successfully",
+        /*let alert = UIAlertController(title: nil, message: "Task Created Successfully",
           preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.black
         alert.view.alpha = 0.6
         alert.view.layer.cornerRadius = 15
         present(alert, animated: true)
         do{
-            print("tate")
             sleep(1)
-            print("cur")
             alert.dismiss(animated: true)
-            print("pizda")
-        }
-        print("pula")
+        }*/
         self.dismiss(animated: true)
-        print("penis")
         
     }
     

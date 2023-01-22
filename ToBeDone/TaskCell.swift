@@ -18,7 +18,6 @@ class TaskCell: UITableViewCell {
         self.tag = tag
         self.tintColor = color
         if finished == true{
-            print("Penis")
             self.task.checkbox.setImage(tick, for: .normal)
         }
         else {
