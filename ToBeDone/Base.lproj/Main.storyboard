@@ -120,6 +120,7 @@
                         <outlet property="logoImage" destination="DyS-K7-xPg" id="4lu-um-0dt"/>
                         <outlet property="registerButton" destination="mFP-7b-uUB" id="Ojg-gK-jdf"/>
                         <outlet property="screenView" destination="W5c-vW-N3e" id="TF5-qF-qBe"/>
+                        <segue destination="w11-t2-tJe" kind="show" identifier="listOfTasks" id="SAf-Tq-6wS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,6 +146,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CU0-oU-rX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="739" y="210"/>
+        </scene>
+        <!--ListOfTasks-->
+        <scene sceneID="OIg-yR-tut">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListOfTasks" id="w11-t2-tJe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="88D-B2-fyl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZj-Au-Z8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="413"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
