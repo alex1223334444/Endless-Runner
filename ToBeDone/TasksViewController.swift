@@ -97,7 +97,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var user : User? = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0)
     private var uid = ""
     let refreshControl = UIRefreshControl()
-    private var state = "finished"
+    private var state = "today"
     private var total = 0
      
     override func viewDidLoad() {
@@ -162,11 +162,12 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     @objc func refresh(_ sender: AnyObject) {
         refreshControl.beginRefreshing()
         switch state {
-        case "total":
+        case "today":
             getTasks(id: uid) { result in
                 switch result {
                 case .success(let tasks):
-                    self.requestedTasks = tasks
+                    //self.requestedTasks = tasks
+                    self.requestedTasks = self.getTodaysTasks(tasks: tasks)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -236,11 +237,12 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         switch state {
-        case "total":
+        case "today":
             getTasks(id: uid) { result in
                 switch result {
                 case .success(let tasks):
-                    self.requestedTasks = tasks
+                    //self.requestedTasks = tasks
+                    self.requestedTasks = self.getTodaysTasks(tasks: tasks)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -293,7 +295,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func numberOfSections(in tableView: UITableView) -> Int {
         switch state {
-        case "total":
+        case "today":
             return requestedTasks?.count ?? 0
         case "unfinished":
             return uncompletedTasks?.count ?? 0
@@ -314,7 +316,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         cell.showsReorderControl = true
         switch state {
-        case "total":
+        case "today":
             if let task = requestedTasks?[indexPath.section]{
                 var color : UIColor = .link
                 switch task.priority {
@@ -438,7 +440,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         switch picker.selectedSegmentIndex
         {
         case 0:
-            state = "total"
+            state = "today"
             refresh(self)
         case 1:
             state = "finished"
@@ -449,6 +451,29 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         default:
             break;
         }
+    }
+    
+    func getTodaysTasks(tasks : [TaskModel]?) -> [TaskModel]? {
+        var newTasks : [TaskModel]? = []
+        let today = Date()
+        let calendar = Calendar.current
+        let todayComponents = calendar.dateComponents([.year, .month, .day], from: today)
+        for i in 0..<(tasks?.count ?? 0){
+            if let task = tasks?[i]{
+                if task.time != " "{
+                    let dateString = task.time?.components(separatedBy: ", ")[1]
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd MMM yyyy"
+                    if let date = dateFormatter.date(from: dateString!) {
+                        let taskComponents = calendar.dateComponents([.year, .month, .day], from: date)
+                        if todayComponents == taskComponents {
+                            newTasks?.append(task)
+                        }
+                    }
+                }
+            }
+        }
+        return newTasks
     }
 }
 

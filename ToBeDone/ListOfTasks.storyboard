@@ -111,7 +111,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dtI-AY-bMU">
                                 <rect key="frame" x="21.5" y="68" width="371" height="32"/>
                                 <segments>
-                                    <segment title="All tasks"/>
+                                    <segment title="Today's tasks"/>
                                     <segment title="Completed tasks"/>
                                     <segment title="Active tasks"/>
                                 </segments>
@@ -141,16 +141,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="65.625"/>
-        </scene>
-        <!--Shop-->
-        <scene sceneID="0iF-mg-Uze">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Shop" id="cqc-iG-Q3n" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="CJn-7V-jsg"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f8a-67-c9Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="877" y="311"/>
         </scene>
         <!--Edit-->
         <scene sceneID="3Gn-em-xOk">
