@@ -102,7 +102,6 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
      
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.clipsToBounds = true
@@ -122,7 +121,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         shop.layer.borderWidth = 1
         shop.layer.borderColor = UIColor.link.cgColor
         shop.tintColor = UIColor.link*/
-        self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.hidesBackButton = true
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         picker.addTarget(self, action: #selector(self.selectTypeOfTask(sender:)), for:.valueChanged)

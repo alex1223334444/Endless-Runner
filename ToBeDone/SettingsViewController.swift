@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.tabBarController?.navigationItem.hidesBackButton = true
     }
     
     @IBAction func done(_ sender: Any) {

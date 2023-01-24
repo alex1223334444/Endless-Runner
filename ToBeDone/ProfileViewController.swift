@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.navigationItem.hidesBackButton = true
         avatar.layer.cornerRadius = avatar.frame.width/2
         avatar.layer.borderWidth = 2
         if let total = numbers?.totalTasks, let unfinished = numbers?.uncompleted{
