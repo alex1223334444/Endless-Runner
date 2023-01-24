@@ -22,7 +22,15 @@ router.post('/create', (req, res) => {
         uid: req.body.uid,
         totalTasks : req.body.total_tasks,
         doneTasks : req.body.done_tasks, 
-        coins : req.body.coins
+        coins : req.body.coins,
+        background1 : req.body.background1,
+        background2 : req.body.background2,
+        background3 : req.body.background3,
+        background4 : req.body.background4,
+        avatar1 : req.body.avatar1,
+        avatar2 : req.body.avatar2,
+        avatar3 : req.body.avatar3,
+        avatar4 : req.body.avatar4
       })
     console.log(user)
     console.log(req.body)

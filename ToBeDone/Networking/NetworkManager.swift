@@ -5,7 +5,7 @@
 //  Created by Udrea Alexandru-Iulian-Alberto on 26.12.2022.
 //
 import Foundation
-
+//
 func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void) {
     let encoder = JSONEncoder()
     encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -14,7 +14,7 @@ func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void)
         return
     }
     
-    guard let url = URL(string: "http://3.68.230.220/users/create") else { return }
+    guard let url = URL(string: "http://localhost:3000/users/create") else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.httpBody = data
@@ -54,7 +54,7 @@ func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void)
 
 func getUser(id: String, completion: @escaping (Result<[User], Error>) -> Void) {
     
-    guard let url = URL(string: "http://3.68.230.220:3000/users/user/\(id)") else { return }
+    guard let url = URL(string: "http://localhost:3000/users/user/\(id)") else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -78,7 +78,7 @@ func getUser(id: String, completion: @escaping (Result<[User], Error>) -> Void) 
 
 func getTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
     
-    guard let url = URL(string: "http://3.68.230.220:3000/tasks/\(id)") else { return }
+    guard let url = URL(string: "http://localhost:3000/tasks/\(id)") else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -102,7 +102,7 @@ func getTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> 
 
 func getFinishedTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
     
-    guard let url = URL(string: "http://3.68.230.220:3000/tasks/\(id)/completed") else { return }
+    guard let url = URL(string: "http://localhost:3000/tasks/\(id)/completed") else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -126,7 +126,7 @@ func getFinishedTasks(id: String, completion: @escaping (Result<[TaskModel], Err
 
 func getUnfinishedTasks(id: String, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
     
-    guard let url = URL(string: "http://3.68.230.220:3000/tasks/\(id)/uncompleted") else { return }
+    guard let url = URL(string: "http://localhost:3000/tasks/\(id)/uncompleted") else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -149,7 +149,7 @@ func getUnfinishedTasks(id: String, completion: @escaping (Result<[TaskModel], E
 }
 
 func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-    let url = URL(string: "http://3.68.230.220:3000/tasks/create/")!
+    let url = URL(string: "http://localhost:3000/tasks/create/")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -190,7 +190,7 @@ func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>
 }
 
 func updateTask(updatedTask: TaskModel, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-    let url = URL(string: "http://3.68.230.220:3000/tasks/")!
+    let url = URL(string: "http://localhost:3000/tasks/")!
     var request = URLRequest(url: url)
     request.httpMethod = "PUT"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -201,7 +201,7 @@ func updateTask(updatedTask: TaskModel, completion: @escaping (Data?, URLRespons
 }
 
 func updateUser(updatedUser: User, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-    let url = URL(string: "http://3.68.230.220:3000/users/")!
+    let url = URL(string: "http://localhost:3000/users/")!
     var request = URLRequest(url: url)
     request.httpMethod = "PUT"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -212,7 +212,7 @@ func updateUser(updatedUser: User, completion: @escaping (Data?, URLResponse?, E
 }
 
 func deleteATask(taskId: String, completion: @escaping (Bool) -> Void) {
-    let url = URL(string: "http://3.68.230.220:3000/tasks/delete/\(taskId)")!
+    let url = URL(string: "http://localhost:3000/tasks/delete/\(taskId)")!
     var request = URLRequest(url: url)
     request.httpMethod = "DELETE"
 

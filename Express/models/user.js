@@ -31,6 +31,38 @@ const userSchema = new Schema({
     coins : {
         type : Number, 
         required: true
+    },
+    background1 : {
+        type: Number,
+        required: true
+    },
+    background2 : {
+        type: Number,
+        required: true
+    },
+    background3 : {
+        type: Number,
+        required: true
+    },
+    background4 : {
+        type: Number,
+        required: true
+    },
+    avatar1 : {
+        type: Number,
+        required: true
+    },
+    avatar2 : {
+        type: Number,
+        required: true
+    },
+    avatar3 : {
+        type: Number,
+        required: true
+    },
+    avatar4 : {
+        type: Number,
+        required: true
     }
 }, {timestamps: true})
 

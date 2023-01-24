@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController, TextFieldWithLabelDelegate, Butt
           } else {
               if let firebaseUser = authResult?.user{
                   let uid = firebaseUser.uid
-                  let request : User = User(username: user.username, lastName: user.lastName, uid: uid, firstName: user.firstName, totalTasks: 0, doneTasks: 0, coins: 0)
+                  let request : User = User(username: user.username, lastName: user.lastName, uid: uid, firstName: user.firstName, totalTasks: 0, doneTasks: 0, coins: 0, background1: 0, background2: 0, background3: 0, background4: 0, avatar1: 0, avatar2: 0, avatar3: 0, avatar4: 0)
                   print(request)
                   createUser(user: request) { result in
                       switch result {

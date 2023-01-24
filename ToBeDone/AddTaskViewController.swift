@@ -257,7 +257,7 @@ class AddTaskViewController: UIViewController, TextFieldWithLabelDelegate {
         var time : String = " "
         if let date = date {
             time = formatter3.string(from: date)
-        }
+        } //pulamare@gmail.com
         let uuid = UUID().uuidString
         let myTask : TaskModel = TaskModel(title: taskTitle, description: taskDescription, priority: priority, time: time, tracked: tracked, finished: false, uid: uid, taskId: uuid)
         

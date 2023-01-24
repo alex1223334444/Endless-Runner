@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var logo: UIView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        .lightContent
+        .darkContent
     }
     
     override func viewWillAppear(_ animated: Bool) {

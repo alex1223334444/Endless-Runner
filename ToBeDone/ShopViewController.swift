@@ -28,6 +28,10 @@ class ShopViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .darkContent
+    }
+    
     @IBAction func pickerButtons(_ sender: Any) {
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
@@ -40,31 +44,33 @@ class ShopViewController: UIViewController {
         self.backCollectionView.dataSource = self
         fillBackgroundData()
         fillAvatarData()
-
         applyTheme()
     }
     
     
     private func fillBackgroundData() {
-        let cell1 = BackgroundData(name: "Light Theme", price: 0, labelColor: .black, backColor: .white)
+        let cell1 = BackgroundData(name: "Light Theme", price: 0, labelColor: .black, backColor: .white, img: UIImageView())
         backgroundList.append(cell1)
-        let cell2 = BackgroundData(name: "Dark Theme", price: 0, labelColor: .white, backColor: .black)
+        let cell2 = BackgroundData(name: "Dark Theme", price: 0, labelColor: .white, backColor: .black, img: UIImageView())
         backgroundList.append(cell2)
-        let cell3 = BackgroundData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .red)
+        let cell3 = BackgroundData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .blue, img: UIImageView())
         backgroundList.append(cell3)
-        let cell4 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .red)
+        let cell4 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
         backgroundList.append(cell4)
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
     }
     
     private func fillAvatarData() {
-        let cell1 = AvatarData(name: "Avatar1", price: 0, labelColor: .black, backColor: .white)
+        let whiteImg = UIImageView()
+        let cell1 = AvatarData(name: "Avatar1", price: 0, labelColor: .black, backColor: .white, img: UIImageView())
         avatarList.append(cell1)
-        let cell2 = AvatarData(name: "Avatar2", price: 0, labelColor: .white, backColor: .black)
+        let cell2 = AvatarData(name: "Avatar2", price: 0, labelColor: .white, backColor: .black, img: UIImageView())
         avatarList.append(cell2)
-        let cell3 = AvatarData(name: "Avatar3", price: 0, labelColor: .white, backColor: .red)
+        let cell3 = AvatarData(name: "Avatar3", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
         avatarList.append(cell3)
+        let cell4 = AvatarData(name: "Avatar4", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
+        avatarList.append(cell4)
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
     }
@@ -153,6 +159,8 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
             cell.layer.cornerRadius = cell.frame.height/8
             cell.labelColor = backgroundList[indexPath.row].labelColor
             cell.backColor = backgroundList[indexPath.row].backColor
+            cell.img.backgroundColor = backgroundList[indexPath.row].backColor
+            cell.img.layer.cornerRadius = cell.frame.height/8
             
             return cell;
         }
@@ -164,6 +172,7 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
             cell.layer.cornerRadius = cell.frame.height/8
             cell.labelColor = avatarList[indexPath.row].labelColor
             cell.backColor = avatarList[indexPath.row].backColor
+            cell.img.backgroundColor = avatarList[indexPath.row].backColor
             
             return cell;
         }

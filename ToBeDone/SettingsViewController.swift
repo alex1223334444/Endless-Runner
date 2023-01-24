@@ -11,13 +11,18 @@ import SwiftUI
 import FirebaseAuth
 
 class SettingsViewController: UIViewController {
-    
-    @IBOutlet weak var doneButton: UIButton!
     var numbers : NumberOfTasks? = NumberOfTasks()
     
+    @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var rateButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Theme.current.view
         self.tabBarController?.navigationItem.hidesBackButton = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        view.backgroundColor = Theme.current.view
     }
     
     @IBAction func rate(_ sender: Any) {
@@ -29,9 +34,6 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func darkMode(_ sender: Any) {
-        view.backgroundColor = .black
-    }
     
      
     @IBAction func goToProfile(_ sender: Any) {
