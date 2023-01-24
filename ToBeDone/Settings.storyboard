@@ -45,17 +45,6 @@
                                     <action selector="rate:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QiG-2t-chb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUv-wl-wtc">
-                                <rect key="frame" x="307" y="97" width="65" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Done">
-                                    <color key="baseForegroundColor" red="0.1215686275" green="0.0" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="done:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="56D-Fw-Z5y"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xke-pU-czF">
                                 <rect key="frame" x="313" y="550" width="51" height="31"/>
                                 <connections>
@@ -91,7 +80,6 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="circle.dashed" catalog="system" selectedImage="circle.dashed" id="mWg-9m-mSC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneButton" destination="EUv-wl-wtc" id="Tcy-xB-lHe"/>
                         <segue destination="IhI-sa-1a2" kind="showDetail" identifier="logout" id="kEn-xA-dnS"/>
                         <segue destination="RZF-wy-8cN" kind="presentation" identifier="profile" id="Ric-On-wj5"/>
                     </connections>

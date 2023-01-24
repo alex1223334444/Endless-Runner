@@ -74,12 +74,34 @@
                                             <constraint firstAttribute="width" constant="150" id="mxh-9x-KC4"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0d-Xk-qk8">
+                                        <rect key="frame" x="195" y="10" width="42" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="fmg-6y-0bv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOg-Dh-ceh">
+                                        <rect key="frame" x="195" y="65" width="42" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Xr3-sB-UB8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
+                                    <constraint firstItem="A0d-Xk-qk8" firstAttribute="top" secondItem="Equ-Fx-ahi" secondAttribute="top" constant="10" id="9SW-qm-vRV"/>
+                                    <constraint firstItem="A0d-Xk-qk8" firstAttribute="leading" secondItem="JWr-wq-9Np" secondAttribute="trailing" constant="30" id="DsH-o4-YrH"/>
                                     <constraint firstItem="JWr-wq-9Np" firstAttribute="leading" secondItem="Equ-Fx-ahi" secondAttribute="leading" constant="15" id="GBN-ZB-DYS"/>
                                     <constraint firstItem="JWr-wq-9Np" firstAttribute="centerY" secondItem="Equ-Fx-ahi" secondAttribute="centerY" id="MbH-Nr-hcw"/>
+                                    <constraint firstItem="bOg-Dh-ceh" firstAttribute="leading" secondItem="JWr-wq-9Np" secondAttribute="trailing" constant="30" id="Ulz-nq-XfA"/>
                                     <constraint firstAttribute="height" constant="150" id="Zt5-I0-N04"/>
+                                    <constraint firstItem="bOg-Dh-ceh" firstAttribute="top" secondItem="A0d-Xk-qk8" secondAttribute="bottom" constant="30" id="wtj-fL-Yaj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -112,6 +134,8 @@
                     <connections>
                         <outlet property="avatar" destination="JWr-wq-9Np" id="s7I-54-9ir"/>
                         <outlet property="doneTasks" destination="v6F-aG-bLf" id="FbQ-Sb-tmd"/>
+                        <outlet property="email" destination="bOg-Dh-ceh" id="jGW-gp-20t"/>
+                        <outlet property="name" destination="A0d-Xk-qk8" id="36B-bW-w95"/>
                         <outlet property="unfinishedTasks" destination="I9Q-Ha-pvx" id="c3i-j1-lBm"/>
                     </connections>
                 </viewController>

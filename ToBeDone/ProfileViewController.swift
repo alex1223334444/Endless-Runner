@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var doneTasks: UIButton!
     @IBOutlet weak var unfinishedTasks: UIButton!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var email: UILabel!
     var numbers : NumberOfTasks? = NumberOfTasks()
     private var uid = ""
     private var user = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0)
@@ -47,6 +49,14 @@ class ProfileViewController: UIViewController {
             case .success(let user):
                 self.user = user[0]
                 print(self.user)
+                if let done = self.user.doneTasks, let coins = self.user.coins, let firstname = self.user.firstName, let lastname = self.user.lastName {
+                    DispatchQueue.main.async {
+                        self.doneTasks.setTitle("Tasks done: \(done)", for: .normal)
+                        self.unfinishedTasks.setTitle("Coins obtained: \(coins)", for: .normal)
+                        self.name.text = "\(firstname) \(lastname)"
+                        self.email.text = self.user.username
+                    }
+                }
                 break
             case .failure(let error):
                 print(error)
