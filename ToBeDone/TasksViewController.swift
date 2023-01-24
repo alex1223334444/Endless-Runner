@@ -84,7 +84,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         performSegue(withIdentifier: "edit", sender: self)
     }
     
-    
+    @IBOutlet var taskView: [UIView]!
     @IBOutlet weak var picker: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listButton: UIButton!
@@ -132,7 +132,11 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        tableView.backgroundColor = Theme.current.background
+        tableView.backgroundColor = Theme.current.tableBackground
+        view.backgroundColor = Theme.current.view
+        createFloatingButton()
+        //floatingButton.backgroundColor = Theme.current.view
+        //taskCell.backgroundColor = Theme.current.background
     }
     
     private func createFloatingButton() {

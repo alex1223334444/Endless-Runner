@@ -12,6 +12,6 @@ class DarkTheme : ThemeProtocol {
     var fontName: String = "System"
     var accent: UIColor = .white
     var tint: UIColor = .black
-    var background: UIColor = UIColor(hex: "#1c1c20FF")!
-    
+    var tableBackground: UIColor = UIColor(hex: "#1c1c20FF")!
+    var view: UIColor = .black
 }

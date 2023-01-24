@@ -8,7 +8,21 @@
 import Foundation
 import UIKit
 
-class ShopData {
+class AvatarData {
+    var name:String
+    var price:Int
+    var labelColor: UIColor
+    var backColor: UIColor
+    
+    init(name: String, price: Int, labelColor : UIColor, backColor : UIColor) {
+        self.name = name
+        self.price = price
+        self.labelColor = labelColor
+        self.backColor = backColor
+    }
+}
+
+class BackgroundData {
     var name:String
     var price:Int
     var labelColor: UIColor

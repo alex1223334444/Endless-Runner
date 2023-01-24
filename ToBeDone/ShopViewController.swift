@@ -9,37 +9,64 @@ import UIKit
 
 class ShopViewController: UIViewController {
     
-    var list = [ShopData]()
+    var backgroundList = [BackgroundData]()
+    var avatarList = [AvatarData]()
     var theme = 0
     
+    @IBOutlet weak var navBarItem: UINavigationItem!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
+    @IBOutlet weak var screenView: UIView!
+    @IBOutlet weak var picker: UISegmentedControl!
     
     fileprivate func applyTheme() {
-        backCollectionView.backgroundColor = Theme.current.background
+        backCollectionView.backgroundColor = Theme.current.tableBackground
+        screenView.backgroundColor = Theme.current.view
+        UITabBar.appearance().barTintColor = Theme.current.view
+
+        self.backCollectionView.reloadData()
+        
     }
     
+    @IBAction func pickerButtons(_ sender: Any) {
+        self.backCollectionView.reloadData()
+        backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navBarItem.setHidesBackButton(true, animated: true)
         self.backCollectionView.delegate = self
         self.backCollectionView.dataSource = self
-        fillData()
+        fillBackgroundData()
+        fillAvatarData()
+
         applyTheme()
     }
     
-    private func fillData() {
-        let cell1 = ShopData(name: "No Background", price: 0, labelColor: .black, backColor: .white)
-        list.append(cell1)
-        let cell2 = ShopData(name: "Red Theme", price: 0, labelColor: .white, backColor: .black)
-        list.append(cell2)
-        let cell3 = ShopData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .red)
-        list.append(cell3)
+    
+    private func fillBackgroundData() {
+        let cell1 = BackgroundData(name: "No Background", price: 0, labelColor: .black, backColor: .white)
+        backgroundList.append(cell1)
+        let cell2 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .black)
+        backgroundList.append(cell2)
+        let cell3 = BackgroundData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .red)
+        backgroundList.append(cell3)
         self.backCollectionView.reloadData()
+        backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
     }
     
-    @IBOutlet weak var screenView: UIView!
+    private func fillAvatarData() {
+        let cell1 = AvatarData(name: "Avatar1", price: 0, labelColor: .black, backColor: .white)
+        avatarList.append(cell1)
+        let cell2 = AvatarData(name: "Avatar2", price: 0, labelColor: .white, backColor: .black)
+        avatarList.append(cell2)
+        let cell3 = AvatarData(name: "Avatar3", price: 0, labelColor: .white, backColor: .red)
+        avatarList.append(cell3)
+        self.backCollectionView.reloadData()
+        backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
+    }
     
     private func toggleTheme()
     {
@@ -105,42 +132,68 @@ class ShopViewController: UIViewController {
 extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        if (picker.selectedSegmentIndex == 0)
+        {
+            return backgroundList.count
+        }
+        else
+        {
+            return backgroundList.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = backCollectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
-        cell.label?.text = list[indexPath.row].name
-        cell.price?.text = String(list[indexPath.row].price)
-        cell.layer.cornerRadius = cell.frame.height/8
-        cell.labelColor = list[indexPath.row].labelColor
-        cell.backColor = list[indexPath.row].backColor
-        
-        return cell;
+        if (picker.selectedSegmentIndex == 0)
+        {
+            let cell = backCollectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
+            cell.label?.text = backgroundList[indexPath.row].name
+            cell.price?.text = String(backgroundList[indexPath.row].price)
+            cell.layer.cornerRadius = cell.frame.height/8
+            cell.labelColor = backgroundList[indexPath.row].labelColor
+            cell.backColor = backgroundList[indexPath.row].backColor
+            
+            return cell;
+        }
+        else
+        {
+            let cell = backCollectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
+            cell.label?.text = avatarList[indexPath.row].name
+            cell.price?.text = String(avatarList[indexPath.row].price)
+            cell.layer.cornerRadius = cell.frame.height/8
+            cell.labelColor = avatarList[indexPath.row].labelColor
+            cell.backColor = avatarList[indexPath.row].backColor
+            
+            return cell;
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (indexPath.row == 0)
+        if picker.selectedSegmentIndex == 0
         {
-            theme = 0
-            Theme.current = LightTheme()
-            toggleTheme()
-            print("White Theme")
+            if (indexPath.row == 0)
+            {
+                theme = 0
+                Theme.current = LightTheme()
+                toggleTheme()
+                print("White Theme")
+            }
+            else if (indexPath.row == 1)
+            {
+                theme = 1
+                Theme.current = DarkTheme()
+                toggleTheme()
+                print("Black Theme")
+            }
+            else if (indexPath.row == 2)
+            {
+                theme = 2
+                toggleTheme()
+                print("Black Theme")
+            }
+            applyTheme()
         }
-        else if (indexPath.row == 1)
-        {
-            theme = 1
-            Theme.current = DarkTheme()
-            toggleTheme()
-            print("Black Theme")
-        }
-        else if (indexPath.row == 2)
-        {
-            theme = 2
-            toggleTheme()
-            print("Black Theme")
-        }
-        applyTheme()
+        
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

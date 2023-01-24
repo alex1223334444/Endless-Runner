@@ -15,6 +15,7 @@ class TaskCell: UITableViewCell {
     func configureTaskCell(_ requestedTask: TaskModel, tag: Int = 0, color: UIColor, finished : Bool, delegate : CompletableTaskDelegate){
         task.layer.cornerRadius = 10
         task.configureTask(with: requestedTask, color: color, delegate: delegate, tag : tag)
+        //task.backgroundColor = Theme.current.background
         self.tag = tag
         self.tintColor = color
         if finished == true{

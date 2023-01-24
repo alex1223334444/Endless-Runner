@@ -12,6 +12,7 @@ class LightTheme : ThemeProtocol {
     var fontName: String = "System"
     var accent: UIColor = .white
     var tint: UIColor = .white
-    var background: UIColor = .white
+    var tableBackground: UIColor = .white
+    var view: UIColor = .white
     
 }

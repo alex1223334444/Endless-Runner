@@ -12,5 +12,6 @@ protocol ThemeProtocol{
     var fontName : String { get }
     var accent : UIColor { get }
     var tint : UIColor { get }
-    var background : UIColor { get }
+    var tableBackground : UIColor { get }
+    var view : UIColor { get }
 }

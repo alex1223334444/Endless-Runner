@@ -16,6 +16,7 @@ class Task: UIView {
     private enum PlaceholderPosition {
         case raised, lowered
     }
+    
     var img : UIImage = UIImage(named: "editIcon")!
     var color : UIColor = .black
     var buttonDelegate : CompletableTaskDelegate?
