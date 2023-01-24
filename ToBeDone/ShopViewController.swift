@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ShopViewController: UIViewController {
     
     var backgroundList = [BackgroundData]()
     var avatarList = [AvatarData]()
     var theme = 0
-    
+    private var uid = ""
+    private var user = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0, background1: 0, background2: 0, background3: 0, background4: 0, avatar1: 0, avatar2: 0, avatar3: 0, avatar4: 0)
+    @IBOutlet weak var coins: UILabel!
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
@@ -45,6 +48,32 @@ class ShopViewController: UIViewController {
         fillBackgroundData()
         fillAvatarData()
         applyTheme()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let user = Auth.auth().currentUser {
+            let id = user.uid
+            uid = id
+            print(id)
+        } else {
+            //
+        }
+        getUser(id: uid) { result in
+            switch result {
+            case .success(let user):
+                self.user = user[0]
+                print(self.user)
+                if let coins = self.user.coins{
+                    DispatchQueue.main.async {
+                        self.coins.text = "\(coins) coins"
+                    }
+                }
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
     }
     
     
@@ -161,6 +190,15 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
             cell.backColor = backgroundList[indexPath.row].backColor
             cell.img.backgroundColor = backgroundList[indexPath.row].backColor
             cell.img.layer.cornerRadius = cell.frame.height/8
+            /*switch indexPath.row {
+            /*case 0:
+                if user.background1 == 1
+                {
+                    cell.is
+                }
+            default:
+                <#code#>
+            }*/*/
             
             return cell;
         }

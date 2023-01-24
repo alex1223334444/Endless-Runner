@@ -105,6 +105,15 @@
                                             <action selector="pickerButtons:" destination="XtV-0G-SM5" eventType="valueChanged" id="ucQ-f9-3LJ"/>
                                         </connections>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*coins*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3n-Nt-Ime">
+                                        <rect key="frame" x="322" y="64" width="56" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="hYD-x7-Sqd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,9 +126,11 @@
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2rr-YZ-1D3"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3wW-nx-uBz"/>
                                     <constraint firstItem="U4f-di-8MV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="HjH-HE-JL7"/>
+                                    <constraint firstItem="i3n-Nt-Ime" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="WMd-Ob-S16"/>
                                     <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8vd-H5-o8x" secondAttribute="bottom" id="XLA-HI-52p"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="top" secondItem="U4f-di-8MV" secondAttribute="bottom" constant="10" id="tiY-oO-ddm"/>
                                     <constraint firstItem="U4f-di-8MV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vx2-Go-H2v"/>
+                                    <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i3n-Nt-Ime" secondAttribute="trailing" constant="15" id="zqg-FR-Ou4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -138,6 +149,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="backCollectionView" destination="8vd-H5-o8x" id="1Cz-ig-yKe"/>
+                        <outlet property="coins" destination="i3n-Nt-Ime" id="z3S-Oq-Xuq"/>
                         <outlet property="colView" destination="8vd-H5-o8x" id="L81-4s-tDu"/>
                         <outlet property="picker" destination="U4f-di-8MV" id="Na1-C5-tIM"/>
                         <outlet property="screenView" destination="5EZ-qb-Rvc" id="U8p-Mr-8ua"/>
