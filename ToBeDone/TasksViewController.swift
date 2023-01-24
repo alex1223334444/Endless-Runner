@@ -319,6 +319,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
         cell.showsReorderControl = true
+        cell.backgroundColor = .clear
         switch state {
         case "today":
             if let task = requestedTasks?[indexPath.section]{

@@ -92,6 +92,7 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="fdb-H6-bX1" firstAttribute="top" secondItem="a8S-HG-3eS" secondAttribute="top" id="6pW-ay-tH3"/>
                                                 <constraint firstAttribute="trailing" secondItem="fdb-H6-bX1" secondAttribute="trailing" constant="20" id="Td0-DX-y7C"/>
