@@ -107,7 +107,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.clipsToBounds = true
         self.tableView.layer.cornerRadius = 10
         self.tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        /*listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.width
+        /*listButton.layer.cornerRadius = 0.5 * listButton.bounds.size.widthNew@gmail.com parola
         listButton.clipsToBounds = true
         listButton.layer.borderWidth = 1
         listButton.layer.borderColor = UIColor.link.cgColor*/
@@ -153,7 +153,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         floatingButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
         floatingButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
 
-        floatingButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -100).isActive = true
+        floatingButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -65).isActive = true
         
         floatingButton.addTarget(self, action: #selector(addTask), for: .touchUpInside)
     }

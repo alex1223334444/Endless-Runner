@@ -13,8 +13,6 @@ class ShopViewController: UIViewController {
     var avatarList = [AvatarData]()
     var theme = 0
     
-    @IBOutlet weak var navBarItem: UINavigationItem!
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
@@ -48,12 +46,14 @@ class ShopViewController: UIViewController {
     
     
     private func fillBackgroundData() {
-        let cell1 = BackgroundData(name: "No Background", price: 0, labelColor: .black, backColor: .white)
+        let cell1 = BackgroundData(name: "Light Theme", price: 0, labelColor: .black, backColor: .white)
         backgroundList.append(cell1)
-        let cell2 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .black)
+        let cell2 = BackgroundData(name: "Dark Theme", price: 0, labelColor: .white, backColor: .black)
         backgroundList.append(cell2)
         let cell3 = BackgroundData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .red)
         backgroundList.append(cell3)
+        let cell4 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .red)
+        backgroundList.append(cell4)
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
     }
@@ -189,8 +189,16 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
             else if (indexPath.row == 2)
             {
                 theme = 2
+                Theme.current = BlueTheme()
                 toggleTheme()
-                print("Black Theme")
+                print("Blue Theme")
+            }
+            else if (indexPath.row == 3)
+            {
+                theme = 2
+                Theme.current = RedTheme()
+                toggleTheme()
+                print("Red Theme")
             }
             applyTheme()
         }

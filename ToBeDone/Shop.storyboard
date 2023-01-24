@@ -24,7 +24,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8vd-H5-o8x">
-                                        <rect key="frame" x="0.0" y="154" width="393" height="664"/>
+                                        <rect key="frame" x="0.0" y="100" width="393" height="718"/>
                                         <color key="backgroundColor" red="0.83161514014312898" green="0.83161514014312898" blue="0.83161514014312898" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DYV-wy-BgD">
                                             <size key="itemSize" width="150" height="200"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </collectionView>
                                     <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U4f-di-8MV">
-                                        <rect key="frame" x="100" y="113" width="193" height="32"/>
+                                        <rect key="frame" x="100" y="59" width="193" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
                                             <segment title="Background"/>
@@ -86,12 +86,6 @@
                                             <action selector="pickerButtons:" destination="XtV-0G-SM5" eventType="valueChanged" id="ucQ-f9-3LJ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDv-Ip-wxi">
-                                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                        <items>
-                                            <navigationItem title="Shop" id="LSp-tZ-CX8"/>
-                                        </items>
-                                    </navigationBar>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,13 +97,10 @@
                                     <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="U4f-di-8MV" secondAttribute="trailing" constant="100" id="1nq-V4-I72"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2rr-YZ-1D3"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3wW-nx-uBz"/>
-                                    <constraint firstItem="EDv-Ip-wxi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="8aX-vW-brZ"/>
                                     <constraint firstItem="U4f-di-8MV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="HjH-HE-JL7"/>
-                                    <constraint firstItem="EDv-Ip-wxi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WhK-G3-pR0"/>
                                     <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8vd-H5-o8x" secondAttribute="bottom" id="XLA-HI-52p"/>
-                                    <constraint firstItem="EDv-Ip-wxi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hBH-SZ-pPm"/>
-                                    <constraint firstItem="U4f-di-8MV" firstAttribute="top" secondItem="EDv-Ip-wxi" secondAttribute="bottom" constant="10" id="kje-Cy-G4N"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="top" secondItem="U4f-di-8MV" secondAttribute="bottom" constant="10" id="tiY-oO-ddm"/>
+                                    <constraint firstItem="U4f-di-8MV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vx2-Go-H2v"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -129,7 +120,6 @@
                     <connections>
                         <outlet property="backCollectionView" destination="8vd-H5-o8x" id="1Cz-ig-yKe"/>
                         <outlet property="colView" destination="8vd-H5-o8x" id="L81-4s-tDu"/>
-                        <outlet property="navBarItem" destination="LSp-tZ-CX8" id="Dop-OS-Qeh"/>
                         <outlet property="picker" destination="U4f-di-8MV" id="Na1-C5-tIM"/>
                         <outlet property="screenView" destination="5EZ-qb-Rvc" id="U8p-Mr-8ua"/>
                         <outlet property="tabBar" destination="DRR-qN-BaV" id="tu0-OU-yl3"/>
