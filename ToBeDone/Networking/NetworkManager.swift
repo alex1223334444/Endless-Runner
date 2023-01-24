@@ -149,7 +149,7 @@ func getUnfinishedTasks(id: String, completion: @escaping (Result<[TaskModel], E
 }
 
 func createTask(task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-    let url = URL(string: "http://3.68.230.220t:3000/tasks/create/")!
+    let url = URL(string: "http://3.68.230.220:3000/tasks/create/")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
