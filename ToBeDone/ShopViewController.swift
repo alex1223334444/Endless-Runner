@@ -30,11 +30,11 @@ class ShopViewController: UIViewController {
     }
     
     private func fillData() {
-        let cell1 = ShopData(pic: "", name: "No Background", price: 0)
+        let cell1 = ShopData(name: "No Background", price: 0, labelColor: .black, backColor: .white)
         list.append(cell1)
-        let cell2 = ShopData(pic: "", name: "Red Theme", price: 0)
+        let cell2 = ShopData(name: "Red Theme", price: 0, labelColor: .white, backColor: .black)
         list.append(cell2)
-        let cell3 = ShopData(pic: "", name: "Blue Theme", price: 0)
+        let cell3 = ShopData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .red)
         list.append(cell3)
         self.backCollectionView.reloadData()
     }
@@ -110,10 +110,11 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = backCollectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
-        cell.img?.image = UIImage(named: list[indexPath.row].pic)
         cell.label?.text = list[indexPath.row].name
         cell.price?.text = String(list[indexPath.row].price)
-        
+        cell.layer.cornerRadius = cell.frame.height/8
+        cell.labelColor = list[indexPath.row].labelColor
+        cell.backColor = list[indexPath.row].backColor
         
         return cell;
     }

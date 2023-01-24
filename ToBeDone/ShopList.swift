@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 class ShopData {
-    var pic:String
     var name:String
     var price:Int
+    var labelColor: UIColor
+    var backColor: UIColor
     
-    init(pic: String, name: String, price: Int) {
-        self.pic = pic
+    init(name: String, price: Int, labelColor : UIColor, backColor : UIColor) {
         self.name = name
         self.price = price
+        self.labelColor = labelColor
+        self.backColor = backColor
     }
 }

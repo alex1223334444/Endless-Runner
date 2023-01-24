@@ -11,5 +11,7 @@ class ShopCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var img: UIImageView!
+    var backColor = UIColor.white
+    var labelColor = UIColor.black
+    
 }

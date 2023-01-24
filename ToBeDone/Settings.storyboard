@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="settings" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="ToBeDone" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,7 @@
                             <constraint firstItem="0yO-1h-ZoG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="yhv-Md-3jY"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mWg-9m-mSC"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="circle.dashed" catalog="system" selectedImage="circle.dashed" id="mWg-9m-mSC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="doneButton" destination="EUv-wl-wtc" id="Tcy-xB-lHe"/>
@@ -122,4 +122,7 @@
             <point key="canvasLocation" x="639" y="-84"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.dashed" catalog="system" width="128" height="123"/>
+    </resources>
 </document>

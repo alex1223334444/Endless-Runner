@@ -47,12 +47,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-3L-cEK">
-                                                            <rect key="frame" x="0.0" y="1" width="150" height="121"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="122.33333333333333" id="G0s-0X-oxI"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Price*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dv-wU-72x">
                                                             <rect key="frame" x="48" y="159" width="54" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -67,19 +61,15 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="bqm-3L-cEK" firstAttribute="centerX" secondItem="mM9-Ej-A4Z" secondAttribute="centerX" id="GDs-G5-c0O"/>
-                                                        <constraint firstItem="1UU-F1-O6L" firstAttribute="top" secondItem="bqm-3L-cEK" secondAttribute="bottom" constant="8.3333333333333428" id="LvQ-kX-ASj"/>
-                                                        <constraint firstItem="bqm-3L-cEK" firstAttribute="leading" secondItem="mM9-Ej-A4Z" secondAttribute="leading" id="TQa-TO-yhy"/>
-                                                        <constraint firstItem="bqm-3L-cEK" firstAttribute="centerX" secondItem="1UU-F1-O6L" secondAttribute="centerX" id="Z4v-zW-5hc"/>
+                                                        <constraint firstItem="1UU-F1-O6L" firstAttribute="centerX" secondItem="mM9-Ej-A4Z" secondAttribute="centerX" id="9fZ-eD-A5w"/>
+                                                        <constraint firstItem="1UU-F1-O6L" firstAttribute="top" secondItem="mM9-Ej-A4Z" secondAttribute="top" constant="131" id="VnL-uG-goN"/>
                                                         <constraint firstItem="7Dv-wU-72x" firstAttribute="top" secondItem="1UU-F1-O6L" secondAttribute="bottom" constant="7" id="h3Q-Dh-FZu"/>
-                                                        <constraint firstItem="bqm-3L-cEK" firstAttribute="top" secondItem="mM9-Ej-A4Z" secondAttribute="top" constant="0.33333333333333393" id="lUr-50-vSe"/>
                                                         <constraint firstItem="1UU-F1-O6L" firstAttribute="centerX" secondItem="7Dv-wU-72x" secondAttribute="centerX" id="vq9-jS-JzD"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                                 <size key="customSize" width="150" height="200"/>
                                                 <connections>
-                                                    <outlet property="img" destination="bqm-3L-cEK" id="hZ2-va-qbU"/>
                                                     <outlet property="label" destination="1UU-F1-O6L" id="vEs-H9-rlA"/>
                                                     <outlet property="price" destination="7Dv-wU-72x" id="163-ZI-WNE"/>
                                                 </connections>
@@ -150,7 +140,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8vX-Lr-irS">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="134" width="393" height="635"/>
                                 <color key="backgroundColor" red="0.83161514010000004" green="0.83161514010000004" blue="0.83161514010000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lrN-Xv-JSj">
                                     <size key="itemSize" width="150" height="200"/>
@@ -221,16 +211,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ee9-mO-fEe">
+                                <rect key="frame" x="0.0" y="103" width="393" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fPg-ar-Q03"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8vX-Lr-irS" firstAttribute="top" secondItem="xX1-vt-bGn" secondAttribute="bottom" priority="1" id="5l1-bp-Vbo"/>
+                            <constraint firstItem="Ee9-mO-fEe" firstAttribute="leading" secondItem="fPg-ar-Q03" secondAttribute="leading" id="5Cl-V4-pBa"/>
                             <constraint firstItem="xX1-vt-bGn" firstAttribute="trailing" secondItem="fPg-ar-Q03" secondAttribute="trailing" id="6yj-XN-rsV"/>
+                            <constraint firstItem="8vX-Lr-irS" firstAttribute="top" secondItem="Ee9-mO-fEe" secondAttribute="bottom" id="9fz-Bv-Wbd"/>
                             <constraint firstItem="xX1-vt-bGn" firstAttribute="top" secondItem="fPg-ar-Q03" secondAttribute="top" id="Qea-Ff-Rn4"/>
                             <constraint firstItem="xX1-vt-bGn" firstAttribute="leading" secondItem="fPg-ar-Q03" secondAttribute="leading" id="TcL-H8-y37"/>
                             <constraint firstItem="fPg-ar-Q03" firstAttribute="bottom" secondItem="8vX-Lr-irS" secondAttribute="bottom" id="Vpd-44-Hje"/>
+                            <constraint firstItem="fPg-ar-Q03" firstAttribute="trailing" secondItem="Ee9-mO-fEe" secondAttribute="trailing" id="am0-fq-8Xj"/>
                             <constraint firstItem="8vX-Lr-irS" firstAttribute="leading" secondItem="fPg-ar-Q03" secondAttribute="leading" id="ivV-cq-2Vl"/>
+                            <constraint firstItem="Ee9-mO-fEe" firstAttribute="top" secondItem="xX1-vt-bGn" secondAttribute="bottom" id="rQK-bg-cwJ"/>
                             <constraint firstItem="8vX-Lr-irS" firstAttribute="trailing" secondItem="fPg-ar-Q03" secondAttribute="trailing" id="sBY-O6-u6h"/>
                         </constraints>
                     </view>
