@@ -34,7 +34,7 @@ class ShopViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navBarItem.setHidesBackButton(true, animated: true)
+        //UINavigationItem.setHidesBackButton(true, animated: true)
         self.tabBarController?.navigationItem.hidesBackButton = true
         self.backCollectionView.delegate = self
         self.backCollectionView.dataSource = self
