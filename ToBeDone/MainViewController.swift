@@ -74,28 +74,28 @@ class MainViewController: UIViewController {
         
     }
     
-    @IBAction func toggleDarkMode(_ sender: Any) {
-        if darkModeSwitch.isOn
-        {
-            logo.backgroundColor = .black
-            view.backgroundColor = .black
-            screenView.backgroundColor = UIColor(hex: "#1c1c20FF")
-//            screenView.backgroundColor = .gray
-            loginButton.backgroundColor = .gray
-            loginButton.setTitleColor(.white, for: .normal)
-            registerButton.backgroundColor = .gray
-            registerButton.setTitleColor(.white, for: .normal)
-        }
-        else
-        {
-            logo.backgroundColor = .systemBlue
-            view.backgroundColor = .systemBlue
-            screenView.backgroundColor = .systemBackground
-            loginButton.backgroundColor = .systemBlue
-            registerButton.backgroundColor = .systemGray3
-        }
-                
-    }
+//    @IBAction func toggleDarkMode(_ sender: Any) {
+//        if darkModeSwitch.isOn
+//        {
+//            logo.backgroundColor = .black
+//            view.backgroundColor = .black
+//            screenView.backgroundColor = UIColor(hex: "#1c1c20FF")
+////            screenView.backgroundColor = .gray
+//            loginButton.backgroundColor = .gray
+//            loginButton.setTitleColor(.white, for: .normal)
+//            registerButton.backgroundColor = .gray
+//            registerButton.setTitleColor(.white, for: .normal)
+//        }
+//        else
+//        {
+//            logo.backgroundColor = .systemBlue
+//            view.backgroundColor = .systemBlue
+//            screenView.backgroundColor = .systemBackground
+//            loginButton.backgroundColor = .systemBlue
+//            registerButton.backgroundColor = .systemGray3
+//        }
+//
+//    }
     func animateLogo()
     {
         UIView.animate(withDuration: 2.0, delay: 1.2, options: .curveEaseIn, animations: {

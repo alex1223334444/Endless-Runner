@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
     private var user = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0, background1: 0, background2: 0, background3: 0, background4: 0, avatar1: 0, avatar2: 0, avatar3: 0, avatar4: 0)
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        .lightContent
+        .darkContent
     }
 
     

@@ -11,7 +11,7 @@ import UIKit
 class RedTheme : ThemeProtocol {
     var fontName: String = "System"
     var accent: UIColor = .white
-    var tint: UIColor = .white
+    var tint: UIColor = .red
     var tableBackground: UIColor = .white
     var view: UIColor = .systemRed
     

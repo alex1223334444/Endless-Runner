@@ -141,7 +141,8 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     private func createFloatingButton() {
         let floatingButton = UIButton()
         floatingButton.setTitle("+", for: .normal)
-        floatingButton.backgroundColor = .blue
+        floatingButton.setTitleColor(Theme.current.accent, for: UIControl.State.normal)
+        floatingButton.backgroundColor = Theme.current.tint
         
         floatingButton.layer.cornerRadius = 25
         

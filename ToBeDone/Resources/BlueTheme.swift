@@ -11,7 +11,7 @@ import UIKit
 class BlueTheme : ThemeProtocol {
     var fontName: String = "System"
     var accent: UIColor = .white
-    var tint: UIColor = .white
+    var tint: UIColor = .blue
     var tableBackground: UIColor = .white
     var view: UIColor = .systemBlue
     
