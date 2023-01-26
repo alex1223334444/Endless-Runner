@@ -196,6 +196,16 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                             newUser.background1 = 1
         
                                             newUser.coins!-=self.backgroundList[indexPath.row].price
+                                            updateUser(updatedUser: newUser) { data, response, error in
+                                                if let error = error {
+                                                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                                    DispatchQueue.main.async {
+                                                        self.present(alert, animated: true, completion: nil)
+                                                    }
+                                                    return
+                                                }
+                                            }
                                         }
                                         else
                                         {
@@ -231,6 +241,16 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                             newUser.background2 = 1
         
                                             newUser.coins!-=self.backgroundList[indexPath.row].price
+                                            updateUser(updatedUser: newUser) { data, response, error in
+                                                if let error = error {
+                                                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                                    DispatchQueue.main.async {
+                                                        self.present(alert, animated: true, completion: nil)
+                                                    }
+                                                    return
+                                                }
+                                            }
                                         }
                                         else
                                         {
@@ -265,6 +285,16 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                             newUser.background3 = 1
         
                                             newUser.coins!-=self.backgroundList[indexPath.row].price
+                                            updateUser(updatedUser: newUser) { data, response, error in
+                                                if let error = error {
+                                                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                                    DispatchQueue.main.async {
+                                                        self.present(alert, animated: true, completion: nil)
+                                                    }
+                                                    return
+                                                }
+                                            }
                                         }
                                         else
                                         {
@@ -299,6 +329,16 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                             newUser.background4 = 1
         
                                             newUser.coins!-=self.backgroundList[indexPath.row].price
+                                            updateUser(updatedUser: newUser) { data, response, error in
+                                                if let error = error {
+                                                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                                    DispatchQueue.main.async {
+                                                        self.present(alert, animated: true, completion: nil)
+                                                    }
+                                                    return
+                                                }
+                                            }
                                         }
                                         else
                                         {
@@ -323,16 +363,7 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                 break
             }
         }
-        updateUser(updatedUser: newUser) { data, response, error in
-            if let error = error {
-                let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)
-                }
-                return
-            }
-        }
+        
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
