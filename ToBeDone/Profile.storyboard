@@ -116,6 +116,9 @@
                                         <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="50 Push Ups - 30 coins"/>
+                                        <connections>
+                                            <action selector="doneTask1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XJQ-ZR-Nyz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrx-yj-FQg">
                                         <rect key="frame" x="0.0" y="50" width="393" height="50"/>
@@ -125,6 +128,9 @@
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Write 5 things you are thankful for - 20 coins"/>
+                                        <connections>
+                                            <action selector="doneTask2:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zyj-f0-ijP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5x-uw-XUt">
                                         <rect key="frame" x="0.0" y="100" width="393" height="50"/>
@@ -133,12 +139,16 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Drink 2 liters of water - 10 coins"/>
+                                        <connections>
+                                            <action selector="doneTask3:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="p1U-O2-n2E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kmi-8d-kbA" firstAttribute="leading" secondItem="mMk-vE-1ns" secondAttribute="leading" id="2Bd-nI-FxS"/>
                                     <constraint firstItem="yrx-yj-FQg" firstAttribute="leading" secondItem="mMk-vE-1ns" secondAttribute="leading" id="2S0-k4-U0Y"/>
                                     <constraint firstAttribute="trailing" secondItem="kmi-8d-kbA" secondAttribute="trailing" id="DGU-wa-hj9"/>
+                                    <constraint firstAttribute="height" constant="150" id="JIM-7k-6BG"/>
                                     <constraint firstItem="yrx-yj-FQg" firstAttribute="top" secondItem="kmi-8d-kbA" secondAttribute="bottom" constant="5" id="PK6-f0-xMj"/>
                                     <constraint firstItem="Z5x-uw-XUt" firstAttribute="leading" secondItem="mMk-vE-1ns" secondAttribute="leading" id="UUF-Gf-TIB"/>
                                     <constraint firstItem="kmi-8d-kbA" firstAttribute="top" secondItem="mMk-vE-1ns" secondAttribute="top" id="Uyy-W7-dvL"/>
@@ -153,6 +163,7 @@
                         <constraints>
                             <constraint firstItem="kNf-Lf-iyR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="1TP-mx-C0G"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v6F-aG-bLf" secondAttribute="trailing" id="8Tm-jY-lTZ"/>
+                            <constraint firstItem="mMk-vE-1ns" firstAttribute="top" secondItem="v6F-aG-bLf" secondAttribute="bottom" constant="10" id="BgX-W6-8cF"/>
                             <constraint firstItem="kNf-Lf-iyR" firstAttribute="top" secondItem="Equ-Fx-ahi" secondAttribute="bottom" constant="2" id="EfC-xN-hXE"/>
                             <constraint firstItem="VQt-6n-0zD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="EhO-aK-cF9"/>
                             <constraint firstItem="Equ-Fx-ahi" firstAttribute="top" secondItem="VQt-6n-0zD" secondAttribute="bottom" id="Gug-7X-5O9"/>
@@ -175,6 +186,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatar" destination="JWr-wq-9Np" id="s7I-54-9ir"/>
+                        <outlet property="doneTask1" destination="kmi-8d-kbA" id="NaX-ec-Skm"/>
                         <outlet property="doneTasks" destination="FDl-b4-PgB" id="nft-6o-J5b"/>
                         <outlet property="email" destination="bOg-Dh-ceh" id="jGW-gp-20t"/>
                         <outlet property="name" destination="A0d-Xk-qk8" id="36B-bW-w95"/>

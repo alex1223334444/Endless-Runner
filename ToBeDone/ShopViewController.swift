@@ -209,7 +209,11 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                         }
                                         else
                                         {
-                                            print("Not enough money")
+                                            let alert = UIAlertController(title: "Not enough money", message: "", preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                            DispatchQueue.main.async {
+                                                self.present(alert, animated: true, completion: nil)
+                                        }
                                         }
                                         
                                     }))
@@ -254,7 +258,11 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                         }
                                         else
                                         {
-                                            print("Not enough money")
+                                            let alert = UIAlertController(title: "Not enough money", message: "", preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                            DispatchQueue.main.async {
+                                                self.present(alert, animated: true, completion: nil)
+                                        }
                                         }
                                         
                                     }))
@@ -298,7 +306,11 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                         }
                                         else
                                         {
-                                            print("Not enough money")
+                                            let alert = UIAlertController(title: "Not enough money", message: "", preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                            DispatchQueue.main.async {
+                                                self.present(alert, animated: true, completion: nil)
+                                        }
                                         }
                                         
                                     }))
@@ -342,7 +354,11 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                         }
                                         else
                                         {
-                                            print("Not enough money")
+                                            let alert = UIAlertController(title: "Not enough money", message: "", preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                            DispatchQueue.main.async {
+                                                self.present(alert, animated: true, completion: nil)
+                                        }
                                         }
                                         
                                     }))
