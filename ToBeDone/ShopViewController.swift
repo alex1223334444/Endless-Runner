@@ -27,7 +27,7 @@ class ShopViewController: UIViewController {
         backCollectionView.backgroundColor = Theme.current.tableBackground
         screenView.backgroundColor = Theme.current.view
         UITabBar.appearance().barTintColor = Theme.current.view
-
+        
         self.backCollectionView.reloadData()
         
     }
@@ -105,68 +105,7 @@ class ShopViewController: UIViewController {
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
     }
-    
-    private func toggleTheme()
-    {
-        /*if (theme == 0)
-        {
-            navBar.backgroundColor = .white
-            self.backCollectionView.backgroundColor = UIColor.clear
-            self.backCollectionView.reloadData()
-//            navBar.color
-            
-//            logo.backgroundColor = .black
-//            view.backgroundColor = .black
-//            screenView.backgroundColor = UIColor(hex: "#1c1c20FF")
-////            screenView.backgroundColor = .gray
-//            loginButton.backgroundColor = .gray
-//            loginButton.setTitleColor(.white, for: .normal)
-//            registerButton.backgroundColor = .gray
-//            registerButton.setTitleColor(.white, for: .normal)
-        }
-        else if theme == 2
-        {
-            //navBar.backgroundColor = .white
-            tabBar.badgeColor = .white
-            //screenView.tintColor = .black
-            self.backCollectionView.backgroundColor = UIColor.red
-            self.backCollectionView.reloadData()
-            tabBar
-//            logo.backgroundColor = .systemBlue
-//            view.backgroundColor = .systemBlue
-//            screenView.backgroundColor = .systemBackground
-//            loginButton.backgroundColor = .systemBlue
-//            registerButton.backgroundColor = .systemGray3
-        }
-        else
-        {
-            //navBar.backgroundColor = .white
-            tabBar.badgeColor = .white
-            //screenView.tintColor = .black
-            self.backCollectionView.backgroundColor = UIColor.blue
-            self.backCollectionView.reloadData()
-            tabBar
-//            logo.backgroundColor = .systemBlue
-//            view.backgroundColor = .systemBlue
-//            screenView.backgroundColor = .systemBackground
-//            loginButton.backgroundColor = .systemBlue
-//            registerButton.backgroundColor = .systemGray3
-        }*/
-    }
-    
-
-    /*
-    // MARK: - Navigationsquare.and.arrow.up
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
 extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -219,39 +158,78 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if picker.selectedSegmentIndex == 0
-        {
-            if (indexPath.row == 0)
+        getUser(id: uid) { result in
+            switch result
             {
-                theme = 0
-                Theme.current = LightTheme()
-                toggleTheme()
-                print("White Theme")
+            case .success(let user):
+                self.user = user[0]
+                print(self.user)
+                if let background1 = self.user.background1,
+                   let background2 = self.user.background2
+                {
+                    DispatchQueue.main.async {
+                        if self.picker.selectedSegmentIndex == 0
+                        {
+                            if (indexPath.row == 0)
+                            {
+                                if (background1 == 1)
+                                {
+                                    Theme.current = LightTheme()
+                                }
+                                else
+                                {
+                                    let refreshAlert = UIAlertController(title: "Purchase", message: "Purchase Background?", preferredStyle: UIAlertController.Style.alert)
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                        print("Cancel")
+                                    }))
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                                        self.user.background1 = 1
+    
+                                        self.user.coins!+=self.backgroundList[indexPath.row].price
+                                    }))
+                                    
+                                    self.present(refreshAlert, animated: true, completion: nil)
+                                    
+                                }
+                                
+                            }
+                            else if (indexPath.row == 1)
+                            {
+                                Theme.current = DarkTheme()
+                            }
+                            else if (indexPath.row == 2)
+                            {
+                                Theme.current = BlueTheme()
+                            }
+                            else if (indexPath.row == 3)
+                            {
+                                Theme.current = RedTheme()
+                            }
+                            
+                            
+                            self.applyTheme()
+                        }
+                    }
+                }
+                break
+            case .failure(let error):
+                print(error)
+                break
             }
-            else if (indexPath.row == 1)
-            {
-                theme = 1
-                Theme.current = DarkTheme()
-                toggleTheme()
-                print("Black Theme")
+            let newUser = self.user
+            updateUser(updatedUser: newUser) { data, response, error in
+                if let error = error {
+                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
             }
-            else if (indexPath.row == 2)
-            {
-                theme = 2
-                Theme.current = BlueTheme()
-                toggleTheme()
-                print("Blue Theme")
-            }
-            else if (indexPath.row == 3)
-            {
-                theme = 2
-                Theme.current = RedTheme()
-                toggleTheme()
-                print("Red Theme")
-            }
-            applyTheme()
         }
-        
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

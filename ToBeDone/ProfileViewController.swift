@@ -10,8 +10,8 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var doneTasks: UILabel!
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var doneTasks: UIButton!
     @IBOutlet weak var unfinishedTasks: UIButton!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
@@ -30,8 +30,8 @@ class ProfileViewController: UIViewController {
         avatar.layer.cornerRadius = avatar.frame.width/2
         avatar.layer.borderWidth = 2
         if let total = numbers?.totalTasks, let unfinished = numbers?.uncompleted{
-            doneTasks.setTitle("Tasks done: \(total - unfinished)", for: .normal)
-            unfinishedTasks.setTitle("Unfinished tasks: \(unfinished)", for: .normal)
+            doneTasks.text = "Tasks done: \(total - unfinished)"
+            //unfinishedTasks.setTitle("Unfinished tasks: \(unfinished)", for: .normal)
         }
     }
     
@@ -51,8 +51,8 @@ class ProfileViewController: UIViewController {
                 print(self.user)
                 if let done = self.user.doneTasks, let coins = self.user.coins, let firstname = self.user.firstName, let lastname = self.user.lastName {
                     DispatchQueue.main.async {
-                        self.doneTasks.setTitle("Tasks done: \(done)", for: .normal)
-                        self.unfinishedTasks.setTitle("Coins obtained: \(coins)", for: .normal)
+                        self.doneTasks.text = "Tasks done: \(done)"
+                        //self.unfinishedTasks.setTitle("Coins obtained: \(coins)", for: .normal)
                         self.name.text = "\(firstname) \(lastname)"
                         self.email.text = self.user.username
                     }
