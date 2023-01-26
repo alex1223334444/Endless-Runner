@@ -82,11 +82,11 @@ class ShopViewController: UIViewController {
     private func fillBackgroundData() {
         let cell1 = BackgroundData(name: "Light Theme", price: 0, labelColor: .black, backColor: .white, img: UIImageView())
         backgroundList.append(cell1)
-        let cell2 = BackgroundData(name: "Dark Theme", price: 0, labelColor: .white, backColor: .black, img: UIImageView())
+        let cell2 = BackgroundData(name: "Dark Theme", price: 5, labelColor: .white, backColor: .black, img: UIImageView())
         backgroundList.append(cell2)
-        let cell3 = BackgroundData(name: "Blue Theme", price: 0, labelColor: .white, backColor: .blue, img: UIImageView())
+        let cell3 = BackgroundData(name: "Blue Theme", price: 5, labelColor: .white, backColor: .blue, img: UIImageView())
         backgroundList.append(cell3)
-        let cell4 = BackgroundData(name: "Red Theme", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
+        let cell4 = BackgroundData(name: "Red Theme", price: 20, labelColor: .white, backColor: .red, img: UIImageView())
         backgroundList.append(cell4)
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
@@ -96,11 +96,11 @@ class ShopViewController: UIViewController {
         let whiteImg = UIImageView()
         let cell1 = AvatarData(name: "Avatar1", price: 0, labelColor: .black, backColor: .white, img: UIImageView())
         avatarList.append(cell1)
-        let cell2 = AvatarData(name: "Avatar2", price: 0, labelColor: .white, backColor: .black, img: UIImageView())
+        let cell2 = AvatarData(name: "Avatar2", price: 5, labelColor: .white, backColor: .black, img: UIImageView())
         avatarList.append(cell2)
-        let cell3 = AvatarData(name: "Avatar3", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
+        let cell3 = AvatarData(name: "Avatar3", price: 5, labelColor: .white, backColor: .red, img: UIImageView())
         avatarList.append(cell3)
-        let cell4 = AvatarData(name: "Avatar4", price: 0, labelColor: .white, backColor: .red, img: UIImageView())
+        let cell4 = AvatarData(name: "Avatar4", price: 20, labelColor: .white, backColor: .red, img: UIImageView())
         avatarList.append(cell4)
         self.backCollectionView.reloadData()
         backCollectionView.reloadItems(at: backCollectionView.indexPathsForVisibleItems)
@@ -158,6 +158,8 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var newUser = self.user
+        
         getUser(id: uid) { result in
             switch result
             {
@@ -165,7 +167,10 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                 self.user = user[0]
                 print(self.user)
                 if let background1 = self.user.background1,
-                   let background2 = self.user.background2
+                   let background2 = self.user.background2,
+                   let background3 = self.user.background3,
+                   let background4 = self.user.background4,
+                   let coins = self.user.coins
                 {
                     DispatchQueue.main.async {
                         if self.picker.selectedSegmentIndex == 0
@@ -184,10 +189,19 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                                         print("Cancel")
                                     }))
                                     
-                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                                        self.user.background1 = 1
-    
-                                        self.user.coins!+=self.backgroundList[indexPath.row].price
+                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (action: UIAlertAction!) in
+                                        
+                                        if coins >= backgroundList[indexPath.row].price
+                                        {
+                                            newUser.background1 = 1
+        
+                                            newUser.coins!-=self.backgroundList[indexPath.row].price
+                                        }
+                                        else
+                                        {
+                                            print("Not enough money")
+                                        }
+                                        
                                     }))
                                     
                                     self.present(refreshAlert, animated: true, completion: nil)
@@ -197,15 +211,105 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                             }
                             else if (indexPath.row == 1)
                             {
-                                Theme.current = DarkTheme()
+                               
+                                if (background2 == 1)
+                                {
+                                    Theme.current = DarkTheme()
+                                }
+                                else
+                                {
+                                    let refreshAlert = UIAlertController(title: "Purchase", message: "Purchase Background?", preferredStyle: UIAlertController.Style.alert)
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                        print("Cancel")
+                                    }))
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (action: UIAlertAction!) in
+                                        
+                                        if coins >= backgroundList[indexPath.row].price
+                                        {
+                                            newUser.background2 = 1
+        
+                                            newUser.coins!-=self.backgroundList[indexPath.row].price
+                                        }
+                                        else
+                                        {
+                                            print("Not enough money")
+                                        }
+                                        
+                                    }))
+                                    
+                                    self.present(refreshAlert, animated: true, completion: nil)
+                                    
+                                }
                             }
                             else if (indexPath.row == 2)
                             {
-                                Theme.current = BlueTheme()
+                                
+                                if (background3 == 1)
+                                {
+                                    Theme.current = BlueTheme()
+                                }
+                                else
+                                {
+                                    let refreshAlert = UIAlertController(title: "Purchase", message: "Purchase Background?", preferredStyle: UIAlertController.Style.alert)
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                        print("Cancel")
+                                    }))
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (action: UIAlertAction!) in
+                                        
+                                        if coins >= backgroundList[indexPath.row].price
+                                        {
+                                            newUser.background3 = 1
+        
+                                            newUser.coins!-=self.backgroundList[indexPath.row].price
+                                        }
+                                        else
+                                        {
+                                            print("Not enough money")
+                                        }
+                                        
+                                    }))
+                                    
+                                    self.present(refreshAlert, animated: true, completion: nil)
+                                    
+                                }
                             }
                             else if (indexPath.row == 3)
                             {
-                                Theme.current = RedTheme()
+                                
+                                if (background4 == 1)
+                                {
+                                    Theme.current = RedTheme()
+                                }
+                                else
+                                {
+                                    let refreshAlert = UIAlertController(title: "Purchase", message: "Purchase Background?", preferredStyle: UIAlertController.Style.alert)
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                        print("Cancel")
+                                    }))
+                                    
+                                    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (action: UIAlertAction!) in
+                                        
+                                        if coins >= backgroundList[indexPath.row].price
+                                        {
+                                            newUser.background4 = 1
+        
+                                            newUser.coins!-=self.backgroundList[indexPath.row].price
+                                        }
+                                        else
+                                        {
+                                            print("Not enough money")
+                                        }
+                                        
+                                    }))
+                                    
+                                    self.present(refreshAlert, animated: true, completion: nil)
+                                    
+                                }
                             }
                             
                             
@@ -218,16 +322,15 @@ extension ShopViewController:UICollectionViewDelegate, UICollectionViewDataSourc
                 print(error)
                 break
             }
-            let newUser = self.user
-            updateUser(updatedUser: newUser) { data, response, error in
-                if let error = error {
-                    let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                    DispatchQueue.main.async {
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    return
+        }
+        updateUser(updatedUser: newUser) { data, response, error in
+            if let error = error {
+                let alert = UIAlertController(title: "Error at updating user data. Try again please.", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
                 }
+                return
             }
         }
     }
