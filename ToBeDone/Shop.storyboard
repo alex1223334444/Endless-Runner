@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -105,15 +106,26 @@
                                             <action selector="pickerButtons:" destination="XtV-0G-SM5" eventType="valueChanged" id="ucQ-f9-3LJ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*coins*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3n-Nt-Ime">
-                                        <rect key="frame" x="322" y="64" width="56" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RG-jA-9Mp">
+                                        <rect key="frame" x="330.33333333333331" y="59" width="49.666666666666686" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="hYD-x7-Sqd"/>
+                                            <constraint firstAttribute="height" constant="31" id="Hw5-p0-hTL"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="bitcoinsign.circle" catalog="system"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-b6-0bt">
+                                        <rect key="frame" x="13" y="59" width="49" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="miL-l7-1hb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="arrow.up.forward.app" catalog="system">
+                                            <color key="baseBackgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,11 +138,13 @@
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2rr-YZ-1D3"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3wW-nx-uBz"/>
                                     <constraint firstItem="U4f-di-8MV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="HjH-HE-JL7"/>
-                                    <constraint firstItem="i3n-Nt-Ime" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="WMd-Ob-S16"/>
+                                    <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8RG-jA-9Mp" secondAttribute="trailing" constant="13" id="RD9-RI-6Wx"/>
                                     <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8vd-H5-o8x" secondAttribute="bottom" id="XLA-HI-52p"/>
+                                    <constraint firstItem="8RG-jA-9Mp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="c6Z-Lj-HLg"/>
+                                    <constraint firstItem="Gwi-b6-0bt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pj3-8g-1RE"/>
+                                    <constraint firstItem="Gwi-b6-0bt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="13" id="rfa-oE-0qj"/>
                                     <constraint firstItem="8vd-H5-o8x" firstAttribute="top" secondItem="U4f-di-8MV" secondAttribute="bottom" constant="10" id="tiY-oO-ddm"/>
                                     <constraint firstItem="U4f-di-8MV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vx2-Go-H2v"/>
-                                    <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i3n-Nt-Ime" secondAttribute="trailing" constant="15" id="zqg-FR-Ou4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -149,8 +163,9 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="backCollectionView" destination="8vd-H5-o8x" id="1Cz-ig-yKe"/>
-                        <outlet property="coins" destination="i3n-Nt-Ime" id="z3S-Oq-Xuq"/>
+                        <outlet property="coinButton" destination="8RG-jA-9Mp" id="48B-tc-sqK"/>
                         <outlet property="colView" destination="8vd-H5-o8x" id="L81-4s-tDu"/>
+                        <outlet property="levelButton" destination="Gwi-b6-0bt" id="DaQ-Qn-Ysj"/>
                         <outlet property="picker" destination="U4f-di-8MV" id="Na1-C5-tIM"/>
                         <outlet property="screenView" destination="5EZ-qb-Rvc" id="U8p-Mr-8ua"/>
                         <outlet property="tabBar" destination="DRR-qN-BaV" id="tu0-OU-yl3"/>
@@ -163,7 +178,12 @@
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="arrow.up.forward.app" catalog="system" width="128" height="114"/>
+        <image name="bitcoinsign.circle" catalog="system" width="128" height="123"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

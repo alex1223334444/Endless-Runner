@@ -10,12 +10,13 @@ import FirebaseAuth
 
 class ShopViewController: UIViewController {
     
+    @IBOutlet weak var levelButton: UIButton!
+    @IBOutlet weak var coinButton: UIButton!
     var backgroundList = [BackgroundData]()
     var avatarList = [AvatarData]()
     var theme = 0
     private var uid = ""
     private var user = User(username: "", lastName: "", uid: "", firstName: "", totalTasks: 0, doneTasks: 0, coins: 0, background1: 0, background2: 0, background3: 0, background4: 0, avatar1: 0, avatar2: 0, avatar3: 0, avatar4: 0)
-    @IBOutlet weak var coins: UILabel!
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var backCollectionView: UICollectionView!
@@ -63,9 +64,10 @@ class ShopViewController: UIViewController {
             case .success(let user):
                 self.user = user[0]
                 print(self.user)
-                if let coins = self.user.coins{
+                if let coins = self.user.coins, let level = self.user.totalTasks{
                     DispatchQueue.main.async {
-                        self.coins.text = "\(coins) coins"
+                        self.coinButton.setTitle(" \(coins)", for: .normal)
+                        self.levelButton.setTitle(" \(level/5) ", for: UIControl.State.normal)
                     }
                 }
                 break
