@@ -26,7 +26,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.18181818181818182" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.left.fill" catalog="system" imagePlacement="leading" title="  Log Out">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pq-4r-Hnn">
-                                <rect key="frame" x="10" y="489" width="373" height="50"/>
+                                <rect key="frame" x="10" y="159" width="373" height="50"/>
                                 <color key="backgroundColor" white="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="h4M-iI-8Kl"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.18181818180000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Rate our app">
+                                <buttonConfiguration key="configuration" style="filled" image="star" catalog="system" title="  Rate our app">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -57,7 +57,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.62745098039215685" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Delete Account"/>
+                                <buttonConfiguration key="configuration" style="filled" image="trash.circle" catalog="system" title="  Delete Account"/>
                             </button>
                             <button multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOw-PS-H5n">
                                 <rect key="frame" x="10" y="559" width="373" height="50"/>
@@ -67,7 +67,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.62745098040000002" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Erase All data"/>
+                                <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system" title="  Erase All data"/>
                             </button>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="pdA-KN-gvj">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
@@ -101,16 +101,16 @@
                             <constraint firstItem="pdA-KN-gvj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="JFn-xT-uRO"/>
                             <constraint firstItem="vOw-PS-H5n" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="Oax-Jf-qnk"/>
                             <constraint firstItem="pdA-KN-gvj" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Pjd-Az-QAD"/>
+                            <constraint firstItem="5pq-4r-Hnn" firstAttribute="top" secondItem="pdA-KN-gvj" secondAttribute="bottom" constant="50" id="SzM-QR-J9m"/>
                             <constraint firstItem="5pq-4r-Hnn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ZHu-Fu-pP9"/>
                             <constraint firstItem="YCc-EF-DhK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="bbg-ZP-jPT"/>
                             <constraint firstItem="pdA-KN-gvj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ckk-RN-1pB"/>
-                            <constraint firstItem="vOw-PS-H5n" firstAttribute="top" secondItem="5pq-4r-Hnn" secondAttribute="bottom" constant="20" id="ee7-Qy-ceC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5pq-4r-Hnn" secondAttribute="trailing" constant="10" id="iMg-SY-y2e"/>
+                            <constraint firstItem="PIG-Zd-cVO" firstAttribute="top" secondItem="vOw-PS-H5n" secondAttribute="bottom" constant="20" id="ieq-X2-OXz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YCc-EF-DhK" secondAttribute="trailing" constant="10" id="qF7-3V-72P"/>
-                            <constraint firstItem="YCc-EF-DhK" firstAttribute="top" secondItem="PIG-Zd-cVO" secondAttribute="bottom" constant="20" id="qqw-Bg-lok"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YCc-EF-DhK" secondAttribute="bottom" constant="20" id="rWz-Ze-08Q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PIG-Zd-cVO" secondAttribute="trailing" constant="10" id="tUi-hH-Hln"/>
-                            <constraint firstItem="PIG-Zd-cVO" firstAttribute="top" secondItem="vOw-PS-H5n" secondAttribute="bottom" constant="20" id="uRo-S5-BNf"/>
+                            <constraint firstItem="YCc-EF-DhK" firstAttribute="top" secondItem="PIG-Zd-cVO" secondAttribute="bottom" constant="20" id="tma-xh-cc5"/>
                             <constraint firstItem="PIG-Zd-cVO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="uvM-KE-Qkv"/>
                         </constraints>
                     </view>
@@ -150,7 +150,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
         <image name="circle.dashed" catalog="system" width="128" height="123"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <image name="trash.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
